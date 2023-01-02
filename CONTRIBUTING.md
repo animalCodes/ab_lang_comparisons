@@ -6,8 +6,6 @@ The aim of this project is to accurately demonstrate what it is like to use diff
 
 * File / Folder naming: All folders and files should use *snake_case*. Exceptions are actual code files, which should follow the languages' conventions, (Main.java, Program.cs, etc.)
 
-* Running: For ease-of-use, all programs should contain a "run.sh" shell script which runs the necessary command(s) to compile/run the app.
-
 * **No libraries**! This project is purely to show what it is like to code in various languages, so no third-party libraries or frameworks. Only the standard library may be used, if that makes the program hard to implement, then the project is working as intended.
 
 * Commonly used tools: An exception/caveat to the above rule is tools that are very commonly used. (for instance Maven with Java) Again, this project is to showcase what it is like to use different languages, so if it is likely programmers will use a tool. It should be demonstrated.
