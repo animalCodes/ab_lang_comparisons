@@ -1,4 +1,4 @@
-package langcomparisons.java.helloworld;
+package comparisons.java.helloworld;
 
 public class Main {
     public static void main(String[] args) {

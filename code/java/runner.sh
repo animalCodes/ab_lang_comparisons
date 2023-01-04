@@ -30,10 +30,10 @@ PACKAGE_NAME=$(echo "${NAME//_}")
 if [ -d "src" ]; then
   # Compile and run
   echo "Compiling, give it a couple seconds."
-  javac -d ../out/$NAME src/langcomparisons/java/$PACKAGE_NAME/*
+  javac -d ../out/$NAME src/comparisons/java/$PACKAGE_NAME/*
   echo "Done, running."
   cd ../out/$NAME
-  java langcomparisons/java/$PACKAGE_NAME/Main
+  java comparisons/java/$PACKAGE_NAME/Main
 else
   echo "No src folder found, exiting"
   exit;
