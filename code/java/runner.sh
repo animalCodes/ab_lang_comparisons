@@ -2,7 +2,7 @@
 
 # Runner for all Java programs.
 
-# Check kotlinc command exists
+# Check javac command exists
 if ! type javac > /dev/null; then
   echo "Javac not found, please install to run."
   exit;
