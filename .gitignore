@@ -1,0 +1,13 @@
+# Java/Kotlin
+*.class
+*.jar
+# C#
+obj/
+bin/
+# C++
+*.out
+# Rust
+*.lock
+# General
+out/
+target/
