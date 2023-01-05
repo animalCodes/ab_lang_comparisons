@@ -29,8 +29,7 @@ if [ -f "main.cpp" ]; then
   g++ main.cpp
   # For some reason specifying an out file for g++ was causing the whole process to break, so just do it manually.
   echo "Moving .out file and running."
-  cp a.out ../out/$NAME/
-  rm a.out
+  mv a.out ../out/$NAME/
   ../out/$NAME/a.out
 else
   echo "No main.cpp file found, exiting"
