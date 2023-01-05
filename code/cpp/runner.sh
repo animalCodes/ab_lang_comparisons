@@ -11,13 +11,15 @@ fi
 # This CD's into the directory this script is in, I'm not going to pretend to understand how.
 cd "${BASH_SOURCE%/*}"
 
-# Get name of program from user, eg "hello_world"
-echo "Enter name of program to run:"
-read NAME
+# If user DIDN'T specify a program name on run
+if [[ ! $1 ]]; then
+  # Get name of program from user, eg "hello_world"
+  echo "Enter name of program to run:"
+  read NAME
+else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then
-  cd $NAME
+if [ -d $NAME ]; then cd $NAME
 else
   echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
   exit;
@@ -26,11 +28,13 @@ fi
 # Check main.cpp exists before compiling
 if [ -f "main.cpp" ]; then
   echo "Compiling.."
-  g++ main.cpp
-  # For some reason specifying an out file for g++ was causing the whole process to break, so just do it manually.
-  echo "Moving .out file and running."
-  mv a.out ../out/$NAME/
-  ../out/$NAME/a.out
+  # Create output folders as needed
+  if [ ! -d "../out" ]; then mkdir ../out; fi
+  if [ ! -d "../out/$NAME" ]; then mkdir ../out/$NAME; fi
+  if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
+  g++ main.cpp -o ../out/$NAME/main.out
+  echo "Running."
+  ../out/$NAME/main.out $2
 else
   echo "No main.cpp file found, exiting"
   exit;

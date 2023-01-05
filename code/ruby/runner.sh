@@ -11,9 +11,11 @@ fi
 # This CD's into the directory this script is in, I'm not going to pretend to understand how.
 cd "${BASH_SOURCE%/*}"
 
-# Get name of program from user, eg "hello_world"
-echo "Enter name of program to run:"
-read NAME
+# Get name of program from user
+if [[ ! $1 ]]; then
+  echo "Enter name of program to run:"
+  read NAME
+else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $NAME ]; then
@@ -25,8 +27,5 @@ fi
 
 # Check script.rb exists
 if [ -f "script.rb" ]; then
-  ruby script.rb
-else
-  echo "No script.rb, running random .rb file.."
-  ruby *.rb
-fi
+  ruby script.rb $2
+else echo "No script.rb, exiting."; fi

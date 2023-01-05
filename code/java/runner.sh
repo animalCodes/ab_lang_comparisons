@@ -11,9 +11,11 @@ fi
 # This CD's into the directory this script is in, I'm not going to pretend to understand how.
 cd "${BASH_SOURCE%/*}"
 
-# Get name of program from user, eg "hello_world"
-echo "Enter name of program to run:"
-read NAME
+if [[ ! $1 ]]; then
+  # Get name of program from user
+  echo "Enter name of program to run:"
+  read NAME
+else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $NAME ]; then
@@ -33,7 +35,7 @@ if [ -d "src" ]; then
   javac -d ../out/$NAME src/comparisons/java/$PACKAGE_NAME/*
   echo "Done, running."
   cd ../out/$NAME
-  java comparisons/java/$PACKAGE_NAME/Main
+  java comparisons/java/$PACKAGE_NAME/Main $2
 else
   echo "No src folder found, exiting"
   exit;

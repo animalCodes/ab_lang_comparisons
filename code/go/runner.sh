@@ -10,9 +10,12 @@ fi
 
 # This CD's into the directory this script is in, I'm not going to pretend to understand how.
 cd "${BASH_SOURCE%/*}"
-# Get name of program from user, eg "hello_world"
-echo "Enter name of program to run:"
-read NAME
+# Check if an argument has been passed in, if so assume it's the name of the program to run
+if [[ ! $1 ]]; then
+  # Get name of program from user, eg "hello_world"
+  echo "Enter name of program to run:"
+  read NAME
+else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $NAME ]; then
@@ -24,7 +27,7 @@ fi
 
 # Check main.go file exists
 if [ -f "main.go" ]; then
-  go run main.go
+  go run main.go $2
 else
   echo "No main.go, exiting."
   exit;
