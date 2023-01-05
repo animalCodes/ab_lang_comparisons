@@ -12,6 +12,7 @@ The aim of this project is to accurately demonstrate what it is like to use diff
 * C++: `main.cpp`
 * C#: `Program.cs`
 * denoJS/Node.js: `app.js`
+* Go: `main.go`
 * Java: `Main.java`
 * Kotlin: `Main.kt`
 * Ruby: `script.rb`

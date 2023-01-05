@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Runner for all node.js programs.
+# Runner for all Node.js programs.
 
 # Check node command exists
 if ! type node > /dev/null; then

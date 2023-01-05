@@ -11,3 +11,5 @@ bin/
 # General
 out/
 target/
+# Yes I use neovim cos I'm a fuckin chad
+*.vim
