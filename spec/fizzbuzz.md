@@ -1,0 +1,23 @@
+# FizzBuzz
+
+Emulate the game 'Fizzbuzz' the rules of which are essentially: 
+
+Count up from 1, if the number is divisible by 3, say "Fizz" instead of the number, if the number is divisible by 5, say "Buzz". If the number is divisible by 3 *and* 5, say "FizzBuzz".
+
+**Showcases**: Simple branching, getting remainders, string concatenation.
+
+* Receives input on execution
+
+* If needed, convert input to a number
+
+* If the number is divisible by 3, print "Fizz"
+
+* If the number is divisible by 5, print "Buzz"
+
+* If the number is divisible by 3 AND 5, print "FizzBuzz"
+
+* Otherwise, print the number.
+
+**Implemented in**:
+
+**To be implemented in**: C, C++, C#, denoJS, Java, Kotlin, Node.js, Ruby, Rust
