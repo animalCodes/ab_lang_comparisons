@@ -11,10 +11,10 @@ fi
 # This CD's into the directory this script is in, I'm not going to pretend to understand how.
 cd "${BASH_SOURCE%/*}"
 
-# Get name of program from user, eg "hello_world"
+# Get name of program + arguments from user
 if [[ ! $1 ]]; then
-  echo "Enter name of program to run:"
-  read NAME
+  echo "Enter name of program to run + optional argument:"
+  read NAME ARG
 else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
@@ -26,5 +26,5 @@ fi
 
 # Check src/ exists before running
 if [ -d "src" ]; then
-  cargo run --target-dir ../out/$NAME -- $2
+  cargo run --target-dir ../out/$NAME -- $2 $ARG
 else echo "No src folder found, exiting"; fi
