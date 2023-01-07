@@ -40,7 +40,7 @@ fn main() {
 
     // Use `String::from` rather than just `str = arg` as arg is actually a &String. Meaning it's
     // essentially a reference to a String in memory instead of an actual string.
-    if str.is_empty() {str = String::from(arg)};
+    if str.is_empty() || num == 0 {str = String::from(arg)};
 
     // And print it.
     println!("{str}");
