@@ -20,6 +20,6 @@ Count up from 1, if the number is divisible by 3, say "Fizz" instead of the numb
 
 * Otherwise, print the number.
 
-**Implemented in**: Rust.
+**Implemented in**: Ruby, Rust.
 
-**To be implemented in**: C, C++, C#, denoJS, Java, Kotlin, Node.js, Ruby.
+**To be implemented in**: C, C++, C#, denoJS, Java, Kotlin, Node.js.
