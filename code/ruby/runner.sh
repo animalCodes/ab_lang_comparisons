@@ -14,7 +14,7 @@ cd "${BASH_SOURCE%/*}"
 # Get name of program from user
 if [[ ! $1 ]]; then
   echo "Enter name of program to run:"
-  read NAME
+  read NAME ARG
 else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
@@ -27,5 +27,5 @@ fi
 
 # Check script.rb exists
 if [ -f "script.rb" ]; then
-  ruby script.rb $2
+  ruby script.rb $2 $ARG
 else echo "No script.rb, exiting."; fi
