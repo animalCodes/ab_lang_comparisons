@@ -6,4 +6,4 @@ int main() {
   // Add linebreak to avoid shell displayed a '%' at end-of-line
   std::cout << "Hello World!\n";
   return 0;
-} 
+}
