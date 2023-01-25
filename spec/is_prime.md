@@ -11,6 +11,7 @@ Print "True" or "False" depending on whether the number received is a prime numb
 
 * Convert input to a number
     * If unable to convert input to a number, notify user and exit.
+    * If the number is less than 2, print "False" and exit early.
 
 * For each number less than inputted number (excluding 0 and 1): 
     * Check remainder of number / lesser number (*divisor*)

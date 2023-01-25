@@ -22,6 +22,11 @@ fn main() {
         Ok(n) => n,
     };
 
+    if num < 2 {
+        println!("False");
+        process::exit(0);
+    }
+
     // Make a copy of num-1
     let mut divisor = num-1;
     // Check remainder of num / every number lesser than it.
