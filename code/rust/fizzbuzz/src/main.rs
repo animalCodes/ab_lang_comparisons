@@ -38,7 +38,7 @@ fn main() {
 
     if num % 5 == 0 {str.push_str("Buzz");}
 
-    // Use `String::from` rather than just `str = arg` as arg is actually a &String. Meaning it's
+    // Use `String::from` rather than just `str = arg` as arg is actually a `&String`. Meaning it's
     // essentially a reference to a String in memory instead of an actual string.
     if str.is_empty() || num == 0 {str = String::from(arg)};
 

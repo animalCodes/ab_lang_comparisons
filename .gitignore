@@ -6,3 +6,8 @@ bin/
 # Output
 out/
 target/
+# Editors
+.idea/
+.vim/
+*.vim
+.vscode/
