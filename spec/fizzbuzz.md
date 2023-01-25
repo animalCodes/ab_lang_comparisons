@@ -4,7 +4,7 @@ Emulate the game 'Fizzbuzz' the rules of which are essentially:
 
 Count up from 1, if the number is divisible by 3, say "Fizz" instead of the number, if the number is divisible by 5, say "Buzz". If the number is divisible by 3 *and* 5, say "FizzBuzz".
 
-**Showcases**: Simple branching, getting remainders, string concatenation.
+**Showcases**: Receiving input, converting variables to different types, simple branching.
 
 * Receives input on execution
     * If no input is received, notify user and terminate program.
