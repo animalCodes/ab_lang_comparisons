@@ -19,6 +19,6 @@ Print "True" or "False" depending on whether the number received is a prime numb
 
 * If all lesser numbers are checked without exiting, print "True" and exit.
 
-**Implemented in**: Kotlin, Node.js, Ruby, Rust.
+**Implemented in**: Go, Kotlin, Node.js, Ruby, Rust.
 
-**To be implemented in**: C, C++, C#, denoJS, Go, Java.
+**To be implemented in**: C, C++, C#, denoJS, Java.
