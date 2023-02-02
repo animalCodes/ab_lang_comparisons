@@ -22,27 +22,29 @@ else {
     // Environment and Console are both in the System namespace, which top-level
     // statements are implicity wrapped in.
     Console.WriteLine("Unable to find argument, exiting.");
-    Environment.Exit(1);
+    return 1;
 }
 
 // Convert to number
 Int16 num = 0;
-// The `out` keyword causes the argument to be *passed by reference*, essentially
-// meaning the method is given *the variable itself* rather than just it's value.
-// What this allows us to do in this case is update the value of num while also 
-// checking whether it should be, as TryParse both modifies the given `short` 
+/*
+ The `out` keyword causes the argument to be *passed by reference*, essentially
+ meaning the method is given *the variable itself* rather than just it's value.
+ What this allows us to do in this case is update the value of num while also 
+ checking whether it should be, as TryParse both modifies the given `short` 
+*/
 // *and* returns a boolean representing whether the string was converted successfully.
 if (!Int16.TryParse(arg, out num))
 {
     Console.WriteLine($"Unable to parse \"{arg}\" as a number, exiting.");
-    Environment.Exit(2);
+    return 2;
 }
 
 // Do FizzBuzzing
 // It would be perfectly possible to use a `string` and `+=` but doing so creates
 // a new string in memory every time, so use a StringBuilder to save on memory 
 // allocation.
-StringBuilder output = new StringBuilder(8);
+StringBuilder output = new StringBuilder(4);
 if (num % 3 == 0) 
 {output.Append("Fizz");}
 if (num % 5 == 0)
@@ -56,3 +58,4 @@ if (num == 0 || output.Length <= 0)
 }
 
 Console.WriteLine(output.ToString());
+return 0;
