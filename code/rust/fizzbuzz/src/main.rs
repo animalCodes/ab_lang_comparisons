@@ -21,7 +21,7 @@ fn main() {
     };
 
     // Convert to number
-    let num: i32 = match arg.parse() {
+    let num = match arg.parse::<i32>() {
         // Same idea as above but this time a `Result<T, E>` Which can be either `Err(E)`
         // if an error occurred or `Ok(T)` if all good.
         Err(_) => {

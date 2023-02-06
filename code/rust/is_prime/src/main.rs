@@ -14,7 +14,7 @@ fn main() {
     };
 
     // Attempt to convert to number
-    let num: i32 = match arg.parse() {
+    let num = match arg.parse::<i32>() {
         Err(_) => {
             eprintln!("Unable to parse '{arg}' as a number");
             process::exit(2);
