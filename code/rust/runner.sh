@@ -2,29 +2,42 @@
 
 # Runner for all Rust programs.
 
-# Check cargo command exists
-if ! type cargo > /dev/null; then
-  echo "cargo not found, please install to run."
+# Check cargo command exists 
+if type cargo > /dev/null; then
+  echo "Cargo found, using."
+  USECARGO=$(true)
+# Check rustc command exists
+elif type rustc > /dev/null; then
+  echo "Cargo not found, using rustc instead."
+else 
+  echo "Neither rustc nor Cargo were found, please install to run."
   exit;
 fi
 
-# This CD's into the directory this script is in, I'm not going to pretend to understand how.
+# CD into the directory this script is in by utilising the dark arts.
 cd "${BASH_SOURCE%/*}"
 
-# Get name of program + arguments from user
-if [[ ! $1 ]]; then
-  echo "Enter name of program to run + optional argument:"
+# Get name of program + arguments from user if not already received.
+if [ ! $1 ]; then
+  echo "Enter name of program to run + optional argument: "
   read NAME ARG
-else NAME=$1; fi
+else 
+  NAME=$1
+  ARG=$2
+fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then cd $NAME
+if [ -d $NAME ]; then cd $NAME;
 else
-  echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
+  echo "\"$NAME\" doesn't exist."
+  echo "Hint: the 'name of program' is the name of the folder containing said program."
   exit;
 fi
 
-# Check src/ exists before running
-if [ -d "src" ]; then
-  cargo run --target-dir ../out/$NAME -- $2 $ARG
-else echo "No src folder found, exiting"; fi
+# Use Cargo, or don't.
+if [ $USECARGO ]; then
+  cargo run --target-dir ../out/$NAME -- $ARG
+else
+  rustc --out-dir ../out/$NAME src/*
+  ../out/$NAME/main $ARG
+fi
