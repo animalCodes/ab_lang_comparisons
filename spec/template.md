@@ -4,7 +4,10 @@ Short paragraph(s) describing the program
 
 **Showcases**: A comma-seperated list of what this specification is supposed to show about a language.
 
-* Series of steps it must perform
+* A series of steps the program should perform to fulfill the specification.
+    * Just an example method, not **the** way to implement it.
+
+* The primary use of this section is to help developers understand *how* to implement a specification, otherwise implementations that don't actually fulfill the requirements could be written.
 
 * Can be as long or short as required.
 
