@@ -22,6 +22,6 @@ While there are many ways to figure out if a number is prime, we'll stick to Tri
     * Exit the loop once `counter` *is* or *is greater than* the square root of `number`.
     * If the loop is exited, every possible factor of `number` has been checked, print "True" and (if necessary) exit.
 
-**Implemented in**: 
+**Implemented in**: C.
 
-**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
