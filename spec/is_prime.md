@@ -2,23 +2,26 @@
 
 Print "True" or "False" depending on whether the number received is a prime number.
 
-(I always forget what a prime number is, so mainly as a note-to-self: A prime number is a number that can only be divided by 1 and itself with no remainder.)
+While there are many ways to figure out if a number is prime, we'll stick to Trial Division, as it is reasonably efficient and can actually be understood by normal people.
 
-**Showcases**: Checking remainders, recursion / loops.
+**Showcases**: Remainders, recursion / loops, boolean operators.
 
-* Receives input on execution via environment/command-line arguments.
+* Receives input on execution via command-line argument.
     * If no input is received, notify user and exit.
 
 * Convert input to a number
     * If unable to convert input to a number, notify user and exit.
-    * If the number is less than 2, print "False" and exit early.
 
-* For each number less than inputted number (excluding 0 and 1): 
-    * Check remainder of number / lesser number (*divisor*)
-    * If 0 (divisor is *a factor*) `number` isn't prime, print "False" and exit.
+* Preliminary check:
+    * If `number` is less than 2, greater than two and divisible by two, or greater than 3 and divisible by 3. Print "False" and exit.
+    * How exactly the above checks are run is up to the implementing developer.
 
-* If all lesser numbers are checked without exiting, print "True" and exit.
+* Example trial division steps:
+    * Start a loop with a 'counter' variable that has an initial value of 5, increment by 6 on every iteration.
+    * On every iteration, check whether `number` can be evenly divided by `counter` or `counter + 2`, if so, print "False" and exit.
+    * Exit the loop once `counter` *is* or *is greater than* the square root of `number`.
+    * If the loop is exited, every possible factor of `number` has been checked, print "True" and (if necessary) exit.
 
-**Implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**Implemented in**: 
 
-**To be implemented in**:
+**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
