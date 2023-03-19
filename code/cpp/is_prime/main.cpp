@@ -17,15 +17,15 @@ int main(int argc, char *argv[]) {
         return 2;
     }
 
-    // Skip if impossible to be prime
-    if (num < 2) {
+    // Do the easy checks first ..
+    if (num < 2 || num > 2 && num % 2 == 0 || num > 3 && num % 3 == 0) {
         cout << "False\n";
         return 0;
     }
     
-    // Figure out if prime
-    for (int divisor = num-1; divisor > 1; divisor--) {
-        if (num % divisor == 0) {
+    // Trial time
+    for (int divisor = 5; divisor*divisor <= num; divisor += 6) {
+        if (num % divisor == 0 || num % (divisor+2) == 0) {
             cout << "False\n";
             return 0;
         }
