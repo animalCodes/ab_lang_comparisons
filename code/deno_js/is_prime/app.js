@@ -11,15 +11,15 @@ if (isNaN(num)) {
     Deno.exit(2)
 }
 // Don't bother looping if we know the number can't be prime.
-if (num < 2) {
+if (num < 2
+    || num > 2 && num % 2 == 0
+    || num > 3 && num % 3 == 0) {
     console.log("False")
     Deno.exit()
 }
-// Check for "primeness"
-let divisor = num-1
-// `for` expressions are optional
-for (; divisor > 1; divisor--) {
-    if (num % divisor == 0) {
+// Try trial division
+for (let i = 5; i*i < num; i += 6) {
+    if (num % i == 0 || num % (i+2) == 0) {
         console.log("False")
         Deno.exit()
     }
