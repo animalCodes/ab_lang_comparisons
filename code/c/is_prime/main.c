@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     }
 
     // Trial division
-    for (int i = 5; i*i <= num; i += 6) {
+    for (int i = 5; i*i < num; i += 6) {
         // 5 (7), 11 (13), 17 (19), 23 (25), 29 (31), 35 (37)..
         if (num % i == 0 || num % (i+2) == 0) {
             printf("False\n");

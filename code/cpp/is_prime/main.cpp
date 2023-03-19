@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     }
     
     // Trial time
-    for (int divisor = 5; divisor*divisor <= num; divisor += 6) {
+    for (int divisor = 5; divisor*divisor < num; divisor += 6) {
         if (num % divisor == 0 || num % (divisor+2) == 0) {
             cout << "False\n";
             return 0;

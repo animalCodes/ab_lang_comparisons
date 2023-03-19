@@ -19,7 +19,7 @@ While there are many ways to figure out if a number is prime, we'll stick to Tri
 * Example trial division steps:
     * Start a loop with a 'counter' variable that has an initial value of 5, increment by 6 on every iteration.
     * On every iteration, check whether `number` can be evenly divided by `counter` or `counter + 2`, if so, print "False" and exit.
-    * Exit the loop once `counter` *is* or *is greater than* the square root of `number`.
+    * Exit the loop once `counter` is greater than the square root of `number`.
     * If the loop is exited, every possible factor of `number` has been checked, print "True" and (if necessary) exit.
 
 **Implemented in**: C, C++.
