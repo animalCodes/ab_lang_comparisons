@@ -19,23 +19,25 @@ if (!Int32.TryParse(input, out num))
 }
 
 // Exit early if we can assume the number isn't prime.
-if (num < 2) {
+if (num < 2
+        // A number can't be divided by a number greater than itself, so in this case `!= 2` and `!= 3` are equivalent to `> 2` and `> 3`.
+    || num % 2 == 0 && num != 2
+    || num % 3 == 0 && num != 3) {
     Console.WriteLine("False");
     return 0;
 }
 
 // Figure out if prime
-int divisor = num-1;
-while (divisor > 1) 
+int divisor = 5;
+while (divisor*divisor < num) 
 {
-    if (num % divisor == 0)
+    if (num % divisor == 0 || num % (divisor + 2) == 0)
     {
         Console.WriteLine("False");
         return 0;
     }
-    divisor--;
+    divisor += 6;
 }
 
 Console.WriteLine("True");
-// Return here or the compiler will fucking die
 return 0;
