@@ -16,20 +16,38 @@ class Main {
             System.exit(2);
         }
         
-        // Skip early if num can't be prime
-        if (num < 2) {
+
+        // I could just put the content of `isPrime()` here, but this feels more 'Java-y'
+        if (isPrime(num)) {
+            System.out.println("True");
+            System.exit(0);
+        } else {
             System.out.println("False");
+            // Technically unnecessary
             System.exit(0);
         }
+    }
 
-        // Check all numbers between num-1 and 1
-        for (int divisor = num-1; divisor > 1; divisor--) {
-            if (num % divisor == 0) {
-                System.out.println("False");
-                System.exit(0);
+    /**
+     * Determines whether `num` is prime via trial division.
+     * @param num Number to check
+     * @return Whether `num` is prime
+    */
+    private static boolean isPrime(int num) {
+        // Skip early if num can't be prime
+        if (num < 2
+                || num > 2 && num % 2 == 0
+                || num > 3 && num % 3 == 0) {
+            return false;
+        }
+
+        // Trial division
+        for (int counter = 5; counter*counter < counter; counter += 6) {
+            if (num % counter == 0 || num % counter+2 == 0) {
+                return false;
             }
         }
 
-        System.out.println("True");
+        return true;
     }
 }
