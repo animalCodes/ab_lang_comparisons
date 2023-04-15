@@ -1,13 +1,16 @@
 package comparisons.kotlin.isprime
 
 /**
- * Checks all possible factors of `input` between 1 and input-1, returning true if none exist
+ * A recursive implementation of trial division
+ * @param input Number we are trying to figure out if prime
+ * @param counter Counter variable, primarily for recursion
+ * @return Whether `input` is prime
  */
-tailrec fun checkFactors(input: Int, fact: Int): Boolean {
-    // Kotlin specifically has supprt for recursive functions, so may as well use one.
-    if (fact < 2) return true
-    else if (input % fact == 0) return false
-    else return checkFactors(input, fact-1)
+tailrec fun recursiveTrialDivision(input: Int, counter: Int): Boolean {
+    // Kotlin specifically has support for recursive functions, so we may as well use one.
+    if (counter*counter >= input) return true
+    else if (input % counter == 0 || input % counter+2 == 0) return false
+    else return recursiveTrialDivision(input, counter+6)
 }
 
 fun main(args: Array<String>) {
@@ -25,14 +28,14 @@ fun main(args: Array<String>) {
         return // Return so the compiler knows we won't be accessing a null value.
     }
 
-    // No prime numbers < 2 exist, so exit early if inputted number is so.
-    if (input < 2) {
+    // If input is less than 2, greater than 2 and divisible by 2, or greater than 3 and divisible by 3.
+    if (input < 2 || input > 2 && input % 2 == 0 || input > 3 && input % 3 == 0) {
         println("False")
         System.exit(0)
     }
 
-    // Check every number between 1 and input-1
-    if (checkFactors(input, input-1)) {
+    // Finally, try trial division
+    if (recursiveTrialDivision(input, 6)) {
         println("True")
         System.exit(0)
     } else {
