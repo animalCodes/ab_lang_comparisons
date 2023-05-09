@@ -22,20 +22,20 @@ fn main() {
         Ok(n) => n,
     };
 
-    if num < 2 {
+    if num < 2 
+        || num > 2 && num % 2 == 0 
+        || num > 3 && num % 3 == 0 {
         println!("False");
         process::exit(0);
     }
 
-    // Make a copy of num-1
-    let mut divisor = num-1;
-    // Check remainder of num / every number lesser than it.
-    while divisor > 1 {
-        if num % divisor == 0 {
+    let mut divisor = 5;
+    while divisor*divisor <= num {
+        if num % divisor == 0 || num % (divisor+2) == 0 {
             println!("False");
             process::exit(0);
         }
-        divisor -= 1;
+        divisor += 6;
     }
 
     // If we've gotten this far without exiting, number wasn't divisible by
