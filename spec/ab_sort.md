@@ -29,7 +29,7 @@ This is accomplished through the use of a "buffer", essentially on every pass th
 
 * After the outer loop has finished, print out the sorted array, ideally in a fashion that resembles the array in source.
 
-**Implemented in**: 
+**Implemented in**: C.
 
-**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
 
