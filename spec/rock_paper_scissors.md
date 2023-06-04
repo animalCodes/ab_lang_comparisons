@@ -23,6 +23,6 @@ The user will input their choice ("rock", "paper" or "scissors") as an argument 
     * ...Unless it's a tie, in which case just print `"Tie!"`
     * Remember: Rock beats Scissors, Paper beats Rock, and Scissors beats Paper.
 
-**Implemented in**:
+**Implemented in**: C.
 
-**To be implemented in**: C, C++, C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
