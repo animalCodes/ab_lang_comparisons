@@ -2,10 +2,19 @@
 
 # Runner for all C programs.
 
-# Check clang command exists
-if ! type clang > /dev/null; then
-  echo "clang compiler not found, please install to run."
-  exit;
+# Find available compiler(s)
+if type gcc >/dev/null; then
+  echo "GCC found, using"
+  CMD=gcc
+elif type clang >/dev/null; then
+  echo "Clang found, using"
+  CMD=clang
+elif type tcc >/dev/null; then
+  echo "TCC found, using"
+  CMD=tcc
+else
+  echo "No compiler found, please install one of GCC, Clang or TCC to use this script."
+  exit
 fi
 
 # CD into the directory this script is in
@@ -26,14 +35,13 @@ else
   exit;
 fi
 
-# Check main.go file exists
-if [ -f "main.c" ]; then
+if [ -f "src/main.c" ]; then
   # Create output folders/file as needed.
   if [ ! -d "../out" ]; then mkdir ../out; fi
   if [ ! -d "../out/$NAME/" ]; then mkdir ../out/$NAME; fi
   if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
   # Compile and run w/ argument.
-  clang main.c -o ../out/$NAME/main.out
+  $CMD src/* -o ../out/$NAME/main.out
   ../out/$NAME/main.out $2
 else
   echo "No main.c, exiting."
