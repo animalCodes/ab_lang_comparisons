@@ -14,8 +14,8 @@ else
   exit;
 fi
 
-# CD into the directory this script is in by utilising the dark arts.
-cd "${BASH_SOURCE%/*}"
+# CD into the directory this script is in
+cd `dirname $BASH_SOURCE`
 
 # Get name of program + arguments from user if not already received.
 if [ ! $1 ]; then

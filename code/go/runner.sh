@@ -8,8 +8,9 @@ if ! type go > /dev/null; then
   exit;
 fi
 
-# This CD's into the directory this script is in, I'm not going to pretend to understand how.
-cd "${BASH_SOURCE%/*}"
+# CD into the directory this script is in
+cd `dirname $BASH_SOURCE`
+
 # Check if an argument has been passed in, if so assume it's the name of the program to run
 if [[ ! $1 ]]; then
   # Get name of program from user, eg "hello_world"

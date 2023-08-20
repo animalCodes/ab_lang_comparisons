@@ -8,8 +8,8 @@ if ! type ruby > /dev/null; then
   exit;
 fi
 
-# This CD's into the directory this script is in, I'm not going to pretend to understand how.
-cd "${BASH_SOURCE%/*}"
+# CD into the directory this script is in
+cd `dirname $BASH_SOURCE`
 
 # Get name of program from user
 if [[ ! $1 ]]; then
