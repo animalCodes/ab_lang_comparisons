@@ -30,17 +30,11 @@ fi
 ARGS=("$@")
 unset ARGS[0]
 
-# Check a main.cpp file exists before attempting to compile program
-if [ -f "main.cpp" ]; then
+# Check a directory exists before attempting to compile program
+if [ -d "src" ]; then
   echo "Compiling.."
-  # Create output folders as needed
-  if [ ! -d "../out" ]; then mkdir ../out; fi
-  if [ ! -d "../out/$1" ]; then mkdir ../out/$1; fi
-  if [ ! -f "../out/$1/main.out" ]; then touch ../out/$1/main.out; fi
-  g++ main.cpp -o ../out/$1/main.out
+  mkdir -p ../out/$1/
+  g++ src/* -o ../out/$1/main.out
   echo "Running."
   ../out/$1/main.out ${ARGS[*]}
-else
-  echo "No main.cpp file found, exiting"
-  exit
-fi
+else echo "No src directory found, exiting"; fi

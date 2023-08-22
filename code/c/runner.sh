@@ -41,11 +41,7 @@ unset ARGS[0]
 
 # Check a main.c file exists before attempting to compile/run
 if [ -f "src/main.c" ]; then
-  # Create output folders/file as needed.
-  if [ ! -d "../out" ]; then mkdir ../out; fi
-  if [ ! -d "../out/$1/" ]; then mkdir ../out/$1; fi
-  if [ ! -f "../out/$1/main.out" ]; then touch ../out/$1/main.out; fi
-  # Compile and run w/ argument.
+  mkdir -p ../out/$1
   $CMD src/* -o ../out/$1/main.out
   ../out/$1/main.out ${ARGS[*]}
 else
