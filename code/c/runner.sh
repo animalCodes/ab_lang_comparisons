@@ -20,18 +20,18 @@ fi
 # CD into the directory this script is in
 cd `dirname ${BASH_SOURCE}`
 
-# If user DIDN'T specify a program to run on start
+# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
 if [[ ! $1 ]]; then
-  # Get name of program from user
-  echo "Enter name of program to run:"
-  read NAME
-# Otherwise use specified name
-else NAME=$1; fi
+  echo "Usage: runner.sh {program name} {program arguments}"
+  # Automagically generate a list of valid program names
+  echo -n "Valid program names: " && ls -I *.*
+  exit
+fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then cd $NAME
+if [ -d $1 ]; then cd $1
 else
-  echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
+  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
   exit
 fi
 
@@ -39,14 +39,15 @@ fi
 ARGS=("$@")
 unset ARGS[0]
 
+# Check a main.c file exists before attempting to compile/run
 if [ -f "src/main.c" ]; then
   # Create output folders/file as needed.
   if [ ! -d "../out" ]; then mkdir ../out; fi
-  if [ ! -d "../out/$NAME/" ]; then mkdir ../out/$NAME; fi
-  if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
+  if [ ! -d "../out/$1/" ]; then mkdir ../out/$1; fi
+  if [ ! -f "../out/$1/main.out" ]; then touch ../out/$1/main.out; fi
   # Compile and run w/ argument.
-  $CMD src/* -o ../out/$NAME/main.out
-  ../out/$NAME/main.out ${ARGS[*]}
+  $CMD src/* -o ../out/$1/main.out
+  ../out/$1/main.out ${ARGS[*]}
 else
   echo "No main.c, exiting."
   exit

@@ -5,41 +5,43 @@
 # Check javac command exists
 if ! type javac 1>/dev/null 2>&1; then
   echo "Javac not found, please install to run."
-  exit;
+  exit
 fi
 
 # CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
 
+# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
 if [[ ! $1 ]]; then
-  # Get name of program from user
-  echo "Enter name of program to run:"
-  read NAME
-else NAME=$1; fi
+  echo "Usage: runner.sh {program name} {program arguments}"
+  # Automagically generate a list of valid program names
+  echo -n "Valid program names: " && ls -I *.*
+  exit
+fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then
-  cd $NAME
+if [ -d $1 ]; then cd $1
 else
-  echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
-  exit;
+  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
+  exit
 fi
 
 # For whatever reason Java doesn't like '_'s in package names, so we have to remove them using this weirdness.
-PACKAGE_NAME=$(echo "${NAME//_}")
+PACKAGE_NAME=$(echo "${1//_}")
 
 # Make copy of all arguments passed to script and delete first item (name of program)
 ARGS=("$@")
 unset ARGS[0]
 
+# Check that a src directory exists before trying to compile
 if [ -d "src" ]; then
   # Compile and run
   echo "Compiling, give it a couple seconds."
-  javac -d ../out/$NAME src/comparisons/java/$PACKAGE_NAME/*
+  javac -d ../out/$1 src/comparisons/java/$PACKAGE_NAME/*
   echo "Done, running."
-  cd ../out/$NAME
+  cd ../out/$1
   java comparisons/java/$PACKAGE_NAME/Main ${ARGS[*]}
 else
   echo "No src folder found, exiting"
-  exit;
+  exit
 fi

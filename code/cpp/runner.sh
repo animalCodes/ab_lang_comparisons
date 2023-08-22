@@ -5,40 +5,42 @@
 # Check g++ command exists
 if ! type g++ 1>/dev/null 2>&1; then
   echo "g++/gcc not found, please install to run."
-  exit;
+  exit
 fi
 
 # CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
 
-# If user DIDN'T specify a program name on run
+# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
 if [[ ! $1 ]]; then
-  # Get name of program from user, eg "hello_world"
-  echo "Enter name of program to run:"
-  read NAME
-else NAME=$1; fi
+  echo "Usage: runner.sh {program name} {program arguments}"
+  # Automagically generate a list of valid program names
+  echo -n "Valid program names: " && ls -I *.*
+  exit
+fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then cd $NAME
+if [ -d $1 ]; then cd $1
 else
-  echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
-  exit;
+  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
+  exit
 fi
 
 # Make copy of all arguments passed to script and delete first item (name of program)
 ARGS=("$@")
 unset ARGS[0]
 
+# Check a main.cpp file exists before attempting to compile program
 if [ -f "main.cpp" ]; then
   echo "Compiling.."
   # Create output folders as needed
   if [ ! -d "../out" ]; then mkdir ../out; fi
-  if [ ! -d "../out/$NAME" ]; then mkdir ../out/$NAME; fi
-  if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
-  g++ main.cpp -o ../out/$NAME/main.out
+  if [ ! -d "../out/$1" ]; then mkdir ../out/$1; fi
+  if [ ! -f "../out/$1/main.out" ]; then touch ../out/$1/main.out; fi
+  g++ main.cpp -o ../out/$1/main.out
   echo "Running."
-  ../out/$NAME/main.out ${ARGS[*]}
+  ../out/$1/main.out ${ARGS[*]}
 else
   echo "No main.cpp file found, exiting"
-  exit;
+  exit
 fi

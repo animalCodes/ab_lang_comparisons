@@ -11,16 +11,18 @@ fi
 # CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
 
+# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
 if [[ ! $1 ]]; then
-  # Get name of program from user, eg "hello_world"
-  echo "Enter name of program to run:"
-  read NAME
-else NAME=$1; fi
+  echo "Usage: runner.sh {program name} {program arguments}"
+  # Automagically generate a list of valid program names
+  echo -n "Valid program names: " && ls -I *.*
+  exit
+fi
 
 # Check specified directory exists, if it does CD into it.
-if [ -d $NAME ]; then cd $NAME
+if [ -d $1 ]; then cd $1
 else
-  echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
+  echo "\"$1\" doesn't exist. (Hint: run this script without any arguments to get a list of valid programs)"
   exit
 fi
 
@@ -28,6 +30,7 @@ fi
 ARGS=("$@")
 unset ARGS[0]
 
+# Check atleast app.js exists before attempting to run
 if [ -f "app.js" ]; then
   node app.js ${ARGS[*]}
 else echo "No app.js, exiting."; fi
