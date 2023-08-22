@@ -3,7 +3,7 @@
 # Runner for all C++ programs.
 
 # Check g++ command exists
-if ! type g++ > /dev/null; then
+if ! type g++ 1>/dev/null 2>&1; then
   echo "g++/gcc not found, please install to run."
   exit;
 fi

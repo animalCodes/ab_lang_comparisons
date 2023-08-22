@@ -3,7 +3,7 @@
 # Runner for all C programs.
 
 # Find available compiler(s)
-if type gcc >/dev/null; then
+if type gcc 1>/dev/null 2>&1; then
   echo "GCC found, using"
   CMD=gcc
 elif type clang >/dev/null; then

@@ -3,7 +3,7 @@
 # Runner for all DenoJS programs.
 
 # Check deno command exists
-if ! type deno > /dev/null; then
+if ! type deno 1>/dev/null 2>&1; then
   echo "Deno CLI not found, please install to run."
   exit;
 fi

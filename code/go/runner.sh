@@ -3,7 +3,7 @@
 # Runner for all Go programs.
 
 # Check Go command exists
-if ! type go > /dev/null; then
+if ! type go 1>/dev/null 2>&1; then
   echo "go CLI not found, please install to run."
   exit;
 fi

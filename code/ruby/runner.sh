@@ -3,7 +3,7 @@
 # Runner for all Ruby programs.
 
 # Check ruby command exists
-if ! type ruby > /dev/null; then
+if ! type ruby 1>/dev/null 2>&1; then
   echo "Ruby CLI not found, please install to run."
   exit;
 fi

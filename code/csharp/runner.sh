@@ -3,7 +3,7 @@
 # Runner for all C# programs.
 
 # Check dotnet command exits
-if ! type dotnet > /dev/null; then
+if ! type dotnet 1>/dev/null 2>&1; then
   echo "dotnet CLI not found, please install to run."
   exit;
 fi

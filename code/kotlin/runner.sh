@@ -3,7 +3,7 @@
 # Runner for all Kotlin programs.
 
 # Check kotlinc command exists
-if ! type kotlinc > /dev/null; then
+if ! type kotlinc 1>/dev/null 2>&1; then
   echo "Kotlinc not found, please install to run."
   exit;
 fi

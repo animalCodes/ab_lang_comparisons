@@ -3,7 +3,7 @@
 # Runner for all Rust programs.
 
 # Check cargo command exists 
-if type cargo > /dev/null; then
+if type cargo 1>/dev/null 2>&1; then
   echo "Cargo found, using."
   USECARGO=$(true)
 # Check rustc command exists

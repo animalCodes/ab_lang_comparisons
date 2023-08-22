@@ -3,9 +3,9 @@
 # Runner for all Node.js programs.
 
 # Check node command exists
-if ! type node > /dev/null; then
+if ! type node 1>/dev/null 2>&1; then 
   echo "node command not found, please install to run."
-  exit;
+  exit
 fi
 
 # CD into the directory this script is in
@@ -21,7 +21,7 @@ else NAME=$1; fi
 if [ -d $NAME ]; then cd $NAME
 else
   echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
-  exit;
+  exit
 fi
 
 # Make copy of all arguments passed to script and delete first item (name of program)

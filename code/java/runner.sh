@@ -3,7 +3,7 @@
 # Runner for all Java programs.
 
 # Check javac command exists
-if ! type javac > /dev/null; then
+if ! type javac 1>/dev/null 2>&1; then
   echo "Javac not found, please install to run."
   exit;
 fi
