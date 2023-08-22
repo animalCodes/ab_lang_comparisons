@@ -25,7 +25,10 @@ else
   exit;
 fi
 
-# Check main.cpp exists before compiling
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -f "main.cpp" ]; then
   echo "Compiling.."
   # Create output folders as needed
@@ -34,7 +37,7 @@ if [ -f "main.cpp" ]; then
   if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
   g++ main.cpp -o ../out/$NAME/main.out
   echo "Running."
-  ../out/$NAME/main.out $2
+  ../out/$NAME/main.out ${ARGS[*]}
 else
   echo "No main.cpp file found, exiting"
   exit;

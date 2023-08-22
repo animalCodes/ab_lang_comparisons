@@ -26,9 +26,12 @@ else
   exit;
 fi
 
-# Check main.go file exists
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -f "main.go" ]; then
-  go run main.go $2
+  go run main.go ${ARGS[*]}
 else
   echo "No main.go, exiting."
   exit;

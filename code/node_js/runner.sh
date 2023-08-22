@@ -24,7 +24,10 @@ else
   exit;
 fi
 
-# Check app.js exists
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -f "app.js" ]; then
-  node app.js $2
+  node app.js ${ARGS[*]}
 else echo "No app.js, exiting."; fi

@@ -32,8 +32,12 @@ else NAME=$1; fi
 if [ -d $NAME ]; then cd $NAME
 else
   echo "\"$NAME\" doesn't exist. (Hint: the 'name of program' is the name of the folder containing said program."
-  exit;
+  exit
 fi
+
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
 
 if [ -f "src/main.c" ]; then
   # Create output folders/file as needed.
@@ -42,8 +46,8 @@ if [ -f "src/main.c" ]; then
   if [ ! -f "../out/$NAME/main.out" ]; then touch ../out/$NAME/main.out; fi
   # Compile and run w/ argument.
   $CMD src/* -o ../out/$NAME/main.out
-  ../out/$NAME/main.out $2
+  ../out/$NAME/main.out ${ARGS[*]}
 else
   echo "No main.c, exiting."
-  exit;
+  exit
 fi

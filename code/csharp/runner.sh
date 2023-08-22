@@ -25,10 +25,13 @@ else
   exit;
 fi
 
-# Check .csproj and Program.cs files both exist
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -f "$NAME.csproj" ] && [ -f "Program.cs" ]; then
   echo "Running."
-  dotnet run $2
+  dotnet run ${ARGS[*]}
 else
   echo "No .csproj/Program.cs, exiting."
   exit;

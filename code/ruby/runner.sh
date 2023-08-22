@@ -14,7 +14,7 @@ cd `dirname $BASH_SOURCE`
 # Get name of program from user
 if [[ ! $1 ]]; then
   echo "Enter name of program to run:"
-  read NAME ARG
+  read NAME
 else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
@@ -25,7 +25,10 @@ else
   exit;
 fi
 
-# Check script.rb exists
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -f "script.rb" ]; then
-  ruby script.rb $2 $ARG
+  ruby script.rb ${ARGS[*]}
 else echo "No script.rb, exiting."; fi

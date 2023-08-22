@@ -25,17 +25,20 @@ else
   exit;
 fi
 
-# For whatever reason Java doesn't like '_'s in package names, so we have to remove them using some weirdness.
+# For whatever reason Java doesn't like '_'s in package names, so we have to remove them using this weirdness.
 PACKAGE_NAME=$(echo "${NAME//_}")
 
-# Check src/ exists
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -d "src" ]; then
   # Compile and run
   echo "Compiling, give it a couple seconds."
   javac -d ../out/$NAME src/comparisons/java/$PACKAGE_NAME/*
   echo "Done, running."
   cd ../out/$NAME
-  java comparisons/java/$PACKAGE_NAME/Main $2
+  java comparisons/java/$PACKAGE_NAME/Main ${ARGS[*]}
 else
   echo "No src folder found, exiting"
   exit;

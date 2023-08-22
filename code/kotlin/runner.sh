@@ -14,7 +14,7 @@ cd `dirname $BASH_SOURCE`
 if [[ ! $1 ]]; then
   # Get name of program from user, eg "hello_world"
   echo "Enter name of program to run:"
-  read NAME ARG
+  read NAME
 else NAME=$1; fi
 
 # Check specified directory exists, if it does CD into it.
@@ -24,13 +24,16 @@ else
   exit;
 fi
 
-# Check src/ exists
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
 if [ -d "src" ]; then
   # Compile and run
   echo "Compiling, give it a few seconds."
   kotlinc -include-runtime -d ../out/$NAME.jar src/*
   echo "Done, running."
-  java -jar ../out/$NAME.jar $2 $ARG
+  java -jar ../out/$NAME.jar ${ARGS[*]}
 else
   echo "No src folder found, exiting"
   exit;

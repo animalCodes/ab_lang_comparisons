@@ -20,10 +20,9 @@ cd `dirname $BASH_SOURCE`
 # Get name of program + arguments from user if not already received.
 if [ ! $1 ]; then
   echo "Enter name of program to run + optional argument: "
-  read NAME ARG
+  read NAME
 else 
   NAME=$1
-  ARG=$2
 fi
 
 # Check specified directory exists, if it does CD into it.
@@ -34,10 +33,14 @@ else
   exit;
 fi
 
-# Use Cargo, or don't.
+# Make copy of all arguments passed to script and delete first item (name of program)
+ARGS=("$@")
+unset ARGS[0]
+
+# Use Cargo if it is available, otherwise use rustc directly
 if [ $USECARGO ]; then
-  cargo run --target-dir ../out/$NAME -- $ARG
+  cargo run --target-dir ../out/$NAME -- ${ARGS[*]}
 else
   rustc --out-dir ../out/$NAME src/*
-  ../out/$NAME/main $ARG
+  ../out/$NAME/main ${ARGS[*]}
 fi
