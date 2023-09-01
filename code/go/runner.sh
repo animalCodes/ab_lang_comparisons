@@ -30,9 +30,10 @@ fi
 ARGS=("$@")
 unset ARGS[0]
 
-# Check atleast a main.go file exists before attempting to run program
+# Check atleast a main.go file exists before attempting to build+run program
 if [ -f "main.go" ]; then
-  go run main.go ${ARGS[*]}
+  go build -o ../out/$1/main.out ./
+  ../out/$1/main.out ${ARGS[*]}
 else
   echo "No main.go, exiting."
   exit

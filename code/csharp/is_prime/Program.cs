@@ -1,20 +1,15 @@
 ﻿// Get input
-// See fizzbuzz implementation for an explanation of this oddness
-string input;
-if (args.Length > 1) 
-{input = args[1];}
-else if (args.Length > 0)
-{input = args[0];}
-else {
+if (args.Length < 1) 
+{
     Console.WriteLine("Unable to locate input, exiting");
     return 1;
 }
 
 // Attempt to convert to an integer
 int num = 0;
-if (!Int32.TryParse(input, out num))
+if (!Int32.TryParse(args[0], out num))
 {
-    Console.WriteLine($"Unable to convert \"{input}\" to a number");
+    Console.WriteLine($"Unable to convert \"{args[0]}\" to a number");
     return 2;
 }
 

@@ -32,9 +32,13 @@ unset ARGS[0]
 
 # Ensure that .csproj and Program.cs files exist before trying to run program
 if [ -f "$1.csproj" ] && [ -f "Program.cs" ]; then
-  echo "Running."
-  dotnet run ${ARGS[*]}
+  dotnet clean 1>/dev/null 
+  # Error output is also sent through stdout for some reason, so keep it here.
+  dotnet build
+  echo
+  # TODO deal with different .NET versions?
+  ./bin/Debug/net7.0/$1 ${ARGS[*]}
 else
-  echo "No .csproj/Program.cs, exiting."
+  echo "No $1.csproj or Program.cs file, exiting."
   exit
 fi

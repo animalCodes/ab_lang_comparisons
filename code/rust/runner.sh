@@ -38,7 +38,8 @@ unset ARGS[0]
 
 # Use Cargo if it is available, otherwise use rustc directly
 if [ $USECARGO ]; then
-  cargo run --target-dir ../out/$1 -- ${ARGS[*]}
+  cargo build --target-dir ../out/$1 
+  ../out/$1/main ${ARGS[*]}
 else
   rustc --out-dir ../out/$1 src/*
   ../out/$1/main ${ARGS[*]}
