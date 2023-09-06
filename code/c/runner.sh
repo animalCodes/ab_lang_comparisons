@@ -3,19 +3,19 @@
 # Runner for all C programs.
 
 # Find available compiler(s)
+# We could probably just use `cc`, but this feels less "magic".
 if type gcc 1>/dev/null 2>&1; then
-  echo "GCC found, using"
   CMD=gcc
-elif type clang >/dev/null; then
-  echo "Clang found, using"
+elif type clang 1>/dev/null 2>&1; then
   CMD=clang
-elif type tcc >/dev/null; then
-  echo "TCC found, using"
+elif type tcc 1>/dev/null 2>&1; then
   CMD=tcc
 else
   echo "No compiler found, please install one of GCC, Clang or TCC to use this script."
   exit
 fi
+
+echo "$CMD found, using."
 
 # CD into the directory this script is in
 cd `dirname ${BASH_SOURCE}`
