@@ -36,11 +36,16 @@ fi
 ARGS=("$@")
 unset ARGS[0]
 
-# Use Cargo if it is available, otherwise use rustc directly
-if [ $USECARGO ]; then
-  cargo build --target-dir ../out/$1 
-  ../out/$1/main ${ARGS[*]}
-else
-  rustc --out-dir ../out/$1 src/*
-  ../out/$1/main ${ARGS[*]}
+# Check a src directory exists before attempting to build+run
+if [ -d "src" ]; then 
+  # Use Cargo if it is available, otherwise use rustc directly
+  if [ $USECARGO ]; then
+    cargo build --target-dir ../out/$1 
+    ../out/$1/main ${ARGS[*]}
+  else
+    rustc --out-dir ../out/$1 src/*
+    ../out/$1/main ${ARGS[*]}
+  fi
+else 
+  echo "No src directory, exiting."
 fi
