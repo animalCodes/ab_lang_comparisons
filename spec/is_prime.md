@@ -4,7 +4,7 @@ Print "True" or "False" depending on whether the number received is a prime numb
 
 While there are many ways to figure out if a number is prime, we'll stick to Trial Division, as it is reasonably efficient and can actually be understood by normal people.
 
-**Showcases**: Remainders, recursion / loops, boolean operators.
+## Implementation
 
 * Receives input on execution via command-line argument.
     * If no input is received, notify user and exit.

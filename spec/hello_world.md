@@ -2,7 +2,7 @@
 
 Probably the most well-known program of all time..
 
-**Showcases**: Basic syntax
+## Implementation
 
 * Print the string "Hello World!" to Standard Out.
 

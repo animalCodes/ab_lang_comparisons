@@ -33,8 +33,6 @@ The aim of this project is to accurately demonstrate what it is like to use diff
 
 * When contributing a new spec, make sure it follows the format in `/spec/template.md`, and that it can be implemented in atleast *most* languages - preferably all!
 
-* Additionally, new specifications should showcase functionality / language features previously not seen. (For instance there is no point in a "Arch is the best" program, as its functionality is already shown in `hello_world`)
-
 ## New languages:
 
 "Adding a new language" to the project consists of the following:

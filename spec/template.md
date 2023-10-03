@@ -2,7 +2,7 @@
 
 Short paragraph(s) describing the program
 
-**Showcases**: A comma-seperated list of what this specification is supposed to show about a language.
+## Implementation
 
 * A series of steps the program should perform to fulfill the specification.
     * Just an example method, not **the** way to implement it.

@@ -10,7 +10,7 @@ Emulate the game 'Fizzbuzz' the rules of which are essentially:
 
 For simplicity, this specification only implements the core functionality of the game, that is printing "Fizz", "Buzz", "FizzBuzz", or the number depending on input received, it does not count.
 
-**Showcases**: Receiving/collecting input, converting strings to numbers, simple branching.
+## Implementation
 
 *Note*: The below steps are just a guide for what operations should be performed, how exactly this program is implemented is up to the developer - as long as it works, is readable, and is reasonably efficient, it's valid!
 

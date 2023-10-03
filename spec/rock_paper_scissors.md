@@ -4,7 +4,7 @@ A command-line program where the user plays rock paper scissors with their compu
 
 The user will input their choice ("rock", "paper" or "scissors") as an argument when running the program which will then randomly generate its own choice, compare the two, and print the winner.
 
-**Showcases**: Random number generation, Slightly complex conditionals.
+## Implementation
 
 * Retrieve the user's choice. (Should be the first argument given to the program)
     * If no input was given, inform the user and exit.
