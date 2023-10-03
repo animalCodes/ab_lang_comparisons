@@ -5,7 +5,7 @@
 # Check kotlinc command exists
 if ! type kotlinc 1>/dev/null 2>&1; then
   echo "Kotlinc not found, please install to run."
-  exit
+  exit 1
 fi
 
 # CD into the directory this script is in
@@ -16,14 +16,14 @@ if [[ ! $1 ]]; then
   echo "Usage: runner.sh {program name} {program arguments}"
   # Automagically generate a list of valid program names
   echo -n "Valid program names: " && ls -I *.*
-  exit
+  exit 1
 fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $1 ]; then cd $1
 else
   echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit
+  exit 1
 fi
 
 # Make copy of all arguments passed to script and delete first item (name of program)
@@ -36,7 +36,8 @@ if [ -d "src" ]; then
   kotlinc -include-runtime -d ../out/$1.jar src/*
   echo "Done, running."
   java -jar ../out/$1.jar ${ARGS[*]}
+  exit
 else
   echo "No src folder found, exiting"
-  exit
+  exit 1
 fi

@@ -11,7 +11,7 @@ elif type rustc 1>/dev/null 2>&1; then
   echo "Cargo not found, using rustc instead."
 else 
   echo "Neither rustc nor Cargo were found, please install to run."
-  exit
+  exit 1
 fi
 
 # CD into the directory this script is in
@@ -22,14 +22,14 @@ if [[ ! $1 ]]; then
   echo "Usage: runner.sh {program name} {program arguments}"
   # Automagically generate a list of valid program names
   echo -n "Valid program names: " && ls -I *.*
-  exit
+  exit 1
 fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $1 ]; then cd $1;
 else
   echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit
+  exit 1
 fi
 
 # Make copy of all arguments passed to script and delete first item (name of program)
@@ -42,10 +42,13 @@ if [ -d "src" ]; then
   if [ $USECARGO ]; then
     cargo build --target-dir ../out/$1 
     ../out/$1/main ${ARGS[*]}
+    exit
   else
     rustc --out-dir ../out/$1 src/*
     ../out/$1/main ${ARGS[*]}
+    exit
   fi
 else 
   echo "No src directory, exiting."
+  exit 1
 fi

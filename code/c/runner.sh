@@ -12,7 +12,7 @@ elif type tcc 1>/dev/null 2>&1; then
   CMD=tcc
 else
   echo "No compiler found, please install one of GCC, Clang or TCC to use this script."
-  exit
+  exit 1
 fi
 
 echo "$CMD found, using."
@@ -25,14 +25,14 @@ if [[ ! $1 ]]; then
   echo "Usage: runner.sh {program name} {program arguments}"
   # Automagically generate a list of valid program names
   echo -n "Valid program names: " && ls -I *.*
-  exit
+  exit 1
 fi
 
 # Check specified directory exists, if it does CD into it.
 if [ -d $1 ]; then cd $1
 else
   echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit
+  exit 1
 fi
 
 # Make copy of all arguments passed to script and delete first item (name of program)
@@ -44,7 +44,8 @@ if [ -f "src/main.c" ]; then
   mkdir -p ../out/$1
   $CMD src/* -o ../out/$1/main.out
   ../out/$1/main.out ${ARGS[*]}
+  exit
 else
   echo "No main.c, exiting."
-  exit
+  exit 1
 fi
