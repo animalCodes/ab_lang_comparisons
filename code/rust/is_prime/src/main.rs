@@ -4,7 +4,6 @@ use std::process;
 fn main() {
     let args: Vec<String> = env::args().collect(); 
 
-    // Retrieve argument
     let arg = match args.get(1) {
         None => {
             eprintln!("No number specified.");
@@ -13,7 +12,6 @@ fn main() {
         Some(str) => str,
     };
 
-    // Attempt to convert to number
     let num = match arg.parse::<i32>() {
         Err(_) => {
             eprintln!("Unable to parse '{arg}' as a number");
@@ -22,13 +20,15 @@ fn main() {
         Ok(n) => n,
     };
 
-    if num < 2 
+    // If any of these checks pass, the number can't be prime.
+    if num < 2
         || num > 2 && num % 2 == 0 
         || num > 3 && num % 3 == 0 {
         println!("False");
         process::exit(0);
     }
 
+    // Trial Division
     let mut divisor = 5;
     while divisor*divisor <= num {
         if num % divisor == 0 || num % (divisor+2) == 0 {

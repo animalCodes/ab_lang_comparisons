@@ -1,7 +1,6 @@
 const {argv, exit} = require("node:process");
 
 // See fizzbuzz implementation for explanation of `Number` function etc.
-// Attempt to retrieve input, check that it is valid.
 const num = Number(argv[2])
 if (num == null) {
     console.log("No argument specified, exiting.")
@@ -11,15 +10,15 @@ if (num == null) {
     exit(2)
 }
 
-// Verify `num`
-if (num < 2 
+// Easier checks
+if (num < 2
     || num > 2 && num % 2 == 0 
     || num > 3 && num % 3 == 0) {
     console.log("False")
     exit(0)
 }
 
-// Check
+// Trial Division
 for (let i = 5; i*i < num; i += 6) {
     if (num % i == 0 || num % (i+2) == 0) {
         console.log("False")

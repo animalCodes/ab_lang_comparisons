@@ -9,7 +9,6 @@ if (args.Length < 1)
     return 1;
 }
 
-// Convert to number
 Int16 num = 0;
 /*
  The `out` keyword causes the argument to be passed *by reference*, essentially
@@ -24,15 +23,12 @@ if (!Int16.TryParse(args[0], out num))
     return 2;
 }
 
-// Do FizzBuzzing
-// It would be perfectly possible to use a `string` and `+=` but doing so creates
-// a new string in memory every time, so use a StringBuilder to save on memory 
-// allocation.
+// Use StringBuilder to avoid string concatenation, this is dumb over-engineering which you should avoid.
 StringBuilder output = new StringBuilder(4);
 if (num % 3 == 0) 
-{output.Append("Fizz");}
+    output.Append("Fizz");
 if (num % 5 == 0)
-{output.Append("Buzz");}
+    output.Append("Buzz");
 
 if (num == 0 || output.Length <= 0)
 {
@@ -42,4 +38,5 @@ if (num == 0 || output.Length <= 0)
 }
 
 Console.WriteLine(output.ToString());
+
 return 0;

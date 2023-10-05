@@ -1,10 +1,13 @@
-const {argv, exit} = require("node:process");
+const {argv, exit} = require("node:process")
 // If this was an ES module (Most simply specified with a .mjs file extension) then the above would be written as:
-// import {argv, exit} from "node:process";
+// `import {argv, exit} from "node:process"`
 
 // The first argument (index 0) will usually be the path to node itself, eg "/usr/local/bin/node", and the second (1) will be the path to this file. After that come the arguments.
-// the Number() **function** is generally more useful than the actual Number constructor, in short the function variant will return a primitive or NaN if unable to convert. Whereas `new Number()` will always return a Number, which can be harder to work with.
+// the `Number()` *function* is generally more useful than the `Number` *constructor*.
+// In short the function variant will return a primitive or NaN if unable to convert. 
+// Whereas `new Number()` will always return a Number, which can be harder to work with.
 const arg = Number(argv[2])
+
 // This could also be `(arg == undefined)` because Javascript is weird.
 if (arg == null) {
     console.log("No argument specified, exiting.")

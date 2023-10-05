@@ -1,2 +1,2 @@
-# Puts = "PUT Screen"
+# `puts` = "PUT Screen"
 puts "Hello World!"

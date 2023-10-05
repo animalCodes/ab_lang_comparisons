@@ -2,13 +2,11 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    // Check argument is given
     if (argc <= 1) {
         cout << "No argument specified, exiting.\n";
         return 1;
     }
 
-    // Check argument is valid
     int num = atoi(argv[1]);
     if (num == 0 && *argv[1] != '0') {
         cout << "Unable to convert \""
@@ -23,7 +21,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     
-    // Trial time
+    // Trial division time
     for (int divisor = 5; divisor*divisor < num; divisor += 6) {
         if (num % divisor == 0 || num % (divisor+2) == 0) {
             cout << "False\n";
@@ -32,5 +30,6 @@ int main(int argc, char *argv[]) {
     }
 
     cout << "True\n";
+
     return 0;
 }

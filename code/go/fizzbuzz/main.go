@@ -11,14 +11,14 @@ func main() {
         fmt.Println("No number specified, exiting")
         os.Exit(1)
     }
+
     // String conversion package - string to int
     // If we wanted to ignore the error, we would do `input, _ := ..`
-        input, err := strconv.Atoi(os.Args[1])
+    input, err := strconv.Atoi(os.Args[1])
 
     // Go uses `nil` instead of `null` because reasons.
     if err != nil {
-        fmt.Println("An error occurred while converting input to a number: ", err)
-        fmt.Println("Exiting.")
+        fmt.Printf("Unable to convert \"%s\" to a number, exiting.\n", os.Args[1])
         os.Exit(2)
     }
 

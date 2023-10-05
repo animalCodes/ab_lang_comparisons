@@ -2,7 +2,6 @@ use std::env;
 use std::process;
 
 fn main() {
-    // Get all arguments given to program.
     let args: Vec<String> = env::args().collect(); 
 
     // Use the second argument as the first is usually just a path to the program.
@@ -20,7 +19,6 @@ fn main() {
         Some(str) => str,
     };
 
-    // Convert to number
     let num = match arg.parse::<i32>() {
         // Same idea as above but this time a `Result<T, E>` Which can be either `Err(E)`
         // if an error occurred or `Ok(T)` if all good.
@@ -31,17 +29,20 @@ fn main() {
         Ok(n) => n,
     };
     
-    // Figure out what to print
-    let mut str = String::new();
+    let mut out = String::new();
 
-    if num % 3 == 0 {str.push_str("Fizz");}
-
-    if num % 5 == 0 {str.push_str("Buzz");}
+    if num % 3 == 0 {
+        out.push_str("Fizz");
+    }
+    if num % 5 == 0 {
+        out.push_str("Buzz");
+    }
 
     // Use `String::from` rather than just `str = arg` as arg is actually a `&String`. Meaning it's
-    // essentially a reference to a String in memory instead of an actual string.
-    if str.is_empty() || num == 0 {str = String::from(arg)};
+    // essentially a reference to a String instead of an actual String.
+    if out.is_empty() || num == 0 {
+        out = String::from(arg)
+    }
 
-    // And print it.
-    println!("{str}");
+    println!("{out}");
 }

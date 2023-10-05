@@ -1,6 +1,6 @@
-// Get 'first' argument
+// Deno throws away the path to the script, spicy!
 const input = Deno.args[0]
-// Check argument exists, if not exit
+
 if (input == null) {
     console.log("No input specified, exiting.")
     Deno.exit(1)
@@ -14,10 +14,8 @@ if (isNaN(num)) {
 }
 
 let output = ""
-// Do fizzbuzzing
 if (num % 3 == 0) output += "Fizz"
 if (num % 5 == 0) output += "Buzz"
-if (num == 0 || output == "") output = input; // ';' is unnecessary, I just find it a little bit easier to read.
+if (num == 0 || output == "") output = input
 
-// Throw output at user
 console.log(output)

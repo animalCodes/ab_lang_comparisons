@@ -14,13 +14,11 @@ tailrec fun recursiveTrialDivision(input: Int, counter: Int): Boolean {
 }
 
 fun main(args: Array<String>) {
-    // Check input exists
     if (args.size <= 0) {
         println("No number specified, exiting.")
         System.exit(1)
     }
 
-    // Confirm input is valid
     val input: Int? = args[0].toIntOrNull()
     if (input == null) {
         println("Unable to convert \"${args[0]}\" to a number, exiting.")
@@ -34,7 +32,7 @@ fun main(args: Array<String>) {
         System.exit(0)
     }
 
-    // Finally, try trial division
+    // Didn't work? Try trial divison
     if (recursiveTrialDivision(input, 6)) {
         println("True")
         System.exit(0)

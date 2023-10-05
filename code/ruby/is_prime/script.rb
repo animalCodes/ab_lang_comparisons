@@ -1,4 +1,3 @@
-# Get input, check if it's valid.
 if ARGV.empty?
   puts "No number specified."
   exit

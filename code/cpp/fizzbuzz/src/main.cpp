@@ -2,46 +2,41 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    // argc = "ARGument Count"
     if (argc <= 1) {
-        cout << "No argument specified, exiting.";
-        // What the main method returns will be the exit code, so no need for 
-        // an exit() call.
+        cout << "No argument specified, exiting.\n";
         return 1;
     }
 
     int num = atoi(argv[1]);
-
     // `atoi` will return 0 if unable to convert input to an int, which is a problem
     // here as 0 is valid input. To get around this check if input is also '0'.
-    // (`*argv[1]` will get the first character of the *second* argument..
-    // somehow)
-    if (num == 0 && *argv[1] != '0') {
+    // (`argv[1][0]` will get the first character of the *second* argument)
+    if (num == 0 && argv[1][0] != '0') {
         cout << "Unable to convert \""
              << argv[1] 
-             << "\" to a number, exiting.";
-
+             << "\" to a number, exiting.\n";
         return 2;
     }
 
-    // Trying to avoid having to concatenate any strings.
-    if (num != 0) {
+    if (num != 0) { // Could just do `!num`, but that doesn't feel right in C++
         // 'FizzBuzz NUMber', if number is divisible by 3 or 5.
-        bool fbnum = false;
+        bool fb_num = false;
         if (num % 3 == 0) {
             cout << "Fizz";
-            fbnum = true;
+            fb_num = true;
         }
         if (num % 5 == 0) {
             cout << "Buzz";
-            fbnum = true;
+            fb_num = true;
         }
         // If not divisible by 3 or 5, print number.
-        if (!fbnum) {
+        if (!fb_num) {
             cout << num;
         }
         // Special case for 0
     } else {cout << num;}
+
+    cout << "\n";
 
     return 0;
 }

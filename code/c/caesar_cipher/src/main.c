@@ -7,9 +7,9 @@
 char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
 // Returns the index of the first occurence of `needle` in `haystack`, or -1 if none exists.
-// I don't know if I'm being dumb but I couldn't find an equivalent in the standard library.
 int indexOf(char needle, char *haystack) 
 {
+  // I don't know if I'm being dumb but I couldn't find an equivalent in the standard library.
   for (int i = 0; i < strlen(haystack); i++) {
     if (haystack[i] == needle)
       return i;
@@ -53,13 +53,13 @@ int main(int argc, char *argv[])
   }
 
   int shiftc = atoi(argv[1]);
-  // We'll let the user shift the message 0 places if they want to.
-  if (!shiftc) {
+  if (!shiftc) { // This is C, so 0 is false.
     // Allow for '0' or similarly "-0", "+0", etc.
     if (argv[1][0] != '0' && argv[1][1] != '0') {
       printf("Couldn't convert \"%s\" to an integer, exiting.\n", argv[1]);
       return 1;
     }
+    // We'll let the user shift the message 0 places if they want to.
   }
 
   // Run `shift()` on every character in every argument after shiftc

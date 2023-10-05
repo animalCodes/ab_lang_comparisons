@@ -2,15 +2,13 @@
 #include <stdio.h>
 
 int main(int argc, char** argv) {
-    // Check input exists
     if (argc < 2) {
         printf("No input received, exiting.\n");
         return 1;
     }
 
-    // Attempt to convert to an int
     int num = atoi(argv[1]);
-    if (num == 0 && *argv[1] != '0') {
+    if (!num && *argv[1] != '0') {
         printf("Unable to convert %s to an int, exiting.\n", argv[1]);
         return 2;
     }
@@ -33,5 +31,6 @@ int main(int argc, char** argv) {
     }
 
     printf("True\n");
+
     return 0;
 }

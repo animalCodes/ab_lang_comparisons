@@ -2,13 +2,11 @@ package comparisons.java.isprime;
 
 class Main {
     public static void main(String[] args) {
-        // Check input exists
         if (args.length < 1) {
             System.err.println("No number specified, exiting");
             System.exit(1);
         }
         
-        // Attempt to convert to int
         int num = 0;
         try {num = Integer.valueOf(args[0]);}
         catch (NumberFormatException e) {
@@ -16,14 +14,13 @@ class Main {
             System.exit(2);
         }
         
-
-        // I could just put the content of `isPrime()` here, but this feels more 'Java-y'
+        // I could just put the innards of `isPrime()` here, but this feels more 'Java-y'
         if (isPrime(num)) {
             System.out.println("True");
             System.exit(0);
         } else {
             System.out.println("False");
-            // Technically unnecessary
+            // Technically unnecessary, but semantic
             System.exit(0);
         }
     }
