@@ -1,13 +1,13 @@
 const input = Deno.args[0]
 
 if (input == undefined) {
-    console.log("No input received, exiting")
+    console.error("No input received, exiting")
     Deno.exit(1)
 }
 
 const num = Number(input)
 if (isNaN(num)) {
-    console.log(`Unable to convert "${input}" to a number, exiting.`)
+    console.error(`Unable to convert "${input}" to a number, exiting.`)
     Deno.exit(2)
 }
 

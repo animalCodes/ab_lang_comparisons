@@ -3,9 +3,9 @@ using System.Text;
 
 if (args.Length < 1)
 {
-    // Environment and Console are both in the System namespace, which top-level
+    // Console is in the System namespace, which top-level
     // statements are implicity wrapped in.
-    Console.WriteLine("Unable to find argument, exiting.");
+    Console.Error.WriteLine("Unable to find argument, exiting.");
     return 1;
 }
 
@@ -19,7 +19,7 @@ Int16 num = 0;
 */
 if (!Int16.TryParse(args[0], out num))
 {
-    Console.WriteLine($"Unable to parse \"{args[0]}\" as a number, exiting.");
+    Console.Error.WriteLine($"Unable to parse \"{args[0]}\" as a number, exiting.");
     return 2;
 }
 

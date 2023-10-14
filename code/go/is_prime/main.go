@@ -8,13 +8,13 @@ import (
 
 func main() {
     if len(os.Args) < 2 {
-        fmt.Println("No number specified, exiting")
+        fmt.Fprintln(os.Stderr, "No number specified, exiting")
         os.Exit(1)
     }
 
     num, err := strconv.Atoi(os.Args[1])
     if err != nil {
-        fmt.Printf("Unable to convert %s to an int, exiting.\n", os.Args[1]);
+        fmt.Fprintf(os.Stderr, "Unable to convert %s to an int, exiting.\n", os.Args[1]);
         os.Exit(2)
     }
 

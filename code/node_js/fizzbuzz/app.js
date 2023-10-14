@@ -10,10 +10,10 @@ const arg = Number(argv[2])
 
 // This could also be `(arg == undefined)` because Javascript is weird.
 if (arg == null) {
-    console.log("No argument specified, exiting.")
+    console.error("No argument specified, exiting.")
     exit(1)
 } else if (isNaN(arg)) {
-    console.log(`Couldn't convert ${argv[2]} to a number, exiting.`)
+    console.error(`Couldn't convert ${argv[2]} to a number, exiting.`)
     exit(2)
 }
 

@@ -3,13 +3,13 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     if (argc <= 1) {
-        cout << "No argument specified, exiting.\n";
+        cerr << "No argument specified, exiting.\n";
         return 1;
     }
 
     int num = atoi(argv[1]);
     if (num == 0 && *argv[1] != '0') {
-        cout << "Unable to convert \""
+        cerr << "Unable to convert \""
              << argv[1] 
              << "\" to a number, exiting.\n";
         return 2;

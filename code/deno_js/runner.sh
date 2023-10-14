@@ -32,7 +32,7 @@ unset ARGS[0]
 
 # Check an app.js file exists before attempting to run it
 if [ -f "app.js" ]; then
-  deno run app.js $ARGS[*]
+  deno run app.js ${ARGS[*]}
   exit
 else 
   echo "No app.js, exiting."

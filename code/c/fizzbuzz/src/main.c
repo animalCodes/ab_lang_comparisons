@@ -3,13 +3,13 @@
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        printf("No argument specified, exiting.");
+        fprintf(stderr, "No argument specified, exiting.");
         return 1;
     }
 
     int num = atoi(argv[1]);
     if (!num && *argv[1] != '0') {
-        printf("Unable to convert \"%s\" to an integer, exiting.\n", argv[1]);
+        fprintf(stderr, "Unable to convert \"%s\" to an integer, exiting.\n", argv[1]);
         return 2;
     }
 

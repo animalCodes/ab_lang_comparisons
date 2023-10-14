@@ -15,13 +15,13 @@ tailrec fun recursiveTrialDivision(input: Int, counter: Int): Boolean {
 
 fun main(args: Array<String>) {
     if (args.size <= 0) {
-        println("No number specified, exiting.")
+        System.err.println("No number specified, exiting.")
         System.exit(1)
     }
 
     val input: Int? = args[0].toIntOrNull()
     if (input == null) {
-        println("Unable to convert \"${args[0]}\" to a number, exiting.")
+        System.err.println("Unable to convert \"${args[0]}\" to a number, exiting.")
         System.exit(2)
         return // Return so the compiler knows we won't be accessing a null value.
     }

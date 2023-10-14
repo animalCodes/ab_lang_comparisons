@@ -1,9 +1,9 @@
 if (ARGV.empty?) then
-  puts "No number specified, exiting."
+  STDERR.puts "No number specified, exiting."
   exit
   # Crude check for if argument can be converted to a number - starts with atleast one digit.
 elsif !ARGV[0].start_with?(/\d+/) then
-  puts "Unable to convert #{ARGV[0]} to a number."
+  STDERR.puts "Unable to convert #{ARGV[0]} to a number."
   exit
 end
 

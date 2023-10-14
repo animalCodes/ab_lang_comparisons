@@ -2,14 +2,14 @@
 const input = Deno.args[0]
 
 if (input == null) {
-    console.log("No input specified, exiting.")
+    console.error("No input specified, exiting.")
     Deno.exit(1)
 }
 
 // Number() function will return `NaN` if unable to convert input to a number.
 const num = Number(input)
 if (isNaN(num)) {
-    console.log(`Unable to convert "${input}" to a number, exiting.`)
+    console.error(`Unable to convert "${input}" to a number, exiting.`)
     Deno.exit(2)
 }
 

@@ -1,13 +1,13 @@
 ﻿if (args.Length < 1) 
 {
-    Console.WriteLine("Unable to locate input, exiting");
+    Console.Error.WriteLine("Unable to locate input, exiting");
     return 1;
 }
 
 int num = 0;
 if (!Int32.TryParse(args[0], out num))
 {
-    Console.WriteLine($"Unable to convert \"{args[0]}\" to a number");
+    Console.Error.WriteLine($"Unable to convert \"{args[0]}\" to a number");
     return 2;
 }
 

@@ -35,7 +35,7 @@ char shift(char original_char, int shiftc)
   while (index >= alphabet_length)
     index -= alphabet_length;
 
-  // Exact same as above, but allow for negative shifts.
+  // Same idea as above, but for negative shifts.
   while (index < 0)
     index += alphabet_length;
 
@@ -46,9 +46,9 @@ int main(int argc, char *argv[])
 {
   if (argc < 3) {
     if (argc == 2)
-      printf("No message given, exiting.\n");
+      fprintf(stderr, "No message given, exiting.\n");
     else
-      printf("No shift or message given, exiting.\n");
+      fprintf(stderr, "No shift or message given, exiting.\n");
     return 1;
   }
 
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
   if (!shiftc) { // This is C, so 0 is false.
     // Allow for '0' or similarly "-0", "+0", etc.
     if (argv[1][0] != '0' && argv[1][1] != '0') {
-      printf("Couldn't convert \"%s\" to an integer, exiting.\n", argv[1]);
+      fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n", argv[1]);
       return 1;
     }
     // We'll let the user shift the message 0 places if they want to.

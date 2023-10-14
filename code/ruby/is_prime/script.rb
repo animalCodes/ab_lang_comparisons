@@ -1,9 +1,9 @@
 if ARGV.empty?
-  puts "No number specified."
+  STDERR.puts "No number specified."
   exit
 # String#to_i returns 0 if unable to convert self to a number
 elsif ARGV[0].to_i == 0 && ARGV[0] != "0"
-  puts "Unable to convert \"#{ARGV[0]}\" to a number."
+  STDERR.puts "Unable to convert \"#{ARGV[0]}\" to a number."
   exit
 end
 

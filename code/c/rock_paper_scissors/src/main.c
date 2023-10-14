@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
-        printf("No argument specified, exiting.\n");
+        fprintf(stderr, "No argument specified, exiting.\n");
         return 1;
     }
 
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     else if (strcasecmp(user_input, "scissors") == 0)
         user_choice = 2;
     else {
-        printf("Invalid choice \"%s\", valid inputs are \"rock\", \"paper\" and \"scissors\" (all case-insensitive), Exiting.\n", user_input);
+        fprintf(stderr, "Invalid choice \"%s\", valid inputs are \"rock\", \"paper\" and \"scissors\" (all case-insensitive), Exiting.\n", user_input);
         return 2;
     }
 
