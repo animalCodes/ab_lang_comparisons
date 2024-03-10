@@ -1,16 +1,15 @@
-# Template specification
+# *Title*
 
-Short paragraph(s) describing the program
+*Short description of the program*
 
 ## Implementation
 
-* A series of steps the program should perform to fulfill the specification.
-    * Just an example method, not **the** way to implement it.
+*An outline of what implementations will need to do to fulfill the specification.*
+*Try to find a balance between ensuring implementors know what they need to do while not restricting them to one method.*
+* *Specific implementation details (as opposed to higher-level descriptions) should be kept in lists*
 
-* The primary use of this section is to help developers understand *how* to implement a specification, otherwise implementations that don't actually fulfill the requirements could be written.
+*This is to prevent widely different - or even incorrect - implementations from being written.*
 
-* Can be as long or short as required.
+**Implemented in**: *(List of languages this is currently implemented in)*
 
-**Implemented in**: (List of languages this is currently implemented in)
-
-**To be implemented in**: (List of languages that this currently *isn't* implemented in, but can and should be.)
+**To be implemented in**: *(List of languages that this currently **isn't** implemented in, but can and should be.)*

@@ -10,25 +10,20 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher).
 
 ## Implementation
 
-* Should receive atleast two arguments when executed, the first being an integer representing the shift and the rest being the message to be encrypted.
-  * Check for existence of message and shift, notify user and exit if not enough arguments are given.
+Should receive at least two arguments when executed, the first being an integer representing the shift and the rest being the message to be encrypted.
+* Notify user and exit if not enough arguments are given.
 
-* Convert the first argument to a number, this can be positive or negative.
-  * If this cannot be done, notify the user and exit.
+Convert the first argument to a number - the key, this can be positive or negative.
+* If this cannot be done, notify the user and exit.
 
-* For each letter of the message:
-  * Check the letter is alphabetical, if not skip.
-  * Shift the letter *x* times up or down the alphabet.
+Ensure every character in the message is lowercase.
 
-* Shifting:
-  * Get the index of the letter in the alphabet. (for instance 'a' would be 0)
-  * Add `shift` to the index.
-  * If the shifted index is out of the bounds of the alphabet, it should "wrap around"
-  * For instance, if the shift results in an index of -5, add 26 to it.
-  * For positive invalid shifts, *subtract* 26.
-  * The above two steps may need to be repeated for very large shifts.
+For every character in the message, if it's alphabetical:
+* If the key is positive, shift it that many times "up" the alphabet.
+* If the key is negative, shift it that many times "down" the alphabet.
+* In the case of "overflows", wrap around to the other end of the alphabet and continue shifting.
 
-* Print the scrambled message.
+Print the scrambled message.
 
 **Implemented in**: C.
 
