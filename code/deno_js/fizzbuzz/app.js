@@ -14,6 +14,7 @@ if (isNaN(num)) {
 }
 
 let output = ""
+// TODO formatting
 if (num % 3 == 0) output += "Fizz"
 if (num % 5 == 0) output += "Buzz"
 if (num == 0 || output == "") output = input

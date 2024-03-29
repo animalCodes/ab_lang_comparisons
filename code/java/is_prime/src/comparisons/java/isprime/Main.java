@@ -31,14 +31,12 @@ class Main {
      * @return Whether `num` is prime
     */
     private static boolean isPrime(int num) {
-        // Skip early if num can't be prime
         if (num < 2
                 || num > 2 && num % 2 == 0
                 || num > 3 && num % 3 == 0) {
             return false;
         }
 
-        // Trial division
         for (int counter = 5; counter*counter < counter; counter += 6) {
             if (num % counter == 0 || num % counter+2 == 0) {
                 return false;

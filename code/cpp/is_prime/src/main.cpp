@@ -15,13 +15,11 @@ int main(int argc, char *argv[]) {
         return 2;
     }
 
-    // Do the easy checks first ..
     if (num < 2 || num > 2 && num % 2 == 0 || num > 3 && num % 3 == 0) {
         cout << "False\n";
         return 0;
     }
     
-    // Trial division time
     for (int divisor = 5; divisor*divisor < num; divisor += 6) {
         if (num % divisor == 0 || num % (divisor+2) == 0) {
             cout << "False\n";

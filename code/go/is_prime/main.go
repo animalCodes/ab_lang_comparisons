@@ -18,7 +18,6 @@ func main() {
         os.Exit(2)
     }
 
-    // Exit early if num can't be prime
     if num < 2 || num > 2 && num % 2 == 0 || num > 3 && num % 3 == 0 {
         fmt.Println("False")
         os.Exit(0)
