@@ -35,7 +35,7 @@ char shift(char original_char, int shiftc)
   while (index >= alphabet_length)
     index -= alphabet_length;
 
-  // Same idea as above, but for negative shifts.
+  // Same as above, but for negative shifts.
   while (index < 0)
     index += alphabet_length;
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
   }
 
   int shiftc = atoi(argv[1]);
-  if (!shiftc) { // This is C, so 0 is false.
+  if (!shiftc) { // 0 is false.
     // Allow for '0' or similarly "-0", "+0", etc.
     if (argv[1][0] != '0' && argv[1][1] != '0') {
       fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n", argv[1]);

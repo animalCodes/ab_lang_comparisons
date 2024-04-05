@@ -21,6 +21,7 @@ class Main {
         if (num % 5 == 0)
             out += "Buzz";
         if (num == 0 || out == "")
+            // TODO use args[0] 
             out = String.valueOf(num);
 
         System.out.println(out);

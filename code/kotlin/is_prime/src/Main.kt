@@ -26,13 +26,11 @@ fun main(args: Array<String>) {
         return // Return so the compiler knows we won't be accessing a null value.
     }
 
-    // If input is less than 2, greater than 2 and divisible by 2, or greater than 3 and divisible by 3.
     if (input < 2 || input > 2 && input % 2 == 0 || input > 3 && input % 3 == 0) {
         println("False")
         System.exit(0)
     }
 
-    // Didn't work? Try trial divison
     if (recursiveTrialDivision(input, 6)) {
         println("True")
         System.exit(0)
