@@ -2,11 +2,17 @@
 
 # Runner for all C++ programs.
 
-# Check g++ command exists
-if ! type g++ 1>/dev/null 2>&1; then
-  echo "g++/gcc not found, please install to run."
+# Choose compiler
+if type g++ 1>/dev/null 2>&1; then
+  CMD=g++
+elif type clang++ 1>/dev/null 2>&1; then
+  CMD=clang++
+else
+  echo "Neither g++ or clang are available, please install one to run."
   exit 1
 fi
+
+echo "$CMD found, using"
 
 # CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
@@ -34,7 +40,7 @@ unset ARGS[0]
 if [ -d "src" ]; then
   echo "Compiling.."
   mkdir -p ../out/$1/
-  g++ src/* -o ../out/$1/main.out
+  $CMD -o ../out/$1/main.out src/*
   echo "Running."
   ../out/$1/main.out ${ARGS[*]}
   exit
