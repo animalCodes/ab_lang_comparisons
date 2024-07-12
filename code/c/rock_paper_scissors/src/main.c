@@ -3,6 +3,27 @@
 #include <strings.h> // For strcasecmp()
 #include <time.h> // For time_t and time()
 
+typedef enum Choice {
+    ROCK,
+    PAPER,
+    SCISSORS,
+    NONE
+} Choice;
+
+/* Convert input string to Choice.
+    if input is invalid, NONE will be returned. */
+Choice strchoice(char *input);
+
+/* Convert Choice to string.
+    ROCK = "rock"
+    PAPER = "paper"
+    SCISSORS = "scissors"
+    NONE = "" */
+char *choicestr(Choice choice);
+
+/* Randomly return one of ROCK, PAPER or SCISSORS. */
+Choice randchoice();
+
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
@@ -11,55 +32,66 @@ int main(int argc, char *argv[])
     }
 
     char *user_input = argv[1];
-    // On a pedantic note this variable will only ever use a maximum of 2 bits, (2, the 
-    // maximum possible value, would be represented as `10`) so using a short (which is 
-    // *usually* comprised of 2 bytes) is technically wasting 14 bits.
-    short user_choice;
-
-    if (!strcasecmp(user_input, "rock"))
-        // Store a numerical representation of the choice to simplify later comparisons
-        user_choice = 0;
-    else if (strcasecmp(user_input, "paper") == 0)
-        user_choice = 1;
-    else if (strcasecmp(user_input, "scissors") == 0)
-        user_choice = 2;
-    else {
-        fprintf(stderr, "Invalid choice \"%s\", valid inputs are \"rock\", \"paper\" and \"scissors\" (all case-insensitive), Exiting.\n", user_input);
+    Choice user_choice = strchoice(user_input);
+    if (user_choice == NONE) {
+        fprintf(stderr, "Invalid choice \"%s\", valid inputs are \"rock\""
+                "\"paper\" and \"scissors\" (all case-insensitive), Exiting.\n",
+                user_input);
         return 2;
     }
 
-    time_t now;
-    time(&now); // Store current timestamp in `now`
-    srand(now); // Seed the pseudo-random number generator with the current time
-
-    // This mess converts the output of `rand()` (which returns any value between 0 and `RAND_MAX`) to 0, 1, or 2.
-    // Firstly, it divides the output of `rand()` by `RAND_MAX`, this'll give us a decimal number such as 0.468722.
-    // (Notice they are first cast to floats, if we didn't do this the result of the divison would be automatically converted to an integer, which would defeat the entire point.)
-    // Now we have a random decimal number with a max value of 1, but we want the end number to be 0, 1 or 2. This conversion can be done by multiplying the decimal by the greatest number + 1, in this case we multiply by 3.
-    // Finally, the result is cast to a short to discard the now-useless decimal precision. (Doing so also makes comparing against the user's choice much easier)
-    // TODO make this easier to read
-    short computer_choice = (short)(((float)rand() / (float)RAND_MAX) * 3);
+    Choice computer_choice = randchoice();
 
     printf("User: %s\n", user_input);
-
-    // Printing the computer's choice is a little bit more complicated as we only have a numerical representation
-    printf("Computer: ");
-    if (computer_choice==0)
-        printf("Rock\n");
-    else if (computer_choice==1)
-        printf("Paper\n");
-    else
-        printf("Scissors\n");
+    printf("Computer: %s\n", choicestr(computer_choice));
 
     if (computer_choice == user_choice)
         printf("Tie!\n");
-    // 0 = Rock, 1 = Paper, 2 = Scissors.
-    else if ((computer_choice == 0 && user_choice == 1) ||
-            (computer_choice == 1 && user_choice == 2) ||
-            (computer_choice == 2 && user_choice == 0))
+    else if ((computer_choice == ROCK && user_choice == PAPER) ||
+            (computer_choice == PAPER && user_choice == SCISSORS) ||
+            (computer_choice == SCISSORS && user_choice == ROCK))
         printf("Winner: User!\n");
     else
         printf("Winner: Computer!\n");
 
     return 0;
+}
+
+Choice strchoice(char *input)
+{
+    if (!strcasecmp(input, "rock"))
+        return ROCK;
+    else if (!strcasecmp(input, "paper"))
+        return PAPER;
+    else if (!strcasecmp(input, "scissors"))
+        return SCISSORS;
+    else
+        return NONE;
+}
+
+char *choicestr(Choice choice)
+{
+    switch (choice) {
+        case ROCK:
+            return "rock";
+        case PAPER:
+            return "paper";
+        case SCISSORS:
+            return "scissors";
+        default:
+            return "";
+    }
+}
+
+Choice randchoice()
+{
+    // I've just realised these three lines have the exact same length, this
+    // makes me happy
+    time_t now;
+    time(&now);
+    srand(now);
+
+    // This mess converts the output of `rand()` (which returns any value
+    // between 0 and `RAND_MAX`) to 0, 1, or 2.
+    return (Choice)(((float)rand() / (float)RAND_MAX) * 3);
 }
