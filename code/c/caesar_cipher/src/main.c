@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Ideally this would be const, but its used in indexOf() which wants a none-const string.
-// As such, the const qualifier would be discarded if present.
+// Ideally this would be const, but its used in indexOf() which wants a
+// none-const string. As such, the const qualifier would be discarded if
+// present.
 char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-// Returns the index of the first occurence of `needle` in `haystack`, or -1 if none exists.
+// Returns the index of the first occurence of `needle` in `haystack`, or -1 if
+// none exists.
 int indexOf(char needle, char *haystack) 
 {
   // I don't know if I'm being dumb but I couldn't find an equivalent in the standard library.
@@ -17,11 +19,12 @@ int indexOf(char needle, char *haystack)
   return -1;
 }
 
-// Returns `original_char` shifted `shiftc` (Shift Count) places up or down the alphabet.
+// Returns `original_char` shifted `shiftc` (Shift Count) places up or down
+// the alphabet.
 char shift(char original_char, int shiftc)
 {
-  // Repeatedly calling strlen() caused sanity to cease, I'm talking 26 + -3 = 19.
-  // I don't know why, and I don't know why this fixes it, but it does.
+  // Repeatedly calling strlen() caused sanity to cease, I'm talking 26 + -3 =
+  // 19. I don't know why, and I don't know why this fixes it, but it does.
   int alphabet_length = strlen(alphabet);
 
   int index = indexOf(original_char, alphabet);
@@ -49,7 +52,7 @@ int main(int argc, char *argv[])
       fprintf(stderr, "No message given, exiting.\n");
     else
       fprintf(stderr, "No shift or message given, exiting.\n");
-    return 1;
+    return EXIT_FAILURE;
   }
 
   int shiftc = atoi(argv[1]);
@@ -57,7 +60,7 @@ int main(int argc, char *argv[])
     // Allow for '0' or similarly "-0", "+0", etc.
     if (argv[1][0] != '0' && argv[1][1] != '0') {
       fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n", argv[1]);
-      return 1;
+      return EXIT_FAILURE;
     }
     // We'll let the user shift the message 0 places if they want to.
   }
@@ -70,5 +73,5 @@ int main(int argc, char *argv[])
   }
   printf("\n");
 
-  return 0;
+  return EXIT_SUCCESS;
 }

@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 {
     if (argc < 2) {
         fprintf(stderr, "No argument specified, exiting.\n");
-        return 1;
+        return EXIT_FAILURE;
     }
 
     char *user_input = argv[1];
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Invalid choice \"%s\", valid inputs are \"rock\""
                 "\"paper\" and \"scissors\" (all case-insensitive), Exiting.\n",
                 user_input);
-        return 2;
+        return EXIT_FAILURE;
     }
 
     Choice computer_choice = randchoice();
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     else
         printf("Winner: Computer!\n");
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 Choice strchoice(char *input)

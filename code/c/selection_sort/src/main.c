@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> // Just for EXIT_SUCCESS
 
 int main()
 {
@@ -9,7 +10,8 @@ int main()
       temp; // Temporarily holds an item during swapping
 
   // Figure out how many items are in `array`.
-  // We could just use 16 here, but now you know how to do this if you didn't already :).
+  // We could just use 16 here, but now you know how to do this if you didn't
+  // already :).
   int arrsize = sizeof array / sizeof array[0];
 
   for (pos_i = 0; pos_i < arrsize; pos_i++)
@@ -41,5 +43,5 @@ int main()
   }
   printf("]\n");
 
-  return 0;
+  return EXIT_SUCCESS;
 }

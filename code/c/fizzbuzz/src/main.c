@@ -4,13 +4,13 @@
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         fprintf(stderr, "No argument specified, exiting.");
-        return 1;
+        return EXIT_FAILURE;
     }
 
     int num = atoi(argv[1]);
     if (!num && *argv[1] != '0') {
         fprintf(stderr, "Unable to convert \"%s\" to an integer, exiting.\n", argv[1]);
-        return 2;
+        return EXIT_FAILURE;
     }
 
     int printed = 0; // If we have printed a value.
@@ -32,5 +32,5 @@ int main(int argc, char *argv[]) {
 
     printf("\n");
 
-    return 0;
+    return EXIT_SUCCESS;
 }
