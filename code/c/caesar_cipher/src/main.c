@@ -2,49 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Ideally this would be const, but its used in indexOf() which wants a
-// none-const string. As such, the const qualifier would be discarded if
-// present.
 char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-// Returns the index of the first occurence of `needle` in `haystack`, or -1 if
-// none exists.
-int indexOf(char needle, char *haystack) 
-{
-    // I don't know if I'm being dumb but I couldn't find an equivalent in the
-    // standard library.
-    for (int i = 0; i < strlen(haystack); i++) {
-        if (haystack[i] == needle)
-            return i;
-    }
-    return -1;
-}
+/* Returns the index of the first occurence of `c` in `str`, or -1 if none
+    found. */
+int str_i(char c, char *str);
 
-// Returns `original_char` shifted `shiftc` (Shift Count) places up or down
-// the alphabet.
-char shift(char original_char, int shiftc)
-{
-    // Repeatedly calling strlen() caused sanity to cease, I'm talking 26 + -3 =
-    // 19. I don't know why, and I don't know why this fixes it, but it does.
-    int alphabet_length = strlen(alphabet);
-
-    int index = indexOf(original_char, alphabet);
-    if (index == -1)
-        // Don't try to shift none-alphabetical characters
-        return original_char;
-
-    index += shiftc;
-
-    // Avoid overflow, but allow wrap-around shifts.
-    while (index >= alphabet_length)
-        index -= alphabet_length;
-
-    // Same as above, but for negative shifts.
-    while (index < 0)
-        index += alphabet_length;
-
-    return alphabet[index];
-}
+/* Returns `c` shifted `shiftc` places up or down the alphabet. */
+char shift(char c, int shiftc);
 
 int main(int argc, char *argv[]) 
 {
@@ -57,23 +22,51 @@ int main(int argc, char *argv[])
     }
 
     int shiftc = atoi(argv[1]);
-    if (!shiftc) { // 0 is false.
-        // Allow for '0' or similarly "-0", "+0", etc.
-        if (argv[1][0] != '0' && argv[1][1] != '0') {
-            fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n",
-                    argv[1]);
-            return EXIT_FAILURE;
-        }
+    if (!shiftc && argv[1][0] != '0') {
         // We'll let the user shift the message 0 places if they want to.
+        fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n",
+                argv[1]);
+        return EXIT_FAILURE;
     }
 
-    // Run `shift()` on every character in every argument after shiftc
     for (int i = 2; i < argc; i++) {
         for (int j = 0; j < strlen(argv[i]); j++) {
-            printf("%c", shift(argv[i][j], shiftc));
+            putchar(shift(argv[i][j], shiftc));
         }
+        putchar(' ');
     }
-    printf("\n");
+    putchar('\n');
 
     return EXIT_SUCCESS;
+}
+
+int str_i(char c, char *str)
+{
+    for (int i = 0; i < strlen(str); i++) {
+        if (str[i] == c)
+            return i;
+    }
+    return -1;
+}
+
+char shift(char c, int shiftc)
+{
+    int length = strlen(alphabet);
+
+    int index = str_i(c, alphabet);
+    if (index == -1)
+        // Don't try to shift none-alphabetical characters
+        return c;
+
+    index += shiftc;
+
+    // Avoid overflow, but allow wrap-around shifts.
+    while (index >= length)
+        index -= length;
+
+    // Same as above, but for negative shifts.
+    while (index < 0)
+        index += length;
+
+    return alphabet[index];
 }
