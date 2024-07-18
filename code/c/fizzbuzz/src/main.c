@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,25 +10,25 @@ int main(int argc, char *argv[]) {
 
     int num = atoi(argv[1]);
     if (!num && *argv[1] != '0') {
-        fprintf(stderr, "Unable to convert \"%s\" to an integer, exiting.\n", argv[1]);
+        fprintf(stderr, "Unable to convert \"%s\" to an integer, exiting.\n",
+                argv[1]);
         return EXIT_FAILURE;
     }
 
-    int printed = 0; // If we have printed a value.
+    bool printed = false;
 
-    if (num) { // If num is any none-zero number
+    if (num) { // num is any none-zero number
         if (num % 3 == 0) {
             printf("Fizz");
-            printed = 1;
+            printed = true;
         }
         if (num % 5 == 0) {
             printf("Buzz");
-            printed = 1;
+            printed = true;
         }
     }
 
     if (!printed) 
-        // Wasn't divisible by 3 or 5, so just print the number.
         printf("%i", num);
 
     printf("\n");
