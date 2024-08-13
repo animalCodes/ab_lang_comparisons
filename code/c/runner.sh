@@ -42,7 +42,7 @@ unset ARGS[0]
 # Check a main.c file exists before attempting to compile/run
 if [ -f "src/main.c" ]; then
   mkdir -p ../out/$1
-  $CMD src/* -o ../out/$1/main.out
+  $CMD src/* -o ../out/$1/main.out -lm
   ../out/$1/main.out ${ARGS[*]}
   exit
 else

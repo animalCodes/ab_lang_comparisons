@@ -29,6 +29,6 @@ Compute the following until the integer part + the first 5 decimal digits of `gu
 
 Print the computed square root including its first 5 decimal digits.
 
-**Implemented in**:
+**Implemented in**: C.
 
-**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
