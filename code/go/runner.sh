@@ -3,7 +3,7 @@
 # Runner for all Go programs.
 
 if ! type go 1>/dev/null 2>&1; then
-  echo "go CLI not found, please install to run."
+  echo go CLI not found, please install to run. 1>&2
   exit 1
 fi
 
@@ -23,6 +23,6 @@ if [ -f "main.go" ]; then
   ../out/$1/main.out ${ARGS[*]}
   exit
 else
-  echo "No main.go, exiting."
+  echo No main.go, exiting. 1>&2
   exit 1
 fi

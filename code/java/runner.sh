@@ -4,7 +4,7 @@
 
 # Check javac command exists
 if ! type javac 1>/dev/null 2>&1; then
-  echo "Javac not found, please install to run."
+  echo Javac not found, please install to run. 1>&2
   exit 1
 fi
 
@@ -23,13 +23,11 @@ ARGS=("$@")
 unset ARGS[0]
 
 if [ -d "src" ]; then
-  echo "Compiling, give it a couple seconds."
   javac -d ../out/$1 src/comparisons/java/$PACKAGE_NAME/*
-  echo "Done, running."
   cd ../out/$1
   java comparisons/java/$PACKAGE_NAME/Main ${ARGS[*]}
   exit
 else
-  echo "No src folder found, exiting"
+  echo No src folder found, exiting 1>&2
   exit 1
 fi

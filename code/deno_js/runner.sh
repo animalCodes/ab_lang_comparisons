@@ -3,7 +3,7 @@
 # Runner for all DenoJS programs.
 
 if ! type deno 1>/dev/null 2>&1; then
-  echo "Deno CLI not found, please install to run."
+  echo Deno CLI not found, please install to run. 1>&2
   exit 1
 fi
 
@@ -22,6 +22,6 @@ if [ -f "app.js" ]; then
   deno run app.js ${ARGS[*]}
   exit
 else 
-  echo "No app.js, exiting."
+  echo No app.js, exiting. 1>&2
   exit 1
 fi

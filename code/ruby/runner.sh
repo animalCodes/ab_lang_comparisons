@@ -3,7 +3,7 @@
 # Runner for all Ruby programs.
 
 if ! type ruby 1>/dev/null 2>&1; then
-  echo "Ruby CLI not found, please install to run."
+  echo Ruby CLI not found, please install to run. 1>&2
   exit 1
 fi
 
@@ -22,6 +22,6 @@ if [ -f "script.rb" ]; then
   ruby script.rb ${ARGS[*]}
   exit
 else
-  echo "No script.rb, exiting."
+  echo No script.rb, exiting. 1>&2
   exit 1
 fi

@@ -7,11 +7,9 @@ if type g++ 1>/dev/null 2>&1; then
 elif type clang++ 1>/dev/null 2>&1; then
   CMD=clang++
 else
-  echo "Neither g++ or clang++ are available, please install one to run."
+  echo Neither g++ or clang++ are available, please install one to run. 1>&2
   exit 1
 fi
-
-echo "$CMD found, using"
 
 cd `dirname $BASH_SOURCE`
 
@@ -25,13 +23,11 @@ ARGS=("$@")
 unset ARGS[0]
 
 if [ -d "src" ]; then
-  echo "Compiling.."
   mkdir -p ../out/$1/
   $CMD -o ../out/$1/main.out src/*
-  echo "Running."
   ../out/$1/main.out ${ARGS[*]}
   exit
 else 
-  echo "No src directory found, exiting"
+  echo No src directory found, exiting 1>&2
   exit 1
 fi

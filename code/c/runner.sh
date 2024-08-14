@@ -10,11 +10,9 @@ elif type clang 1>/dev/null 2>&1; then
 elif type tcc 1>/dev/null 2>&1; then
   CMD=tcc
 else
-  echo "No compiler found, please install one of GCC, Clang or TCC to use this script."
+  echo "No compiler found, please install one of GCC, Clang or TCC to use this script." 1>&2
   exit 1
 fi
-
-echo "$CMD found, using."
 
 cd `dirname ${BASH_SOURCE}`
 
@@ -33,6 +31,6 @@ if [ -f "src/main.c" ]; then
   ../out/$1/main.out ${ARGS[*]}
   exit
 else
-  echo "No main.c, exiting."
+  echo No main.c, exiting. 1>&2
   exit 1
 fi

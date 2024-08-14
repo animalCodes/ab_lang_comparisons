@@ -3,7 +3,7 @@
 # Runner for all C# programs.
 
 if ! type dotnet 1>/dev/null 2>&1; then
-  echo "dotnet CLI not found, please install to run."
+  echo dotnet CLI not found, please install to run. 1>&2
   exit 1
 fi
 
@@ -27,6 +27,6 @@ if [ -f "$1.csproj" ] && [ -f "Program.cs" ]; then
   ./bin/Debug/net7.0/$1 ${ARGS[*]}
   exit
 else
-  echo "No $1.csproj or Program.cs file, exiting."
+  echo No $1.csproj or Program.cs file, exiting. 1>&2
   exit 1
 fi
