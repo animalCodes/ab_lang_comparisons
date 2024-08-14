@@ -8,34 +8,21 @@ if ! type javac 1>/dev/null 2>&1; then
   exit 1
 fi
 
-# CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
 
-# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
-if [[ ! $1 ]]; then
-  echo "Usage: runner.sh {program name} {program arguments}"
-  # Automagically generate a list of valid program names
-  echo -n "Valid program names: " && ls -I *.*
-  exit 1
-fi
+. ../scripts/common.sh
 
-# Check specified directory exists, if it does CD into it.
-if [ -d $1 ]; then cd $1
-else
-  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit 1
-fi
+if [[ ! $1 ]]; then echo_dirs_and_exit; fi
+
+cd_or_err $1
 
 # For whatever reason Java doesn't like '_'s in package names, so we have to remove them using this weirdness.
 PACKAGE_NAME=$(echo "${1//_}")
 
-# Make copy of all arguments passed to script and delete first item (name of program)
 ARGS=("$@")
 unset ARGS[0]
 
-# Check that a src directory exists before trying to compile
 if [ -d "src" ]; then
-  # Compile and run
   echo "Compiling, give it a couple seconds."
   javac -d ../out/$1 src/comparisons/java/$PACKAGE_NAME/*
   echo "Done, running."

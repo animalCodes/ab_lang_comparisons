@@ -2,53 +2,36 @@
 
 # Runner for all Rust programs.
 
-# Check cargo command exists 
 if type cargo 1>/dev/null 2>&1; then
   echo "Cargo found, using."
   USECARGO=$(true)
-# Check rustc command exists
 elif type rustc 1>/dev/null 2>&1; then
   echo "Cargo not found, using rustc instead."
-else 
+else
   echo "Neither rustc nor Cargo were found, please install to run."
   exit 1
 fi
 
-# CD into the directory this script is in
 cd `dirname $BASH_SOURCE`
 
-# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
-if [[ ! $1 ]]; then
-  echo "Usage: runner.sh {program name} {program arguments}"
-  # Automagically generate a list of valid program names
-  echo -n "Valid program names: " && ls -I *.*
-  exit 1
-fi
+. ../scripts/common.sh
 
-# Check specified directory exists, if it does CD into it.
-if [ -d $1 ]; then cd $1;
-else
-  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit 1
-fi
+if [[ ! $1 ]]; then echo_dirs_and_exit; fi
 
-# Make copy of all arguments passed to script and delete first item (name of program)
+cd_or_err $1
+
 ARGS=("$@")
 unset ARGS[0]
 
-# Check a src directory exists before attempting to build+run
-if [ -d "src" ]; then 
-  # Use Cargo if it is available, otherwise use rustc directly
+if [ -d "src" ]; then
   if [ $USECARGO ]; then
-    cargo build --target-dir ../out/$1 
-    ../out/$1/main ${ARGS[*]}
-    exit
+    cargo build --target-dir ../out/$1
   else
     rustc --out-dir ../out/$1 src/*
+  fi
     ../out/$1/main ${ARGS[*]}
     exit
-  fi
-else 
+else
   echo "No src directory, exiting."
   exit 1
 fi

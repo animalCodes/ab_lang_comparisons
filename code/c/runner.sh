@@ -2,7 +2,6 @@
 
 # Runner for all C programs.
 
-# Find available compiler(s)
 # We could probably just use `cc`, but this feels less "magic".
 if type gcc 1>/dev/null 2>&1; then
   CMD=gcc
@@ -17,29 +16,17 @@ fi
 
 echo "$CMD found, using."
 
-# CD into the directory this script is in
 cd `dirname ${BASH_SOURCE}`
 
-# If the user didn't specify a program to run, give them a hint + the currently existing implementations.
-if [[ ! $1 ]]; then
-  echo "Usage: runner.sh {program name} {program arguments}"
-  # Automagically generate a list of valid program names
-  echo -n "Valid program names: " && ls -I *.*
-  exit 1
-fi
+. ../scripts/common.sh
 
-# Check specified directory exists, if it does CD into it.
-if [ -d $1 ]; then cd $1
-else
-  echo "\"$1\" doesn't exist. (Hint: running this script without arguments will give you a list of valid program names)"
-  exit 1
-fi
+if [[ ! $1 ]]; then echo_dirs_and_exit; fi
 
-# Make copy of all arguments passed to script and delete first item (name of program)
+cd_or_err $1
+
 ARGS=("$@")
 unset ARGS[0]
 
-# Check a main.c file exists before attempting to compile/run
 if [ -f "src/main.c" ]; then
   mkdir -p ../out/$1
   $CMD src/* -o ../out/$1/main.out -lm
