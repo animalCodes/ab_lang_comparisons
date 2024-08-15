@@ -37,5 +37,5 @@ int main(int argc, char *argv[])
     guess = (guess + (square / guess)) / 2;
     guess = (guess + (square / guess)) / 2; // +1 to be safe
 
-    printf("%.5lf", guess);
+    printf("%.5lf\n", guess);
 }
