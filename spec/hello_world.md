@@ -4,8 +4,16 @@ Print "Hello, World!"
 
 ## Implementation
 
-Send the string "Hello, World!" to Standard Out.
+### Functions
+
+- `print(str)` - Send `str` to stdout with a trailing newline.
+
+### Code
+
+```
+print("Hello, World!")
+```
 
 **Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
 
-**To be implemented in**: 
+**To be implemented in**:
