@@ -8,20 +8,20 @@ import (
 
 func main() {
     if len(os.Args) <= 1 {
-        fmt.Fprintln(os.Stderr, "No number specified, exiting")
+        fmt.Fprintln(os.Stderr, "No number specified, exiting.\n")
         os.Exit(1)
     }
 
-    // String conversion package - string to int
     // If we wanted to ignore the error, we would do `input, _ := ..`
     input, err := strconv.Atoi(os.Args[1])
 
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Unable to convert \"%s\" to a number, exiting.\n", os.Args[1])
-        os.Exit(2)
+        fmt.Fprintf(os.Stderr,
+            "%s cannot be converted into an integer, exiting.\n", os.Args[1])
+        os.Exit(1)
     }
 
-    var output string = ""
+    var output = ""
     if input % 3 == 0 {
         output += "Fizz"
     }

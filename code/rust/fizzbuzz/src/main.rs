@@ -6,19 +6,16 @@ fn main() {
 
     let arg = match args.get(1) {
         None => {
-            // Bit cleaner then panicking
-            eprintln!("No number specified.");
+            eprintln!("No number specified, exiting.");
             process::exit(1);
         },
-        // As str is the last expression here, it'll become the 
-        // expression of the whole match statement
         Some(str) => str,
     };
 
     let num = match arg.parse::<i32>() {
         Err(_) => {
-            eprintln!("Unable to parse '{arg}' as a number");
-            process::exit(2);
+            eprintln!("{arg} cannot be converted into a number, exiting.");
+            process::exit(1);
         },
         Ok(n) => n,
     };
@@ -32,9 +29,7 @@ fn main() {
         out.push_str("Buzz");
     }
 
-    // Use `String::from` rather than just `str = arg` as arg is a `&String`.
     if out.is_empty() || num == 0 {
-        // TODO dereference?
         out = String::from(arg)
     }
 

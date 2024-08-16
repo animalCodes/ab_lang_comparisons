@@ -11,8 +11,8 @@ class Main {
         try {
             num = Integer.valueOf(args[0]);
         } catch (NumberFormatException e) {
-            System.err.println("Unable to parse \"" + args[0] + "\" as an integer, exiting.");
-            System.exit(2);
+            System.err.println(args[0] + " cannot be converted into a number, exiting.");
+            System.exit(1);
         }
 
         String out = "";
@@ -21,8 +21,7 @@ class Main {
         if (num % 5 == 0)
             out += "Buzz";
         if (num == 0 || out == "")
-            // TODO use args[0] 
-            out = String.valueOf(num);
+            out = args[0];
 
         System.out.println(out);
     }

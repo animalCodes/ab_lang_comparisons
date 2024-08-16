@@ -1,35 +1,26 @@
-﻿// Only needed to access StringBuilder
-using System.Text;
-
-if (args.Length < 1)
+﻿if (args.Length < 1)
 {
-    // Console is in the System namespace, which top-level
-    // statements are implicity wrapped in.
-    Console.Error.WriteLine("Unable to find argument, exiting.");
+    Console.Error.WriteLine("No number specified, exiting.");
     return 1;
 }
 
 Int16 num = 0;
 if (!Int16.TryParse(args[0], out num))
 {
-    Console.Error.WriteLine($"Unable to parse \"{args[0]}\" as a number, exiting.");
-    return 2;
+    Console.Error.WriteLine(
+        $"{args[0]} cannot be converted into a number, exiting.");
+    return 1;
 }
 
-// Use StringBuilder to avoid string concatenation, this is dumb over-engineering which you should avoid.
-// TODO this is dumb, use string concatenation
-StringBuilder output = new StringBuilder(4);
-if (num % 3 == 0) 
-    output.Append("Fizz");
+string output = "";
+if (num % 3 == 0)
+    output += "Fizz";
 if (num % 5 == 0)
-    output.Append("Buzz");
+    output += "Buzz";
 
 if (num == 0 || output.Length <= 0)
-{
-    output.Clear();
-    output.Append(num);
-}
+    output = $"{num}";
 
-Console.WriteLine(output.ToString());
+Console.WriteLine(output);
 
 return 0;

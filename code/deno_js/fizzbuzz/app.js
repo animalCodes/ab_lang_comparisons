@@ -1,22 +1,23 @@
-// Deno throws away the path to the script, spicy!
-const input = Deno.args[0]
-
-if (input == null) {
-    console.error("No input specified, exiting.")
+if (Deno.args[0] == null) {
+    console.error("No number specified, exiting.")
     Deno.exit(1)
 }
 
-// Number() function will return `NaN` if unable to convert input to a number.
-const num = Number(input)
+const num = Number(Deno.args[0])
 if (isNaN(num)) {
-    console.error(`Unable to convert "${input}" to a number, exiting.`)
-    Deno.exit(2)
+    console.error(`${Deno.args[0]} cannot be converted into a number, exiting.`)
+    Deno.exit(1)
 }
 
 let output = ""
-// TODO formatting
-if (num % 3 == 0) output += "Fizz"
-if (num % 5 == 0) output += "Buzz"
-if (num == 0 || output == "") output = input
+
+if (num % 3 == 0)
+    output += "Fizz"
+
+if (num % 5 == 0)
+    output += "Buzz"
+
+if (num == 0 || output == "")
+    output = Deno.args[0]
 
 console.log(output)
