@@ -2,25 +2,52 @@
 
 CLI program for playing rock paper scissors against the computer.
 
-The user will input their choice (via command-line argument) on execution, the program randomly generates it's own choice and the two are compared to find a winner.
+The user will input their choice on execution, the program randomly generates its own choice and the two are compared to find a winner.
 
 ## Implementation
 
-* Retrieve the user's choice. (Should be the first argument given to the program)
-    * If no input was given, inform the user and exit.
+### Functions
 
-* Check the input is actually a valid choice such as "rock", "paper", or "scissors". (Case-insensitive)
-    * If it isn't, print the valid options and exit.
+- `print_err(str)` - Send `str` to stderr with a trailing newline.
 
-Randomly choose rock, paper or scissors as the computer's choice.
-It should be noted that pseudo-random choice selection is entirely acceptable, the only goal here is that the *human* user won't be able to accurately guess what the computer will choose.
+- `print(str)` - Send `str` to stdout with a trailing newline.
 
-* Print the user's and computer's choices.
-    * Use the format "{player}: {choice}" ie "Computer: Scissors"
+- `random_choice()` - One of "rock", "paper" or "scissors", chosen randomly.
 
-* Compare the two choices and print the winner.
-    * Use the format "Winner: {Winner}!", for instance "Winner: Computer!"
-    * ...Unless it's a tie, in which case just print "Tie!"
+- `exit(code)` - Terminate program with exit code `code`.
+
+### Code
+
+> Note: in this psuedo-code strings are treated as equal even if their cases differ.
+
+```
+if (argc < 2) {
+    print_err("No argument specified, exiting.")
+    exit(1)
+}
+
+u_choice = argv[1]
+
+if (u_choice != "rock" && u_choice != "paper"
+    && u_choice != "scissors) {
+    print_err("Invalid choice \"%s\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.)
+    exit(1)
+}
+
+c_choice = random_choice()
+
+print("User: %s", u_choice)
+print("Computer: %s", c_choice)
+
+if (c_choice == u_choice)
+    print("Tie!")
+else if (c_choice == "rock" && u_choice == "paper"
+    || c_choice == "paper" && u_choice == "scissors"
+    || c_choice == "scissors" &&  u_choice == "rock")
+    print("Winner: User!")
+else
+    print("Winner: Computer!")
+```
 
 **Implemented in**: C.
 
