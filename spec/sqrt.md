@@ -2,32 +2,79 @@
 
 Print the square root of a given number accurate to 5 decimal places, or NaN if it cannot be computed.
 
+This spec is largely based on the sqrt() function found in C's <math.h> header.
+
 ## Implementation
 
-This spec is largely based on the sqrt() function found in C's "libm".
+### Functions
 
-The first argument given to the program should be a decimal number string with an optional exponent indicating multiplication by a power of ten (scientific notation).
-As the argument will be converted into a floating-point number, the special values "inf", "infinity" and "nan" (with optional leading +/-, ignoring case) should be parsed as such.
-* If input is none-existent or cannot be converted into a (double precision) float, treat as 0.
+- `print(str)` - Send `str` to stdout with a trailing newline.
 
-If the parsed input is:
-* +0 or -0, print input and exit.
-* NaN or < -0, print "NaN" and exit.
-* +Infinity, print "+Infinity" and exit.
+- `print_n(num)` - Convert `num` to a string representing its value as a decimal number including 5 decimal places, send to stdout with a trailing newline.
 
-From here on, the parsed input will be referred to as `square`.
+- `nan(num)` - Whether `num` is NaN.
 
-We'll use [Heron's Method](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Heron's_method) to compute the square root, due to it's relative simplicity and ease of implementation.
+- `inf(num)` - Whether `num` is +Infinity.
 
-TL:DR, Heron's method works by iteratively refining a guess until the desired precision is reached, we know the digits past a certain point are correct once they stop changing.
+- `floor(num)` Largest integer not greater than `num`.
 
-While there are various methods of estimating a seed value, they end up being more complicated than the actual computation itself. So in the interest of simplicity, we'll use an initial estimate of 1.
-* initialise `guess` to 1.
+- `exit(code)` - Terminate program with exit code `code`.
 
-Compute the following until the integer part + the first 5 decimal digits of `guess` are correct (unchanging):
-* `guess` = (`guess` + (`square` / `guess`))
+As the number - where possible - will be converted into a floating-point number, the following functions accept decimal number strings with an optional exponent indicating multiplication by a power of ten (scientific notation). Additionally, special values such as "inf", "infinity" and "nan" (with optional leading `+`/`-`, ignoring case) are accepted.
 
-Print the computed square root including its first 5 decimal digits.
+- `num_str(str)` - Test whether `str` could be converted into a number.
+
+- `str_to_num(str)` - Convert `str` into a number.
+
+### Code
+
+```
+if (argc < 2 || !num_str(argv[1])
+    square = 0
+else
+    square = str_to_num(argv[1])
+
+if (square == +0 || square == -0) {
+    print(argv[1])
+    exit(0)
+} else if (nan(square) || square < -0) {
+    print("NaN")
+    exit(0)
+} else if (inf(square)) {
+    print("+Infinity")
+    exit(0)
+}
+```
+
+> We'll use [Heron's Method](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Heron's_method) to compute the square root, due to its relative simplicity and ease of implementation.
+>
+> TL:DR, Heron's method works by iteratively refining a guess until the desired precision is reached, we know the digits past a certain point are correct once they stop changing.
+>
+> While there are various methods of estimating a seed value, they end up being more complicated than the actual computation itself. So in the interest of simplicity, we'll use an initial estimate of 1.
+>
+> This specification uses a wonky method to ensure *all* integer digits are correct (check if previous and current values are the same once **floored**), please note that this is by no means *the* way to do it.
+>
+> Finally, Heron's method *roughly* doubles the precision of the guess on each iteration, so to be safe once the integer digits are correct, *6* further iterations are performed to ensure that at least 5 decimal digits are correct.
+
+```
+guess = 1
+
+while (true) {
+    prev = floor(guess)
+    guess = (guess + (square / guess)) / 2
+    if (prev == floor(guess))
+        break
+}
+
+guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2;
+
+print_n(guess)
+```
 
 **Implemented in**: C.
 

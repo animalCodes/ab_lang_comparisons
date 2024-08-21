@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
 
     double prev, guess = 1;
 
-    // Compute integer digits
     while (1) {
         prev = floor(guess);
         guess = (guess + (square / guess)) / 2;
@@ -35,7 +34,7 @@ int main(int argc, char *argv[])
     guess = (guess + (square / guess)) / 2;
     guess = (guess + (square / guess)) / 2;
     guess = (guess + (square / guess)) / 2;
-    guess = (guess + (square / guess)) / 2; // +1 to be safe
+    guess = (guess + (square / guess)) / 2;
 
     printf("%.5lf\n", guess);
 }
