@@ -5,12 +5,8 @@ int main()
 {
     int array[16] = {5, -8654, 2, 23, 435, 23, 23465, 4, 66765, 0, 3534, 9,  32,
       76, -92, 10};
-    int pos_i, // Index currently being sorted
-        i, // Position in unsorted subarray
-        pos_min, // Position of currently known smallest number
-        temp; // Temporarily holds an item during swapping
+    int pos_i, i, pos_min, temp;
 
-    // Yes yes we could just use 16 but this is more resilient
     int arrsize = sizeof array / sizeof array[0];
 
     for (pos_i = 0; pos_i < arrsize; pos_i++) {

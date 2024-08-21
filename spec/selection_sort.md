@@ -1,23 +1,60 @@
 # Selection sort
 
-The most notable feature of this sorting algorithm is that it never "re-sorts" an item. that is, once an item is known to be in its correct position, it will not be touched - or even looked at - again.
-
-This is accomplished by splitting the array into two (conceptual) subarrays, where the first subarray is entirely comprised of sorted items that will not be touched again. 
-On each iteration the current item is compared against all remaining items, if one is deemed "more valuable" the two values will be swapped, and so on until the "most valuable" item for that iteration is found.
-Once the end of the array is reached, the same process is carried out with the next item, until the array is exhausted.
+Selection sort is a sorting algorithm which, while not being particularly efficient, is much easier to understand than many other sorting algorithms.
 
 ## Implementation
 
-For simplicity's sake, the initial array (from here on referred to as just "array") should be hard-coded into the program itself, and to avoid confusion, all implementations should use the following set of values:
-* `[5, -8654, 2, 23, 435, 23, 23465, 4, 66765, 0, 3534, 9, 32, 76, -92, 10]`
+### Functions
 
-Sort from least to greatest.
+- `size(array)` - The number of elements in `array`.
 
-* Iterate over array (for i).
-  * On every iteration, find the minimum value element past array[i].
-  * If the found element isn't equal to array[i], swap them.
+- `print_arr(array)` - Print the members of `array`, deliminated by ", ", surrounded by square brackets.
 
-* Print the sorted array in the format shown above.
+### Code
+
+> The basic operation of selection sort is as follows:
+>
+> Split the array into two (conceptual) subarrays, where the first is comprised of sorted items. (At first it will only have one member)
+>
+> On each iteration, compare the next item against all others in the unsorted subarray, until the least - or greatest - is found.
+>
+> At the end of each iteration, the "most valuable" item is swapped with the current one.
+>
+> The above process is repeated until the sorted subarray has entirely consumed the unsorted one.
+
+> This implementation uses the following variables:
+>
+> - `array`, the static array to be sorted.
+>
+> - `pos_i`, index currently being sorted.
+>
+> - `i`, position in unsorted subarray.
+>
+> - `pos_min`, position of currently known smallest number.
+>
+> - `temp`, used for swapping; temporarily holds the value of a member.
+
+> Sort from least to greatest.
+
+```
+array = [5, -8654, 2, 23, 435, 23, 23465, 4, 66765, 0, 3534, 9, 32, 76, -92, 10]
+
+for (pos_i = 0; pos_i < size(array); pos_i++) {
+    pos_min = pos_i
+    for (i = pos_i + 1; i < size(array); i++) {
+        if (array[i] < array[pos_min])
+            pos_min = i
+    }
+
+    if (pos_min != pos_i) {
+        temp = array[pos_min]
+        array[pos_min] = array[pos_i]
+        array[pos_i] = temp
+    }
+}
+
+print_arr(array)
+```
 
 **Implemented in**: C.
 
