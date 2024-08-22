@@ -1,29 +1,59 @@
 # Caesar C(i|y)pher
 
-One of the easiest ciphers to crack, nevertheless fun to implement.
-
 Also known as the "shift cipher", the caesar cipher works by shifting the letters of the message a certain number of positions up or down the alphabet.
 
 As an example, the message "abc" encrypted with a shift (or *key*) of 3 would result in the message "def".
 
-See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher).
+See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) for more.
 
 ## Implementation
 
-Should receive at least two arguments when executed, the first being an integer representing the shift and the rest being the message to be encrypted.
-* Notify user and exit if not enough arguments are given.
+### Functions
 
-Convert the first argument to a number - the key, this can be positive or negative.
-* If this cannot be done, notify the user and exit.
+- `print_err(str)` - Send `str` to stderr with a trailing newline.
 
-Ensure every character in the message is lowercase.
+- `print(str)` - Send `str` to stdout with a trailing newline.
 
-For every character in the message, if it's alphabetical:
-* If the key is positive, shift it that many times "up" the alphabet.
-* If the key is negative, shift it that many times "down" the alphabet.
-* In the case of "overflows", wrap around to the other end of the alphabet and continue shifting.
+- `num_str(str)` - Whether `str` could be converted into a number.
 
-Print the scrambled message.
+- `str_to_num(str)` - Convert `str` into a number.
+
+- `lowercase(str)` - Return a copy of `str` with all characters converted to lowercase.
+
+- `size(str)` - The size (number of characters in) `str`.
+
+- `shift(char, n)` - Return `char` shifted `n` times up or down the alphabet, "wrapping around" if necessary.
+
+- `exit(code)` - Terminate program with exit code `code`.
+
+### Code
+
+> In the following pseudo-code, the first argument is the shift, all other arguments are treated as a single string accessible through the `message` variable.
+
+```
+if (argc < 3) {
+    if (argc == 2)
+        print_err("No message given, exiting.")
+    else
+        print_err("No shift or message given, exiting.")
+    exit(1)
+}
+
+if (!num_str(argv[1])) {
+    print_err("%s cannot be converted into a number, exiting.", argv[1])
+    exit(1)
+}
+
+key = str_to_num(argv[1])
+
+message = lowercase(message)
+
+for (i = 0; i < size(message); i++) {
+    message[i] = shift(message[i], key)
+}
+
+print(message)
+```
 
 **Implemented in**: C.
 
