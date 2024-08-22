@@ -2,6 +2,12 @@
 
 Prints "True" or "False" depending on whether the number received is a prime number.
 
+### Invocation
+
+`is_prime in`
+
+- `in` - Number to check.
+
 ## Implementation
 
 ### Functions
@@ -12,6 +18,8 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 - `num_str(str)` - Test whether `str` could be converted into a number.
 
+- `divisible(n, m)` - Whether `n` is divisible by `m`.
+
 - `str_to_num(str)` - Convert `str` into a number.
 
 - `exit(code)` - Terminate program with exit code `code`.
@@ -19,17 +27,17 @@ Prints "True" or "False" depending on whether the number received is a prime num
 ### Code
 
 ```
-if (argc < 2) {
+if (in == null) {
     print_err("No number specified, exiting.")
     exit(1)
 }
 
-if (num_str(argv[1])) {
-    print_err("%s cannot be converted into a number, exiting.", argv[1])
+if (num_str(in)) {
+    print_err("%s cannot be converted into a number, exiting.", in)
     exit(1)
 }
 
-n = str_to_num(argv[1])
+n = str_to_num(in)
 ```
 
 > While there are many ways to figure out if a number is prime, we'll stick to Trial Division, as it is reasonably efficient and can actually be understood by normal people.
@@ -43,23 +51,23 @@ n = str_to_num(argv[1])
 > Secondly, there is a good chance that, if none-prime, the input will be divisible by 2 or 3. 
 
 ```
-if (n < 2 || (n > 2 && divisible by 2) || (n > 3 && divisible by 3)) {
+if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
     print("False")
     exit(0)
 }
 ```
 
-> If the above checks passed, we need to check every possible factor of input.
+> If the above checks passed, we need to check every possible factor of `n`.
 >
 > We know the number can't be divisible by 2 or 3, so there is no point in checking whether it is divisible by 6, for instance. We need to skip those numbers.
 >
-> Additionally, we only need to check up to the square root of input, as anything above that will have already been checked - if the square root is 10, checking 25 (25 * 4 = 100) would be redundant, as we will have already checked 4.
+> Additionally, we only need to check up to the square root of `n`, as anything above that will have already been checked - if the square root is 10, checking 25 (25 * 4 = 100) would be redundant, as we will have already checked 4.
 >
 > This is actually quite simple, like so:
 
 ```
 for (i = 5; i*i < n; i += 6) {
-    if (num divisible by i || num divisible by i+2) {
+    if (divisible(n, i) || divisible(n, i+2)) {
         print("False")
         exit(0)
     }

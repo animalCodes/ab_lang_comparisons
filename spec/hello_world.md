@@ -2,6 +2,10 @@
 
 Print "Hello, World!"
 
+### Invocation
+
+`hello_world`
+
 ## Implementation
 
 ### Functions

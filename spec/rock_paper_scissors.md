@@ -4,6 +4,12 @@ CLI program for playing rock paper scissors against the computer.
 
 The user will input their choice on execution, the program randomly generates its own choice and the two are compared to find a winner.
 
+### Invocation
+
+`rock_paper_scissors u_choice`
+
+- `u_choice` - The user's choice, *should* be one of "rock", "paper" or "scissors" (case-insensitive).
+
 ## Implementation
 
 ### Functions
@@ -21,12 +27,10 @@ The user will input their choice on execution, the program randomly generates it
 > Note: in this psuedo-code strings are treated as equal even if their cases differ.
 
 ```
-if (argc < 2) {
-    print_err("No argument specified, exiting.")
+if (u_choice == null) {
+    print_err("No choice specified, exiting.")
     exit(1)
 }
-
-u_choice = argv[1]
 
 if (u_choice != "rock" && u_choice != "paper"
     && u_choice != "scissors) {

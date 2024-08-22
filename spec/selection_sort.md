@@ -2,6 +2,10 @@
 
 Selection sort is a sorting algorithm which, while not being particularly efficient, is much easier to understand than many other sorting algorithms.
 
+### Invocation
+
+`selection_sort`
+
 ## Implementation
 
 ### Functions

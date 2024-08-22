@@ -2,6 +2,14 @@
 
 *Short description of the program*
 
+### Invocation
+
+`Title [arguments]`
+
+- List of above arguments explaining how they should be interpreted and what they are used for.
+
+Arguments may be referred to as variables in below pseudo-code, with `arg != null` meaning "argument was set" etc.
+
 ## Implementation
 
 ### Functions *(Optional)*
@@ -21,7 +29,6 @@ outlining the operations an implementation should perform to fulfull the specifi
 Specific restrictions:
 - Variables and functions should be named in snake_case.
 - Any linebreaks in printed output must be explicitly included. (\n)
-- The number of arguments given to the program and their values must be retrieved from the argc and argv[] variables respectively.
 - Blocks of code - i.e. after an if statement - must be wrapped in {}.
 
 and, if needed

@@ -6,6 +6,14 @@ As an example, the message "abc" encrypted with a shift (or *key*) of 3 would re
 
 See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) for more.
 
+### Invocation
+
+`caesar_cipher shift message`
+
+- `shift` - The number of places to shift each character of `message`, may be negative.
+
+- `message ` - The message to shift, rest of arguments given to program treated as a single string.
+
 ## Implementation
 
 ### Functions
@@ -14,9 +22,9 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 - `print(str)` - Send `str` to stdout with a trailing newline.
 
-- `num_str(str)` - Whether `str` could be converted into a number.
+- `int_str(str)` - Whether `str` could be converted into an integer.
 
-- `str_to_num(str)` - Convert `str` into a number.
+- `str_to_int(str)` - Convert `str` into an integer.
 
 - `lowercase(str)` - Return a copy of `str` with all characters converted to lowercase.
 
@@ -28,23 +36,21 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 ### Code
 
-> In the following pseudo-code, the first argument is the shift, all other arguments are treated as a single string accessible through the `message` variable.
-
 ```
-if (argc < 3) {
-    if (argc == 2)
+if (shift == null || message == null) {
+    if (shift != null) {
         print_err("No message given, exiting.")
     else
         print_err("No shift or message given, exiting.")
     exit(1)
 }
 
-if (!num_str(argv[1])) {
-    print_err("%s cannot be converted into a number, exiting.", argv[1])
+if (!int_str(shift)) {
+    print_err("%s cannot be converted into an integer, exiting.", argv[1])
     exit(1)
 }
 
-key = str_to_num(argv[1])
+key = str_to_int(shift)
 
 message = lowercase(message)
 

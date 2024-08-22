@@ -4,6 +4,12 @@ Print the square root of a given number accurate to 5 decimal places, or NaN if 
 
 This spec is largely based on the sqrt() function found in C's <math.h> header.
 
+### Invocation
+
+`sqrt in`
+
+- `in` - Number to calculate square root of, in format described in Functions section.
+
 ## Implementation
 
 ### Functions
@@ -29,13 +35,13 @@ As the number - where possible - will be converted into a floating-point number,
 ### Code
 
 ```
-if (argc < 2 || !num_str(argv[1])
+if (in == null || !num_str(in))
     square = 0
 else
-    square = str_to_num(argv[1])
+    square = str_to_num(in)
 
 if (square == +0 || square == -0) {
-    print(argv[1])
+    print(in)
     exit(0)
 } else if (nan(square) || square < -0) {
     print("NaN")
