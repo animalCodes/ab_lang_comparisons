@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
     }
 
     if (num != 0) { // Could just do `!num`, but that doesn't feel right in C++
-        // 'FizzBuzz NUMber', whether number is divisible by 3 or 5.
         bool fb_num = false;
         if (num % 3 == 0) {
             cout << "Fizz";
