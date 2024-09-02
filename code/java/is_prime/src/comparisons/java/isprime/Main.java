@@ -6,29 +6,28 @@ class Main {
             System.err.println("No number specified, exiting");
             System.exit(1);
         }
-        
-        int num = 0;
-        try {num = Integer.valueOf(args[0]);}
-        catch (NumberFormatException e) {
-            System.err.println("Unable to parse \""+args[0]+"\" as an Integer, exiting.");
+
+        int num;
+        try {
+            num = Integer.valueOf(args[0]);
+        } catch (NumberFormatException e) {
+            System.err.println("Unable to parse \"" + args[0] +
+                "\" as an Integer, exiting.");
             System.exit(2);
+            return;
         }
-        
-        // I could just put the innards of `isPrime()` here, but this feels more 'Java-y'
-        if (isPrime(num)) {
+
+        if (isPrime(num))
             System.out.println("True");
-            System.exit(0);
-        } else {
+        else
             System.out.println("False");
-            // Technically unnecessary, but semantic
-            System.exit(0);
-        }
     }
 
     /**
-     * Determines whether `num` is prime via trial division.
-     * @param num Number to check
-     * @return Whether `num` is prime
+     * Whether `num` is prime.
+     *
+     * @param num Number to check.
+     * @return Whether `num` is prime.
     */
     private static boolean isPrime(int num) {
         if (num < 2
