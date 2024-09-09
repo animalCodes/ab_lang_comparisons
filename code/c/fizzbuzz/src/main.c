@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
     int num = atoi(argv[1]);
     if (!num && *argv[1] != '0') {
-        fprintf(stderr, "%s cannot be converted into an integer, exiting.\n",
+        fprintf(stderr, "%s cannot be converted into a number, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;
     }

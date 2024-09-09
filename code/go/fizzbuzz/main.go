@@ -17,7 +17,7 @@ func main() {
 
     if err != nil {
         fmt.Fprintf(os.Stderr,
-            "%s cannot be converted into an integer, exiting.\n", os.Args[1])
+            "%s cannot be converted into a number, exiting.\n", os.Args[1])
         os.Exit(1)
     }
 

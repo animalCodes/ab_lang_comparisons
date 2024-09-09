@@ -10,6 +10,17 @@ For simplicity, this specification only implements the core functionality of the
 
 - `num` - Number to check.
 
+### Examples
+
+| Input            | Output                                              |
+| ---------------- | --------------------------------------------------- |
+| `fizzbuzz 1`     | `1`                                                 |
+| `fizzbuzz 3`     | `Fizz`                                              |
+| `fizzbuzz 5`     | `Buzz`                                              |
+| `fizzbuzz 15`    | `FizzBuzz`                                          |
+| `fizzbuzz`       | `No number specified, exiting.`                     |
+| `fizzbuzz lorem` | `lorem cannot be converted into a number, exiting.` |
+
 ## Implementation
 
 ### Functions

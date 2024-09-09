@@ -15,7 +15,7 @@ if (arg == null) {
     console.error("No number specified, exiting.")
     exit(1)
 } else if (isNaN(arg)) {
-    console.error(`${argv[2]} cannot be converted into an integer, exiting.`)
+    console.error(`${argv[2]} cannot be converted into a number, exiting.`)
     exit(1)
 }
 

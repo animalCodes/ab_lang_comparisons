@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     // argument)
     if (num == 0 && argv[1][0] != '0') {
         cerr << argv[1]
-             << "cannot be converted into an integer, exiting.\n";
+             << "cannot be converted into a number, exiting.\n";
         return 1;
     }
 
