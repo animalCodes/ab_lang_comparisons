@@ -8,6 +8,17 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 - `in` - Number to check.
 
+### Examples
+
+| Input            | Output                                              |
+| ---------------- | --------------------------------------------------- |
+| `is_prime -1`    | `False`                                             |
+| `is_prime 0`     | `False`                                             |
+| `is_prime 2`     | `True`                                              |
+| `is_prime 13`    | `True`                                              |
+| `is_prime`       | `No number specified, exiting.`                     |
+| `is_prime lorem` | `lorem cannot be converted into a number, exiting.` |
+
 ## Implementation
 
 ### Functions
