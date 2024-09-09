@@ -3,8 +3,7 @@
 
 int main()
 {
-    int array[16] = {5, -8654, 2, 23, 435, 23, 23465, 4, 66765, 0, 3534, 9,  32,
-      76, -92, 10};
+    int array[] = {-864, 2, 23, 435, 23, -4, 6765, 0, 3534, 9, 32, -92};
     int pos_i, i, pos_min, temp;
 
     int arrsize = sizeof array / sizeof array[0];

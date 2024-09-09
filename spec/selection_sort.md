@@ -6,6 +6,12 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 
 `selection_sort`
 
+### Examples
+
+| Input            | Output                                                  |
+| ---------------- | ------------------------------------------------------- |
+| `selection_sort` | `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]` |
+
 ## Implementation
 
 ### Functions
@@ -41,7 +47,7 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 > Sort from least to greatest.
 
 ```
-array = [5, -8654, 2, 23, 435, 23, 23465, 4, 66765, 0, 3534, 9, 32, 76, -92, 10]
+array = [-864, 2, 23, 435, 23, -4, 6765, 0, 3534, 9, 32, -92]
 
 for (pos_i = 0; pos_i < size(array); pos_i++) {
     pos_min = pos_i
