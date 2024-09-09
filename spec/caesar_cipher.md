@@ -12,13 +12,26 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 - `shift` - The number of places to shift each character of `message`, may be negative.
 
-- `message ` - The message to shift, rest of arguments given to program treated as a single string.
+- `message` - The message to shift, rest of arguments given to program treated as a single string.
+
+### Examples
+
+| Input                  | Output                                           |
+| ---------------------  | ------------------------------------------------ |
+| `caesar_cipher 3 abc`  | `def`                                            |
+| `caesar_cipher -3 abc` | `xyz`                                            |
+| `caesar_cipher 65 abc` | `nop`                                            |
+| `caesar_cipher 0 abc`  | `abc`                                            |
+| `caesar_cipher 5 foo1` | `ktt1`                                           |
+| `caesar_cipher foo a`  | `Couldn't convert "foo" to an integer, exiting.` |
+| `caesar_cipher 5`      | `No message given, exiting.`                     |
+| `caesar_cipher`        | `No shift or message given, exiting.`            |
 
 ## Implementation
 
 ### Functions
 
-- `print_err(str)` - Send `str` to stderr with a trailing newline.
+- `print_err(str)` - Send string `str` to stderr with a trailing newline.
 
 - `print(str)` - Send `str` to stdout with a trailing newline.
 
@@ -30,7 +43,7 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 - `size(str)` - The size (number of characters in) `str`.
 
-- `shift(char, n)` - Return `char` shifted `n` times up or down the alphabet, "wrapping around" if necessary.
+- `shift(char, n)` - Return `char` shifted `n` times up or down the alphabet, "wrapping around" if necessary. None-alphabetical characters are left as-is.
 
 - `exit(code)` - Terminate program with exit code `code`.
 
@@ -46,7 +59,7 @@ if (shift == null || message == null) {
 }
 
 if (!int_str(shift)) {
-    print_err("%s cannot be converted into an integer, exiting.", argv[1])
+    print_err("Couldn't convert \"%s\" to an integer, exiting.", argv[1])
     exit(1)
 }
 
