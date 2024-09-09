@@ -10,6 +10,19 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 - `in` - Number to calculate square root of, in format described in Functions section.
 
+### Examples
+
+| Input      | Output      |
+| ---------- | ----------- |
+| `sqrt 0`   | `0`         |
+| `sqrt 25`  | `5.00000`   |
+| `sqrt 73`  | `8.54400`   |
+| `sqrt -10` | `NaN`       |
+| `sqrt nan` | `NaN`       |
+| `sqrt inf` | `+Infinity` |
+| `sqrt foo` | `foo`       |
+| `sqrt`     | `0`         |
+
 ## Implementation
 
 ### Functions
