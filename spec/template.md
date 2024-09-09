@@ -10,6 +10,16 @@
 
 Arguments may be referred to as variables in below pseudo-code, with `arg != null` meaning "argument was set" etc.
 
+### Examples
+
+A table showing example invocations and expected output, aim for at least 3.
+
+Unless noted otherwise, output is implied to have a trailing newline.
+
+| Input      | Output |
+| ---------- | ------ |
+| `echo foo` | `foo`  |
+
 ## Implementation
 
 ### Functions *(Optional)*

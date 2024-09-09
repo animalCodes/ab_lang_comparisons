@@ -6,6 +6,12 @@ Print "Hello, World!"
 
 `hello_world`
 
+### Examples
+
+| Input         | Output          |
+| ------------- | --------------- |
+| `hello_world` | `Hello, World!` |
+
 ## Implementation
 
 ### Functions
