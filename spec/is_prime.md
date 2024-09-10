@@ -10,14 +10,15 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 ### Examples
 
-| Input            | Output                                              |
-| ---------------- | --------------------------------------------------- |
-| `is_prime -1`    | `False`                                             |
-| `is_prime 0`     | `False`                                             |
-| `is_prime 2`     | `True`                                              |
-| `is_prime 13`    | `True`                                              |
-| `is_prime`       | `No number specified, exiting.`                     |
-| `is_prime lorem` | `lorem cannot be converted into a number, exiting.` |
+| Input            | Output                                                |
+| ---------------- | ----------------------------------------------------- |
+| `is_prime -1`    | `False`                                               |
+| `is_prime 0`     | `False`                                               |
+| `is_prime 2`     | `True`                                                |
+| `is_prime 5.6`   | `False`                                               |
+| `is_prime 13`    | `True`                                                |
+| `is_prime`       | `No number specified, exiting.`                       |
+| `is_prime lorem` | `"lorem" cannot be converted into a number, exiting.` |
 
 ## Implementation
 
@@ -27,11 +28,13 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 - `print(str)` - Send `str` to stdout with a trailing newline.
 
-- `num_str(str)` - Test whether `str` could be converted into a number.
-
-- `divisible(n, m)` - Whether `n` is divisible by `m`.
+- `num_str(str)` - Whether `str` could be converted into a number.
 
 - `str_to_num(str)` - Convert `str` into a number.
+
+- `natural(n)` - Whether `n` is a natural number (positive integer).
+
+- `divisible(n, m)` - Whether `n` is divisible by `m`.
 
 - `exit(code)` - Terminate program with exit code `code`.
 
@@ -44,11 +47,16 @@ if (in == null) {
 }
 
 if (num_str(in)) {
-    print_err("%s cannot be converted into a number, exiting.", in)
+    print_err("\"%s\" cannot be converted into a number, exiting.", in)
     exit(1)
 }
 
 n = str_to_num(in)
+
+if (!natural(n)) {
+    print("False")
+    exit(0)
+}
 ```
 
 > While there are many ways to figure out if a number is prime, we'll stick to Trial Division, as it is reasonably efficient and can actually be understood by normal people.
@@ -87,6 +95,6 @@ for (i = 5; i*i < n; i += 6) {
 print("True")
 ```
 
-**Implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**Implemented in**:
 
-**To be implemented in**:
+**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
