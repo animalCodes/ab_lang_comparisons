@@ -1,21 +1,26 @@
 ﻿if (args.Length < 1) 
 {
-    Console.Error.WriteLine("Unable to locate input, exiting");
+    Console.Error.WriteLine("No number specified, exiting");
     return 1;
 }
 
-int num = 0;
-if (!Int32.TryParse(args[0], out num))
+double num = 0;
+if (!Double.TryParse(args[0], out num))
 {
-    Console.Error.WriteLine($"Unable to convert \"{args[0]}\" to a number");
+    Console.Error.WriteLine(
+        $"\"{args[0]}\" cannot be converted into a number, exiting.");
     return 2;
 }
 
-if (num < 2
-    // A number can't be divided by a number greater than itself, so in this case `!= 2` and `!= 3` are equivalent to `> 2` and `> 3`.
-    // TODO what?
-    || num % 2 == 0 && num != 2
-    || num % 3 == 0 && num != 3) {
+// I'm not even sure why these methods exist but I'm gonna use 'em regardless
+if (!Double.IsEvenInteger(num) && !Double.IsOddInteger(num)) {
+    Console.WriteLine("False");
+    return 0;
+}
+
+if (num < 2 || num % 2 == 0 && num != 2
+    || num % 3 == 0 && num != 3)
+{
     Console.WriteLine("False");
     return 0;
 }
