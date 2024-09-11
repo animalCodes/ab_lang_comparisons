@@ -3,17 +3,24 @@ package comparisons.java.isprime;
 class Main {
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.err.println("No number specified, exiting");
+            System.err.println("No number specified, exiting.");
             System.exit(1);
         }
 
-        int num;
+        Float input;
         try {
-            num = Integer.valueOf(args[0]);
+            input = Float.valueOf(args[0]);
         } catch (NumberFormatException e) {
-            System.err.println("Unable to parse \"" + args[0] +
-                "\" as an Integer, exiting.");
-            System.exit(2);
+            System.err.println('"' + args[0] +
+                "\" cannot be converted into a number, exiting.");
+            System.exit(1);
+            return;
+        }
+
+        int num = input.intValue();
+
+        if (input != num) {
+            System.err.println("False");
             return;
         }
 
@@ -36,7 +43,7 @@ class Main {
             return false;
         }
 
-        for (int counter = 5; counter*counter < counter; counter += 6) {
+        for (int counter = 5; counter*counter < num; counter += 6) {
             if (num % counter == 0 || num % counter+2 == 0) {
                 return false;
             }
