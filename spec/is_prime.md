@@ -95,6 +95,6 @@ for (i = 5; i*i < n; i += 6) {
 print("True")
 ```
 
-**Implemented in**:
+**Implemented in**: C.
 
-**To be implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
