@@ -1,12 +1,19 @@
 if ARGV.empty?
-  STDERR.puts "No number specified."
-  exit
-elsif ARGV[0].to_i == 0 && ARGV[0] != "0"
-  STDERR.puts "Unable to convert \"#{ARGV[0]}\" to a number."
-  exit
+  STDERR.puts "No number specified, exiting."
+  exit 1
 end
 
 num = ARGV[0].to_i
+
+if num == 0 && !ARGV[0].match('0+\.?0*')
+  STDERR.puts "\"#{ARGV[0]}\" cannot be converted into a number, exiting."
+  exit 1
+end
+
+if ARGV[0].match('\d+\.[1-9]+')
+  puts "False"
+  exit 1
+end
 
 if num <= 1 || num > 2 && num % 2 == 0 || num > 3 && num % 3 == 0
   puts "False"
