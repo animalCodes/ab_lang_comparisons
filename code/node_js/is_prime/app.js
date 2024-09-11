@@ -1,12 +1,19 @@
 const {argv, exit} = require("node:process");
 
-const num = Number(argv[2])
-if (num == null) {
-    console.error("No argument specified, exiting.")
+if (argv[2] == null) {
+    console.error("No number specified, exiting.")
     exit(1)
-} else if (isNaN(num)) {
-    console.error(`Couldn't convert ${argv[2]} to a number, exiting.`)
-    exit(2)
+}
+
+const num = Number(argv[2])
+if (isNaN(num)) {
+    console.error(`"${argv[2]}" cannot be converted into a number, exiting.`)
+    exit(1)
+}
+
+if (!Number.isInteger(num)) {
+    console.log("False")
+    exit(0)
 }
 
 if (num < 2

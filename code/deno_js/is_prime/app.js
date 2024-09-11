@@ -1,14 +1,19 @@
 const input = Deno.args[0]
 
 if (input == undefined) {
-    console.error("No input received, exiting")
+    console.error("No number specified, exiting.")
     Deno.exit(1)
 }
 
 const num = Number(input)
 if (isNaN(num)) {
-    console.error(`Unable to convert "${input}" to a number, exiting.`)
-    Deno.exit(2)
+    console.error(`"${input}" cannot be converted into a number, exiting.`)
+    Deno.exit(1)
+}
+
+if (!Number.isInteger(num)) {
+    console.log("False")
+    Deno.exit()
 }
 
 if (num < 2
