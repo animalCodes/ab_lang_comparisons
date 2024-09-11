@@ -6,17 +6,23 @@ fun main(args: Array<String>) {
         System.exit(1)
     }
 
-    val input: Int? = args[0].toIntOrNull()
+    val input: Float? = args[0].toFloatOrNull()
     if (input == null) {
         System.err.println(
-            "Unable to convert \"${args[0]}\" to a number, exiting.")
-        System.exit(2)
+            "\"${args[0]}\" cannot be converted into a number, exiting.")
+        System.exit(1)
         return
     }
 
-    if (input < 2
-        || input > 2 && input % 2 == 0
-        || input > 3 && input % 3 == 0) {
+    val num: Int = input.toInt()
+    if (input > num) {
+        println("False")
+        return
+    }
+
+    if (num < 2
+        || num > 2 && num % 2 == 0
+        || num > 3 && num % 3 == 0) {
         println("False")
         return
     }
@@ -24,8 +30,8 @@ fun main(args: Array<String>) {
     // We could use a range here to generate the sequence, but that would
     // require calculating the square root of `input`.
     var i = 5
-    while (i * i < input) {
-        if (input % i == 0 || input % i+2 == 0) {
+    while (i * i < num) {
+        if (num % i == 0 || num % i+2 == 0) {
             println("False")
             return
         }
