@@ -29,11 +29,13 @@ The aim of this project is to accurately demonstrate what it is like to use diff
 
 * **Impossibilities**: In the case where it is literally impossible to implement a demo in a language, a file named "no_code.md" should be written in its place which explains why it is impossible to implement.
 
-## New demonstrations / specifications:
+## Specifications
 
 * When contributing a new spec, make sure it follows the format in `/spec/template.md`, and that it can be implemented in atleast *most* languages - preferably all!
 
-## New languages:
+* In the case where a specification needs to be revised in such a way that current implementations no longer follow it, the "Implemented in" list should be wiped, but the implementations should be kept and updated separately.
+
+## New languages
 
 "Adding a new language" to the project consists of the following:
   
