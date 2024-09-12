@@ -60,12 +60,9 @@ char shift(char c, int shiftc)
 
     index += shiftc;
 
-    // Avoid overflow, but allow wrap-around shifts.
-    while (index >= length)
-        index -= length;
-
-    // Same as above, but for negative shifts.
-    while (index < 0)
+    // "Wrap-around" on over/underflow
+    index %= length;
+    if (index < 0)
         index += length;
 
     return alphabet[index];
