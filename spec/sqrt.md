@@ -71,9 +71,7 @@ if (square == +0 || square == -0) {
 >
 > While there are various methods of estimating a seed value, they end up being more complicated than the actual computation itself. So in the interest of simplicity, we'll use an initial estimate of 1.
 >
-> This specification uses a wonky method to ensure *all* integer digits are correct (check if previous and current values are the same once **floored**), please note that this is by no means *the* way to do it.
->
-> Finally, Heron's method *roughly* doubles the precision of the guess on each iteration, so to be safe once the integer digits are correct, *6* further iterations are performed to ensure that at least 5 decimal digits are correct.
+> The below method of computing the integer part iterates once more than strictly necessary, as Heron's Method *roughly* doubles the number of correct digits per iteration, we only need to iterate *2* more to compute the 5 decimal digits.
 
 ```
 guess = 1
@@ -85,10 +83,6 @@ while (true) {
         break
 }
 
-guess = (guess + (square / guess)) / 2;
-guess = (guess + (square / guess)) / 2;
-guess = (guess + (square / guess)) / 2;
-guess = (guess + (square / guess)) / 2;
 guess = (guess + (square / guess)) / 2;
 guess = (guess + (square / guess)) / 2;
 
