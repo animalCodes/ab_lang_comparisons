@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     }
 
     val num: Int = input.toInt()
-    if (input > num) {
+    if (input != num) {
         println("False")
         return
     }

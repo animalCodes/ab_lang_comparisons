@@ -3,14 +3,14 @@ if ARGV.empty?
   exit 1
 end
 
-num = ARGV[0].to_i
+num = ARGV[0].to_f
 
 if num == 0 && !ARGV[0].match('0+\.?0*')
   STDERR.puts "\"#{ARGV[0]}\" cannot be converted into a number, exiting."
   exit 1
 end
 
-if ARGV[0].match('\d+\.[1-9]+')
+if num.floor != num
   puts "False"
   exit 1
 end

@@ -12,8 +12,7 @@ if (!Double.TryParse(args[0], out num))
     return 2;
 }
 
-// I'm not even sure why these methods exist but I'm gonna use 'em regardless
-if (!Double.IsEvenInteger(num) && !Double.IsOddInteger(num)) {
+if (Double.Floor(num) != num) {
     Console.WriteLine("False");
     return 0;
 }
