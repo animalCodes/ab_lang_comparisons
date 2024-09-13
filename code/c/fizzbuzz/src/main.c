@@ -15,20 +15,16 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    bool printed = false;
-
-    if (num) {
-        if (num % 3 == 0) {
-            printf("Fizz");
-            printed = true;
-        }
-        if (num % 5 == 0) {
-            printf("Buzz");
-            printed = true;
-        }
+    if (num % 3 == 0 && num % 5 == 0) {
+        printf("FizzBuzz\n");
+        return EXIT_SUCCESS;
     }
 
-    if (!printed) 
+    if (num % 3 == 0)
+        printf("Fizz");
+    else if (num % 5 == 0)
+        printf("Buzz");
+    else
         printf("%i", num);
 
     printf("\n");

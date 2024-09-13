@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 using namespace std;
 
@@ -14,24 +15,21 @@ int main(int argc, char *argv[]) {
     // argument)
     if (num == 0 && argv[1][0] != '0') {
         cerr << argv[1]
-             << "cannot be converted into a number, exiting.\n";
+             << " cannot be converted into a number, exiting.\n";
         return 1;
     }
 
-    if (num != 0) { // Could just do `!num`, but that doesn't feel right in C++
-        bool fb_num = false;
-        if (num % 3 == 0) {
-            cout << "Fizz";
-            fb_num = true;
-        }
-        if (num % 5 == 0) {
-            cout << "Buzz";
-            fb_num = true;
-        }
-        if (!fb_num) {
-            cout << num;
-        }
-    } else {cout << num;}
+    if (num % 3 == 0 && num % 5 == 0) {
+        printf("FizzBuzz\n");
+        return 0;
+    }
+
+    if (num % 3 == 0)
+        cout << "Fizz";
+    else if (num % 5 == 0)
+        cout << "Buzz";
+    else
+        cout << num;
 
     cout << "\n";
 
