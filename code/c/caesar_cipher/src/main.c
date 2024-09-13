@@ -4,11 +4,11 @@
 
 char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-/* Returns the index of the first occurence of `c` in `str`, or -1 if none
+/* Return the index of the first occurence of `c` in `str`, or -1 if none
     found. */
 int str_i(char c, char *str);
 
-/* Returns `c` shifted `shiftc` places up or down the alphabet. */
+/* Return `c` shifted `shiftc` places up or down the alphabet. */
 char shift(char c, int shiftc);
 
 int main(int argc, char *argv[]) 
@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 
     int shiftc = atoi(argv[1]);
     if (!shiftc && argv[1][0] != '0') {
-        // We'll let the user shift the message 0 places if they want to.
         fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;

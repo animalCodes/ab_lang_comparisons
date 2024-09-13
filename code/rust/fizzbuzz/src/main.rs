@@ -2,7 +2,7 @@ use std::env;
 use std::process;
 
 fn main() {
-    let args: Vec<String> = env::args().collect(); 
+    let args: Vec<String> = env::args().collect();
 
     let arg = match args.get(1) {
         None => {
@@ -19,7 +19,7 @@ fn main() {
         },
         Ok(n) => n,
     };
-    
+
     let mut out = String::new();
 
     if num % 3 == 0 {

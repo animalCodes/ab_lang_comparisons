@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h> // Just for EXIT_SUCCESS
+#include <stdlib.h>
 
 int main() {
     // Note: As there is no formatting used here, we could replace this with

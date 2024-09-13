@@ -20,7 +20,7 @@ func main() {
         os.Exit(1)
     }
 
-    if (!(n == math.Floor(n))) {
+    if (n != math.Floor(n)) {
         fmt.Println("False")
         os.Exit(0)
     }

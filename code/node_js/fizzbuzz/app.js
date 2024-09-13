@@ -1,13 +1,5 @@
 const {argv, exit} = require("node:process")
 
-// The first argument (index 0) will usually be the path to node itself, such
-// as "/usr/local/bin/node", and the second (1) will be the path to this file.
-// After that come the arguments.
-
-// the `Number()` *function* is generally more useful than the `Number`
-// *constructor*. In short the function variant will return a primitive or NaN
-// if unable to convert.  Whereas `new Number()` will always return a Number,
-// which can be harder to work with.
 const arg = Number(argv[2])
 
 // This could also be `(arg == undefined)` because Javascript is weird.
