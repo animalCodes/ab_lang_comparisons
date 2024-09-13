@@ -11,7 +11,8 @@ class Main {
         try {
             num = Integer.valueOf(args[0]);
         } catch (NumberFormatException e) {
-            System.err.println(args[0] + " cannot be converted into a number, exiting.");
+            System.err.println(args[0] +
+                " cannot be converted into a number, exiting.");
             System.exit(1);
         }
 

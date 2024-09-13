@@ -16,7 +16,8 @@ if [[ ! $1 ]]; then echo_dirs_and_exit; fi
 
 cd_or_err $1
 
-# For whatever reason Java doesn't like '_'s in package names, so we have to remove them using this weirdness.
+# For whatever reason Java doesn't like '_'s in package names, so we have to
+# remove them using this weirdness.
 PACKAGE_NAME=$(echo "${1//_}")
 
 ARGS=("$@")

@@ -14,7 +14,8 @@ function cd_or_err
 {
   if [ -d $1 ]; then cd $1
   else
-    echo \"$1\" doesn\'t exist. \(Hint: running this script without arguments will give you a list of valid program names\) 1>&2
+    echo \"$1\" doesn\'t exist. \(Hint: running this script without arguments\
+    will give you a list of valid program names\) 1>&2
     exit 1
   fi
 }
