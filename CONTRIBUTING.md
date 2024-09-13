@@ -1,6 +1,6 @@
 # Contribution rules
 
-The aim of this project is to accurately demonstrate what it is like to use different programming languages, to ensure this please adhere to the following rules:
+When contributing to this project, please adhere to the following rules:
 
 * **Folder layout**: Applications must be contained within their own folders, so the "hello world" program written in C must be located in `/code/c/hello_world`, and nothing else.
 
@@ -20,10 +20,10 @@ The aim of this project is to accurately demonstrate what it is like to use diff
 * Other: `main.(extension)`
 
 * **Libraries**: This project is intended to show what it is like to code in various languages, so in general no third-party libraries or frameworks. Only the standard library should be used. Exceptions:
-    * Tools that are very commonly used. (for instance Cargo with Rust) Again, this project is to showcase what it is like to use different languages, so if it is likely programmers will use a tool. It should be demonstrated.
-    * Where the program would be prohibitively difficult to implement otherwise, in which case libraries may be used. 
+    * Tools that are very commonly used. (for instance Cargo with Rust) if it is likely programmers will use a tool, it should be demonstrated.
+    * Where the program would be prohibitively difficult to implement otherwise, in which case libraries may be used, but please keep to a minimum.
 
-* **Comments**: One use of this project is to help new users of a language get an idea of what using it is like, so when documenting your code try to imagine someone who doesn't really understand the language is reading it. If the language has an odd/unusual feature, (*cough* ruby `unless` statement *cough*) explain it!
+* **Comments**: In general, comments should be avoided where possible to avoid clutter. The exception to this is when an implementation uses an unusual feature or otherwise where the code is unclear, in which case a note should be added explaining what is going on.
 
 * **Packages**: For languages that require packages, ideally use a name similar to "comparisons.{language}.{project}". E.G. "comparisons.java.helloworld", but if something else would fit better with the language, please use that instead.
 

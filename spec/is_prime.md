@@ -34,7 +34,7 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 - `natural(n)` - Whether `n` is a natural number (positive integer).
 
-- `divisible(n, m)` - Whether `n` is divisible by `m`.
+- `divisible(n, m)` - Whether `n` is divisible by `m` (remainder of 0).
 
 - `exit(code)` - Terminate program with exit code `code`.
 

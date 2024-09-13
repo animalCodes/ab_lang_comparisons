@@ -42,7 +42,7 @@ if (u_choice == null) {
 
 if (u_choice != "rock" && u_choice != "paper"
     && u_choice != "scissors) {
-    print_err("Invalid choice \"%s\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.)
+    print_err("Invalid choice \"%s\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
     exit(1)
 }
 

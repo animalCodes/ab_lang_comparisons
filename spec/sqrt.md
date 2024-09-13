@@ -71,7 +71,7 @@ if (square == +0 || square == -0) {
 >
 > While there are various methods of estimating a seed value, they end up being more complicated than the actual computation itself. So in the interest of simplicity, we'll use an initial estimate of 1.
 >
-> The below method of computing the integer part iterates once more than strictly necessary, as Heron's Method *roughly* doubles the number of correct digits per iteration, we only need to iterate *2* more to compute the 5 decimal digits.
+> The below method of computing the integer part iterates once more than strictly necessary, as Heron's Method *roughly* doubles the number of correct digits per iteration, we only need to iterate *twice* more to compute the 5 decimal digits.
 
 ```
 guess = 1
