@@ -61,6 +61,8 @@ for (pos_i = 0; pos_i < size(array); pos_i++) {
         array[pos_min] = array[pos_i]
         array[pos_i] = temp
     }
+
+    print_arr(array)
 }
 
 print_arr(array)

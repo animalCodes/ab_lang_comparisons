@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Print `array` of size `arrsize`. */
+void print_array(int *array, int arrsize);
+
 int main()
 {
     int array[] = {-864, 2, 23, 435, 23, -4, 6765, 0, 3534, 9, 32, -92};
@@ -21,8 +24,18 @@ int main()
             array[pos_min] = array[pos_i];
             array[pos_i] = temp;
         }
+
+        print_array(array, arrsize);
     }
 
+    printf("\nSorted array:\n");
+    print_array(array, arrsize);
+
+    return EXIT_SUCCESS;
+}
+
+void print_array(int *array, int arrsize)
+{
     printf("[");
     for (int j = 0; j < arrsize; j++) {
         if (j < arrsize - 1)
@@ -31,6 +44,5 @@ int main()
             printf("%i", array[j]);
     }
     printf("]\n");
-
-    return EXIT_SUCCESS;
 }
+
