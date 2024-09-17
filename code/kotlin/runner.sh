@@ -3,7 +3,12 @@
 # Runner for all Kotlin programs.
 
 if ! type kotlinc 1>/dev/null 2>&1; then
-  echo Kotlinc not found, please install to run. 1>&2
+  echo kotlinc not found, please install to run. 1>&2
+  exit 1
+fi
+
+if ! type java 1>/dev/null 2>&1; then
+  echo java not found, please install to run. 1>&2
   exit 1
 fi
 
