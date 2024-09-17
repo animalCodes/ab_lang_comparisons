@@ -3,6 +3,8 @@
 #include <strings.h> // For strcasecmp()
 #include <time.h> // For time_t and time()
 
+// C rock_paper_scissors
+
 #define ROCK 0
 #define PAPER 1
 #define SCISSORS 2

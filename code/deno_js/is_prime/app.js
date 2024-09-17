@@ -1,3 +1,6 @@
+
+// DenoJS is_prime
+
 const input = Deno.args[0]
 
 if (input == undefined) {

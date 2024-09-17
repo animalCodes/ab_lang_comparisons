@@ -1,3 +1,6 @@
+
+// Node.js fizzbuzz
+
 const {argv, exit} = require("node:process")
 
 const arg = Number(argv[2])

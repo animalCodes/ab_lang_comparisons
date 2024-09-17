@@ -1,3 +1,6 @@
+
+// Node.js is_prime
+
 const {argv, exit} = require("node:process");
 
 if (argv[2] == null) {

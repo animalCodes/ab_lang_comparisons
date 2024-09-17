@@ -1,5 +1,7 @@
 package comparisons.java.isprime;
 
+// Java is_prime
+
 class Main {
     public static void main(String[] args) {
         if (args.length < 1) {

@@ -1,5 +1,7 @@
 package main
 
+// Go is_prime
+
 import (
     "fmt"
     "math"

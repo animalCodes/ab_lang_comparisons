@@ -1,3 +1,6 @@
+
+# Ruby is_prime
+
 if ARGV.empty?
   STDERR.puts "No number specified, exiting."
   exit 1

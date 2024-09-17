@@ -1,3 +1,6 @@
+
+# Ruby fizzbuzz
+
 if (ARGV.empty?) then
   STDERR.puts "No number specified, exiting."
   exit

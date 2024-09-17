@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// C hello_world
+
 int main() {
     // Note: As there is no formatting used here, we could replace this with
     // `puts()`. However, using `printf()` is more consistent and depending on

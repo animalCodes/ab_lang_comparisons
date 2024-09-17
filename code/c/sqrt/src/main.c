@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// C sqrt
+
 int main(int argc, char *argv[])
 {
     double square = 0;

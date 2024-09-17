@@ -1,3 +1,6 @@
+
+// DenoJS fizzbuzz
+
 if (Deno.args[0] == null) {
     console.error("No number specified, exiting.")
     Deno.exit(1)

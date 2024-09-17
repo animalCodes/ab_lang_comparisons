@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+// C++ fizzbuzz
+
 int main(int argc, char *argv[]) {
     if (argc <= 1) {
         cerr << "No number specified, exiting.\n";

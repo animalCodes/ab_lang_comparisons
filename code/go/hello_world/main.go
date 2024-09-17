@@ -1,5 +1,6 @@
-// Must be set to 'main' otherwise Go will freak out
 package main
+
+// Go hello_world
 
 import "fmt"
 

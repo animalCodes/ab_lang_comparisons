@@ -1,4 +1,7 @@
-﻿if (args.Length < 1)
+﻿
+// C# fizzbuzz
+
+if (args.Length < 1)
 {
     Console.Error.WriteLine("No number specified, exiting.");
     return 1;

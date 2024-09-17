@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// C selection_sort
+
 /* Print `array` of size `arrsize`. */
 void print_array(int *array, int arrsize);
 

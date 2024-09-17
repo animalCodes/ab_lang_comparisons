@@ -1,5 +1,7 @@
 package comparisons.java.fizzbuzz;
 
+// Java fizzbuzz
+
 class Main {
     public static void main(String[] args) {
         if (args.length <= 0) {

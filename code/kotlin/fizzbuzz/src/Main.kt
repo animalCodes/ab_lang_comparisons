@@ -1,5 +1,7 @@
 package comparisons.kotlin.fizzbuzz
 
+// Kotlin fizzbuzz
+
 fun main(args: Array<String>) {
     if (args.size <= 0) {
         System.err.println("No number specified, exiting.")

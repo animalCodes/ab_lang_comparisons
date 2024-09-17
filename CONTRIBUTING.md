@@ -19,6 +19,8 @@ When contributing to this project, please adhere to the following rules:
 * Rust: `main.rs`
 * Other: `main.(extension)`
 
+Each entry point must have a prominent "header comment" containing the text `{lang} {specification}`. For example `C hello_world`.
+
 * **Libraries**: This project is intended to show what it is like to code in various languages, so in general no third-party libraries or frameworks. Only the standard library should be used. Exceptions:
     * Tools that are very commonly used. (for instance Cargo with Rust) if it is likely programmers will use a tool, it should be demonstrated.
     * Where the program would be prohibitively difficult to implement otherwise, in which case libraries may be used, but please keep to a minimum.
