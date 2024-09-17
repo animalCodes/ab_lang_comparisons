@@ -3,44 +3,42 @@
 #include <strings.h> // For strcasecmp()
 #include <time.h> // For time_t and time()
 
-typedef enum Choice {
-    ROCK,
-    PAPER,
-    SCISSORS,
-    NONE
-} Choice;
+#define ROCK 0
+#define PAPER 1
+#define SCISSORS 2
+#define NONE -1
 
-/* Convert input string to Choice.
-    if input is invalid, NONE will be returned. */
-Choice strchoice(char *input);
+/* Convert input string to int choice.
+    if input is invalid, NONE (-1) will be returned. */
+int strchoice(char *input);
 
-/* Convert Choice to string.
-    ROCK = "rock"
-    PAPER = "paper"
-    SCISSORS = "scissors"
-    NONE = "" */
-char *choicestr(Choice choice);
+/* Convert int choice to string.
+    ROCK (0) = "rock"
+    PAPER (1) = "paper"
+    SCISSORS (2) = "scissors"
+    default = "" */
+char *choicestr(int choice);
 
-/* Randomly return one of ROCK, PAPER or SCISSORS. */
-Choice randchoice();
+/* Randomly return one of ROCK (0), PAPER (1) or SCISSORS (2). */
+int randchoice();
 
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
-        fprintf(stderr, "No argument specified, exiting.\n");
+        fprintf(stderr, "No choice specified, exiting.\n");
         return EXIT_FAILURE;
     }
 
     char *user_input = argv[1];
-    Choice user_choice = strchoice(user_input);
+    int user_choice = strchoice(user_input);
     if (user_choice == NONE) {
-        fprintf(stderr, "Invalid choice \"%s\", valid inputs are \"rock\""
-                "\"paper\" and \"scissors\" (all case-insensitive), Exiting.\n",
-                user_input);
+        fprintf(stderr, "Invalid choice \"%s\", valid choices are \"rock\", "
+                "\"paper\" and \"scissors\". (All case-insensitive), exiting.\n"
+                ,user_input);
         return EXIT_FAILURE;
     }
 
-    Choice computer_choice = randchoice();
+    int computer_choice = randchoice();
 
     printf("User: %s\n", user_input);
     printf("Computer: %s\n", choicestr(computer_choice));
@@ -57,7 +55,7 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-Choice strchoice(char *input)
+int strchoice(char *input)
 {
     if (!strcasecmp(input, "rock"))
         return ROCK;
@@ -69,7 +67,7 @@ Choice strchoice(char *input)
         return NONE;
 }
 
-char *choicestr(Choice choice)
+char *choicestr(int choice)
 {
     switch (choice) {
         case ROCK:
@@ -83,15 +81,13 @@ char *choicestr(Choice choice)
     }
 }
 
-Choice randchoice()
+int randchoice()
 {
-    // I've just realised these three lines have the exact same length, this
-    // makes me happy
     time_t now;
     time(&now);
     srand(now);
 
     // This mess converts the output of `rand()` (which returns any value
     // between 0 and `RAND_MAX`) to 0, 1, or 2.
-    return (Choice)(((float)rand() / (float)RAND_MAX) * 3);
+    return ((float)rand() / (float)RAND_MAX) * 3;
 }
