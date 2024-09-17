@@ -8,8 +8,10 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    int num = atoi(argv[1]);
-    if (!num && *argv[1] != '0') {
+    char *end;
+    int num = strtol(argv[1], &end, 10);
+
+    if (end == argv[1]) {
         fprintf(stderr, "%s cannot be converted into a number, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;

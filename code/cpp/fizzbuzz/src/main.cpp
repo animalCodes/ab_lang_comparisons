@@ -8,12 +8,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    int num = atoi(argv[1]);
-    // `atoi` will return 0 if unable to convert input to an int, which is a
-    // problem here as 0 is valid input. To get around this check if input is
-    // also '0'. (`argv[1][0]` will get the first character of the *second*
-    // argument)
-    if (num == 0 && argv[1][0] != '0') {
+    char *end;
+    int num = strtol(argv[1], &end, 10);
+
+    // `end` will be set to point to the first nondigit character in `argv[1]`,
+    // if there were no digit characters this'll be the start of the string.
+    if (end == argv[1]) {
         cerr << argv[1]
              << " cannot be converted into a number, exiting.\n";
         return 1;

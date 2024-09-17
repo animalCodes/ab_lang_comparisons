@@ -21,8 +21,10 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    int shiftc = atoi(argv[1]);
-    if (!shiftc && argv[1][0] != '0') {
+    char *end;
+    int shiftc = strtol(argv[1], &end, 10);
+
+    if (end == argv[1]) {
         fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;
