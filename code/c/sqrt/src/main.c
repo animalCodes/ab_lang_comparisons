@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
     while (1) {
         prev = floor(guess);
         guess = (guess + (square / guess)) / 2;
-        printf("%.5lf\n", guess);
         if (prev == floor(guess))
             break;
     }
