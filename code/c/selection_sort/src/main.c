@@ -30,7 +30,7 @@ int main()
         print_array(array, arrsize);
     }
 
-    printf("\nSorted array:\n");
+    printf("Sorted array:\n");
     print_array(array, arrsize);
 
     return EXIT_SUCCESS;

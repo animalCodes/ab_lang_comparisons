@@ -8,9 +8,9 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 
 ### Examples
 
-| Input            | Output                                                  |
-| ---------------- | ------------------------------------------------------- |
-| `selection_sort` | `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]` |
+| Input            | Output                                                    |
+| ---------------- | --------------------------------------------------------- |
+| `selection_sort` | `[-864, 2, 23, 435, 23, -4, 6765, 0, 3534, 9, 32, -92]`<br> `[-864, -92, 23, 435, 23, -4, 6765, 0, 3534, 9, 32, 2]`<br> `[-864, -92, -4, 435, 23, 23, 6765, 0, 3534, 9, 32, 2]`<br> `[-864, -92, -4, 0, 23, 23, 6765, 435, 3534, 9, 32, 2]`<br> `[-864, -92, -4, 0, 2, 23, 6765, 435, 3534, 9, 32, 23]`<br> `[-864, -92, -4, 0, 2, 9, 6765, 435, 3534, 23, 32, 23]`<br> `[-864, -92, -4, 0, 2, 9, 23, 435, 3534, 6765, 32, 23]`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 3534, 6765, 32, 435]`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 6765, 3534, 435]`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]`<br> `Sorted array:`<br> `[-864, -92, -4, 0, 2, 9, 23, 23, 32, 435, 3534, 6765]`<br> |
 
 ## Implementation
 
@@ -19,6 +19,8 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 - `size(array)` - The number of elements in `array`.
 
 - `print_arr(array)` - Print the members of `array`, deliminated by ", ", surrounded by square brackets.
+
+- `print(str)` - Send `str` to stdout with a trailing newline.
 
 ### Code
 
@@ -65,6 +67,7 @@ for (pos_i = 0; pos_i < size(array); pos_i++) {
     print_arr(array)
 }
 
+print("Sorted array:")
 print_arr(array)
 ```
 
