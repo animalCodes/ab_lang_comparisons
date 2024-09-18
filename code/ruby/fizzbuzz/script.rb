@@ -5,7 +5,7 @@ if (ARGV.empty?) then
   STDERR.puts "No number specified, exiting."
   exit
 elsif !ARGV[0].start_with?(/\d+/) then
-  STDERR.puts "#{ARGV[0]} cannot be converted into a number, exiting."
+  STDERR.puts "\"#{ARGV[0]}\" cannot be converted into a number, exiting."
   exit
 end
 

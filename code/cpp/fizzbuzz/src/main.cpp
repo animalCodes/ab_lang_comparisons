@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     // `end` will be set to point to the first nondigit character in `argv[1]`,
     // if there were no digit characters this'll be the start of the string.
     if (end == argv[1]) {
-        cerr << argv[1]
+        cerr << '"' << argv[1] << '"'
              << " cannot be converted into a number, exiting.\n";
         return 1;
     }

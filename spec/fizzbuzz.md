@@ -19,7 +19,7 @@ For simplicity, this specification only implements the core functionality of the
 | `fizzbuzz 5`     | `Buzz`                                              |
 | `fizzbuzz 15`    | `FizzBuzz`                                          |
 | `fizzbuzz`       | `No number specified, exiting.`                     |
-| `fizzbuzz lorem` | `lorem cannot be converted into a number, exiting.` |
+| `fizzbuzz lorem` | `"lorem" cannot be converted into a number, exiting.` |
 
 ## Implementation
 
@@ -46,7 +46,7 @@ if (num == null) {
 }
 
 if (!num_str(num)) {
-    print_err("%s cannot be converted into a number, exiting.", num)
+    print_err("\"%s\" cannot be converted into a number, exiting.", num)
     exit(1)
 }
 

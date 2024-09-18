@@ -8,7 +8,8 @@ if (Deno.args[0] == null) {
 
 const num = Number(Deno.args[0])
 if (isNaN(num)) {
-    console.error(`${Deno.args[0]} cannot be converted into a number, exiting.`)
+    console.error(
+        `"${Deno.args[0]}" cannot be converted into a number, exiting.`)
     Deno.exit(1)
 }
 

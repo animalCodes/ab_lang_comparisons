@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     var input: Int? = args[0].toIntOrNull()
     if (input == null) {
         System.err.println(
-            "${args[0]} cannot be converted into a number, exiting.")
+            "\"${args[0]}\" cannot be converted into a number, exiting.")
         System.exit(1)
         return // So the compiler knows we won't be accessing a null value
     }

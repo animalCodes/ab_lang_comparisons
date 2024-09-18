@@ -16,7 +16,7 @@ fn main() {
 
     let num = match arg.parse::<i32>() {
         Err(_) => {
-            eprintln!("{arg} cannot be converted into a number, exiting.");
+            eprintln!("\"{arg}\" cannot be converted into a number, exiting.");
             process::exit(1);
         },
         Ok(n) => n,

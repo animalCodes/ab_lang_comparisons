@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     int num = strtol(argv[1], &end, 10);
 
     if (end == argv[1]) {
-        fprintf(stderr, "%s cannot be converted into a number, exiting.\n",
+        fprintf(stderr, "\"%s\" cannot be converted into a number, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;
     }

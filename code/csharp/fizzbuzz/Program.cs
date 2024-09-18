@@ -11,7 +11,7 @@ Int16 num = 0;
 if (!Int16.TryParse(args[0], out num))
 {
     Console.Error.WriteLine(
-        $"{args[0]} cannot be converted into a number, exiting.");
+        $"\"{args[0]}\" cannot be converted into a number, exiting.");
     return 1;
 }
 
