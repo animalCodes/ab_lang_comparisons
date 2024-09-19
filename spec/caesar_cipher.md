@@ -59,7 +59,7 @@ if (shift == null || message == null) {
 }
 
 if (!int_str(shift)) {
-    print_err("Couldn't convert \"%s\" to an integer, exiting.", argv[1])
+    print_err("Couldn't convert \"{shift}\" to an integer, exiting.")
     exit(1)
 }
 

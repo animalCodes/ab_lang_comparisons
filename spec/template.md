@@ -16,9 +16,9 @@ A table showing example invocations and expected output, aim for at least 3.
 
 Unless noted otherwise, output is implied to have a trailing newline.
 
-| Input      | Output |
-| ---------- | ------ |
-| `echo foo` | `foo`  |
+| Input                | Output              |
+| -------------------- | ------------------- |
+| `{spec name} {args}` | `{expected output}` |
 
 ## Implementation
 
@@ -40,6 +40,7 @@ Specific restrictions:
 - Variables and functions should be named in snake_case.
 - Any linebreaks in printed output must be explicitly included. (\n)
 - Blocks of code - i.e. after an if statement - must be wrapped in {}.
+- To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; print("{x}")` would print `1`.
 
 and, if needed
 

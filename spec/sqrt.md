@@ -49,12 +49,12 @@ As the number - where possible - will be converted into a floating-point number,
 
 ```
 if (in == null || !num_str(in))
-    square = 0
+    square = +0
 else
     square = str_to_num(in)
 
 if (square == +0 || square == -0) {
-    print(in)
+    print("{in}")
     exit(0)
 } else if (nan(square) || square < -0) {
     print("NaN")

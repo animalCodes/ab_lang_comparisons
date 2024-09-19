@@ -47,7 +47,7 @@ if (in == null) {
 }
 
 if (num_str(in)) {
-    print_err("\"%s\" cannot be converted into a number, exiting.", in)
+    print_err("\"{in}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 

@@ -46,7 +46,7 @@ if (num == null) {
 }
 
 if (!num_str(num)) {
-    print_err("\"%s\" cannot be converted into a number, exiting.", num)
+    print_err("\"{num}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 
@@ -62,7 +62,7 @@ if (divisible(n, 3))
 else if (divisible(n, 5))
     print("Buzz\n")
 else
-    print(num)
+    print("{num}")
 ```
 
 **Implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.

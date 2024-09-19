@@ -42,14 +42,14 @@ if (u_choice == null) {
 
 if (u_choice != "rock" && u_choice != "paper"
     && u_choice != "scissors) {
-    print_err("Invalid choice \"%s\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
+    print_err("Invalid choice \"{u_choice}\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
     exit(1)
 }
 
 c_choice = random_choice()
 
-print("User: %s", u_choice)
-print("Computer: %s", c_choice)
+print("User: {u_choice}")
+print("Computer: {c_choice}")
 
 if (c_choice == u_choice)
     print("Tie!")
