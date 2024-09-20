@@ -74,6 +74,6 @@ for (i = 0; i < size(message); i++) {
 print(message)
 ```
 
-**Implemented in**: C.
+**Implemented in**: C, Java.
 
-**To be implemented in**: C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
