@@ -6,18 +6,22 @@
 
 int main(int argc, char *argv[])
 {
+    char *end;
     double square = 0;
     if (argc > 1)
-        square = strtod(argv[1], NULL);
+        square = strtod(argv[1], &end);
 
-    if (square == 0) {
-        printf("%s\n", argv[1]);
-        return 0;
-    } else if (isnan(square) || square < -0) {
+    if (end == argv[1] || square < 0 ||
+        // strtod will accept strings such as "+Infinity" or "NaN" as valid
+        // floating-point values. But something tells me trying to compute the
+        // square root of infinity is a bad idea...
+        (isinf(square) == 1) || isnan(square)) {
         printf("NaN\n");
         return 0;
-    } else if (isinf(square) == 1) {
-        printf("+Infinity\n");
+    }
+
+    if (square == 0) {
+        printf("%.5lf\n", square);
         return 0;
     }
 

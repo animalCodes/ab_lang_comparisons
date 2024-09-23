@@ -12,16 +12,16 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 ### Examples
 
-| Input      | Output      |
-| ---------- | ----------- |
-| `sqrt 0`   | `0`         |
-| `sqrt 25`  | `5.00000`   |
-| `sqrt 73`  | `8.54400`   |
-| `sqrt -10` | `NaN`       |
-| `sqrt nan` | `NaN`       |
-| `sqrt inf` | `+Infinity` |
-| `sqrt foo` | `foo`       |
-| `sqrt`     | `0`         |
+| Input      | Output     |
+| ---------- | ---------- |
+| `sqrt 0`   | `0.00000`  |
+| `sqrt 25`  | `5.00000`  |
+| `sqrt 73`  | `8.54400`  |
+| `sqrt 1e2` | `10.00000` |
+| `sqrt -10` | `NaN`      |
+| `sqrt nan` | `NaN`      |
+| `sqrt foo` | `NaN`      |
+| `sqrt`     | `NaN`      |
 
 ## Implementation
 
@@ -31,15 +31,11 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 - `print_n(num)` - Convert `num` to a string representing its value as a decimal number including 5 decimal places, send to stdout with a trailing newline.
 
-- `nan(num)` - Whether `num` is NaN.
-
-- `inf(num)` - Whether `num` is +Infinity.
-
 - `floor(num)` Largest integer not greater than `num`.
 
 - `exit(code)` - Terminate program with exit code `code`.
 
-As the number - where possible - will be converted into a floating-point number, the following functions accept decimal number strings with an optional exponent indicating multiplication by a power of ten (scientific notation). Additionally, special values such as "inf", "infinity" and "nan" (with optional leading `+`/`-`, ignoring case) are accepted.
+The following functions accept decimal number strings with an optional exponent indicating multiplication by a power of ten ("E" notation).
 
 - `num_str(str)` - Test whether `str` could be converted into a number.
 
@@ -49,18 +45,17 @@ As the number - where possible - will be converted into a floating-point number,
 
 ```
 if (in == null || !num_str(in))
-    square = +0
+    square = NaN
 else
     square = str_to_num(in)
 
-if (square == +0 || square == -0) {
-    print("{in}")
+if (square == 0) {
+    print("{square}")
     exit(0)
-} else if (nan(square) || square < -0) {
+}
+
+if (square == NaN || square < 0) {
     print("NaN")
-    exit(0)
-} else if (inf(square)) {
-    print("+Infinity")
     exit(0)
 }
 ```
