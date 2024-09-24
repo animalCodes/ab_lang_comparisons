@@ -23,8 +23,7 @@ if [ -f "$1.csproj" ] && [ -f "Program.cs" ]; then
   # Error output is also sent to stdout for some reason, so keep it here.
   dotnet build
   echo
-  # TODO deal with different .NET versions?
-  ./bin/Debug/net7.0/$1 ${ARGS[*]}
+  ./bin/Debug/net*/$1 ${ARGS[*]}
   exit
 else
   echo No $1.csproj or Program.cs file, exiting. 1>&2
