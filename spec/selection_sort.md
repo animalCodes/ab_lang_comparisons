@@ -71,7 +71,7 @@ print("Sorted array:")
 print_arr(array)
 ```
 
-**Implemented in**: C, Java.
+**Implemented in**: C, C#, Java.
 
-**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
 
