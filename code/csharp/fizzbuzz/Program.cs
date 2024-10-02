@@ -7,8 +7,8 @@ if (args.Length < 1)
     return 1;
 }
 
-Int16 num = 0;
-if (!Int16.TryParse(args[0], out num))
+float num = 0;
+if (!float.TryParse(args[0], out num))
 {
     Console.Error.WriteLine(
         $"\"{args[0]}\" cannot be converted into a number, exiting.");

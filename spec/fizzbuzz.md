@@ -12,13 +12,15 @@ For simplicity, this specification only implements the core functionality of the
 
 ### Examples
 
-| Input            | Output                                              |
-| ---------------- | --------------------------------------------------- |
-| `fizzbuzz 1`     | `1`                                                 |
-| `fizzbuzz 3`     | `Fizz`                                              |
-| `fizzbuzz 5`     | `Buzz`                                              |
-| `fizzbuzz 15`    | `FizzBuzz`                                          |
-| `fizzbuzz`       | `No number specified, exiting.`                     |
+| Input            | Output                                                |
+| ---------------- | ----------------------------------------------------- |
+| `fizzbuzz 1`     | `1`                                                   |
+| `fizzbuzz 3`     | `Fizz`                                                |
+| `fizzbuzz 3.0`   | `Fizz`                                                |
+| `fizzbuzz 5`     | `Buzz`                                                |
+| `fizzbuzz 5.3`   | `5.3`                                                 |
+| `fizzbuzz 15`    | `FizzBuzz`                                            |
+| `fizzbuzz`       | `No number specified, exiting.`                       |
 | `fizzbuzz lorem` | `"lorem" cannot be converted into a number, exiting.` |
 
 ## Implementation
@@ -31,9 +33,9 @@ For simplicity, this specification only implements the core functionality of the
 
 - `num_str(str)` - Whether `str` could be converted into a number.
 
-- `str_to_num(str)` - Convert `str` into a number.
+- `str_to_num(str)` - Convert `str` into a number,.
 
-- `divisible(n, m)` - Whether `n` is divisible by `m`.
+- `divisible(n, m)` - Whether `n` is cleanly divisible by `m`.
 
 - `exit(code)` - Terminate program with exit code `code`.
 
@@ -65,6 +67,6 @@ else
     print("{num}")
 ```
 
-**Implemented in**: C, C++, C#, denoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
 
 **To be implemented in**:

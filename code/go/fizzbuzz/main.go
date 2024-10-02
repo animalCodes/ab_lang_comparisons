@@ -3,19 +3,19 @@ package main
 // Go fizzbuzz
 
 import (
-	"fmt"
-	"os"
-	"strconv"
+    "fmt"
+    "math"
+    "os"
+    "strconv"
 )
 
 func main() {
     if len(os.Args) <= 1 {
-        fmt.Fprintln(os.Stderr, "No number specified, exiting.\n")
+        fmt.Fprintln(os.Stderr, "No number specified, exiting.")
         os.Exit(1)
     }
 
-    // If we wanted to ignore the error, we would do `input, _ := ..`
-    input, err := strconv.Atoi(os.Args[1])
+    input, err := strconv.ParseFloat(os.Args[1], 64)
 
     if err != nil {
         fmt.Fprintf(os.Stderr,
@@ -23,14 +23,21 @@ func main() {
         os.Exit(1)
     }
 
+    if (math.Trunc(input) != input) {
+        fmt.Println(input)
+        os.Exit(1)
+    }
+
+    var num int = int(input)
+
     var output = ""
-    if input % 3 == 0 {
+    if num % 3 == 0 {
         output += "Fizz"
     }
-    if input % 5 == 0 {
+    if num % 5 == 0 {
         output += "Buzz"
     }
-    if input == 0 || output == "" {
+    if num == 0 || output == "" {
         output = os.Args[1]
     }
 

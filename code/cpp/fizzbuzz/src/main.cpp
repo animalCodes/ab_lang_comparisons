@@ -1,5 +1,7 @@
+#include <cmath>
 #include <cstdlib>
 #include <iostream>
+
 using namespace std;
 
 // C++ fizzbuzz
@@ -11,7 +13,7 @@ int main(int argc, char *argv[]) {
     }
 
     char *end;
-    int num = strtol(argv[1], &end, 10);
+    double n = strtof(argv[1], &end);
 
     // `end` will be set to point to the first nondigit character in `argv[1]`,
     // if there were no digit characters this'll be the start of the string.
@@ -21,17 +23,24 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (num % 3 == 0 && num % 5 == 0) {
+    if (floor(n) != n) {
+        cerr << argv[1] << "\n";
+        return 1;
+    }
+
+    int m = n;
+
+    if (m % 3 == 0 && m % 5 == 0) {
         printf("FizzBuzz\n");
         return 0;
     }
 
-    if (num % 3 == 0)
+    if (m % 3 == 0)
         cout << "Fizz";
-    else if (num % 5 == 0)
+    else if (m % 5 == 0)
         cout << "Buzz";
     else
-        cout << num;
+        cout << m;
 
     cout << "\n";
 

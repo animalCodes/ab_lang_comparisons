@@ -9,9 +9,9 @@ class Main {
             System.exit(1);
         }
 
-        int num = 0;
+        double num = 0;
         try {
-            num = Integer.valueOf(args[0]);
+            num = Double.valueOf(args[0]);
         } catch (NumberFormatException e) {
             System.err.println("\"" + args[0] +
                 "\" cannot be converted into a number, exiting.");

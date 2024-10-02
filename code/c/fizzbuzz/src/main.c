@@ -1,8 +1,8 @@
-#include <stdbool.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-// C fizzbzz
+// C fizzbuzz
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     }
 
     char *end;
-    int num = strtol(argv[1], &end, 10);
+    double n = strtof(argv[1], &end);
 
     if (end == argv[1]) {
         fprintf(stderr, "\"%s\" cannot be converted into a number, exiting.\n",
@@ -19,17 +19,25 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    if (num % 3 == 0 && num % 5 == 0) {
+    if (floor(n) != n) {
+        printf("%s\n", argv[1]);
+        return EXIT_SUCCESS;
+    }
+
+    // modulo operator (%) only works on ints
+    int m = n;
+
+    if (m % 3 == 0 && m % 5 == 0) {
         printf("FizzBuzz\n");
         return EXIT_SUCCESS;
     }
 
-    if (num % 3 == 0)
+    if (m % 3 == 0)
         printf("Fizz");
-    else if (num % 5 == 0)
+    else if (m % 5 == 0)
         printf("Buzz");
     else
-        printf("%i", num);
+        printf("%i", m);
 
     printf("\n");
 

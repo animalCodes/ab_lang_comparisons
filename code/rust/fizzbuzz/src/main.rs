@@ -14,7 +14,7 @@ fn main() {
         Some(str) => str,
     };
 
-    let num = match arg.parse::<i32>() {
+    let val = match arg.parse::<f32>() {
         Err(_) => {
             eprintln!("\"{arg}\" cannot be converted into a number, exiting.");
             process::exit(1);
@@ -22,8 +22,14 @@ fn main() {
         Ok(n) => n,
     };
 
-    let mut out = String::new();
+    if val.floor() != val {
+        println!("{val}");
+        process::exit(1);
+    }
 
+    let num = val as i32;
+
+    let mut out = String::new();
     if num % 3 == 0 {
         out.push_str("Fizz");
     }

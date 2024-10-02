@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
         System.exit(1)
     }
 
-    var input: Int? = args[0].toIntOrNull()
+    var input: Double? = args[0].toDoubleOrNull()
     if (input == null) {
         System.err.println(
             "\"${args[0]}\" cannot be converted into a number, exiting.")
@@ -16,11 +16,11 @@ fun main(args: Array<String>) {
         return // So the compiler knows we won't be accessing a null value
     }
 
-    val fizz = if (input % 3 == 0) "Fizz" else ""
-    val buzz = if (input % 5 == 0) "Buzz" else ""
+    val fizz = if (input % 3.0 == 0.0) "Fizz" else ""
+    val buzz = if (input % 5.0 == 0.0) "Buzz" else ""
     var output = fizz+buzz
 
-    if (output == "" || input == 0) output = args[0]
+    if (output == "" || input == 0.0) output = args[0]
 
     println(output)
 }

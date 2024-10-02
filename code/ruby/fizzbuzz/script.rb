@@ -9,14 +9,15 @@ elsif !ARGV[0].start_with?(/\d+/) then
   exit
 end
 
-num = ARGV[0].to_i
+num = ARGV[0].to_f
 
 str = ""
 str += "Fizz" if num % 3 == 0
 str += "Buzz" if num % 5 == 0
 
 if str == "" || num == 0 then
-  puts num
+  # Don't print any decimal places
+  puts num.to_i
 else
   puts str
 end
