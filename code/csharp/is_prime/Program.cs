@@ -28,7 +28,7 @@ if (num < 2 || num % 2 == 0 && num != 2
 }
 
 int divisor = 5;
-while (divisor*divisor < num) 
+while (divisor*divisor <= num)
 {
     if (num % divisor == 0 || num % (divisor + 2) == 0)
     {

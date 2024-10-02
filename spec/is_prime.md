@@ -17,6 +17,7 @@ Prints "True" or "False" depending on whether the number received is a prime num
 | `is_prime 2`     | `True`                                                |
 | `is_prime 5.6`   | `False`                                               |
 | `is_prime 13`    | `True`                                                |
+| `is_prime 25`    | `False`                                               |
 | `is_prime`       | `No number specified, exiting.`                       |
 | `is_prime lorem` | `"lorem" cannot be converted into a number, exiting.` |
 
@@ -85,7 +86,7 @@ if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
 > This is actually quite simple, like so:
 
 ```
-for (i = 5; i*i < n; i += 6) {
+for (i = 5; i*i <= n; i += 6) {
     if (divisible(n, i) || divisible(n, i+2)) {
         print("False")
         exit(0)

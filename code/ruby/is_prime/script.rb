@@ -24,7 +24,7 @@ if num <= 1 || num > 2 && num % 2 == 0 || num > 3 && num % 3 == 0
 end
 
 i = 5
-until i*i >= num do
+until i*i > num do
   if num % i == 0 || num % (i+2) == 0
     puts "False"
     exit

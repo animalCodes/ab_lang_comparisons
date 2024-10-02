@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
     // We could use a range here to generate the sequence, but that would
     // require calculating the square root of `input`.
     var i = 5
-    while (i * i < num) {
+    while (i * i <= num) {
         if (num % i == 0 || num % i+2 == 0) {
             println("False")
             return

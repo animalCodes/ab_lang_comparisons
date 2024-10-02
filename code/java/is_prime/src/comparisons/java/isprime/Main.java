@@ -45,7 +45,7 @@ class Main {
             return false;
         }
 
-        for (int counter = 5; counter*counter < num; counter += 6) {
+        for (int counter = 5; counter*counter <= num; counter += 6) {
             if (num % counter == 0 || num % counter+2 == 0) {
                 return false;
             }

@@ -35,7 +35,7 @@ func main() {
         os.Exit(0)
     }
 
-    for i := 5; i*i < m; i += 6 {
+    for i := 5; i*i <= m; i += 6 {
         if m % i == 0 || m % i+2 == 0 {
             fmt.Println("False")
             os.Exit(0)

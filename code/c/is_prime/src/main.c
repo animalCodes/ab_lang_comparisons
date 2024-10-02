@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
         return EXIT_SUCCESS;
     }
 
-    for (int i = 5; i*i < num; i += 6) {
+    for (int i = 5; i*i <= num; i += 6) {
         if (num % i == 0 || num % (i+2) == 0) {
             printf("False\n");
             return EXIT_SUCCESS;
