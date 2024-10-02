@@ -72,6 +72,6 @@ else {
 }
 ```
 
-**Implemented in**:
+**Implemented in**: C.
 
-**To be implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
