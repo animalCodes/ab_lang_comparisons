@@ -1,0 +1,176 @@
+This file is intended to provide a standard resource for testing / demonstrating the use of implementations which require reading from a (text) file.
+
+When adding to this file, make sure to update any specifications that use it.
+
+----- KISS acronym, something to keep in mind when developing software.
+
+Keep It Simple, Stupid.
+
+----- Original post by Linus Torvalds announcing what would become Linux.
+
+Hello everybody out there using minix -
+
+I'm doing a (free) operating system (just a hobby, won't be big and
+professional like gnu) for 386(486) AT clones. This has been brewing
+since april, and is starting to get ready. I'd like any feedback on
+things people like/dislike in minix, as my OS resembles it somewhat
+(same physical layout of the file-system (due to practical reasons)
+among other things).
+
+I've currently ported bash(1.08) and gcc(1.40), and things seem to work.
+This implies that I'll get something practical within a few months, and
+I'd like to know what features most people would want. Any suggestions
+are welcome, but I won't promise I'll implement them :-)
+
+Linus ([...]@kruuna.helsinki.fi)
+
+PS. Yes - it's free of any minix code, and it has a multi-threaded fs.
+It is NOT protable (uses 386 task switching etc), and it probably never
+will support anything other than AT-harddisks, as that's all I have :-(.
+
+----- Post announcing the first release of what would become Linux.
+
+Do you pine for the nice days of minix-1.1, when men were men and wrote
+their own device drivers? Are you without a nice project and just dying
+to cut your teeth on a OS you can try to modify for your needs? Are you
+finding it frustrating when everything works on minix? No more all-
+nighters to get a nifty program working? Then this post might be just
+for you :-)
+
+As I mentioned a month(?) ago, I'm working on a free version of a
+minix-lookalike for AT-386 computers. It has finally reached the stage
+where it's even usable (though may not be depending on what you want),
+and I am willing to put out the sources for wider distribution. It is
+just version 0.02 (+1 (very small) patch already), but I've successfully
+run bash/gcc/gnu-make/gnu-sed/compress etc under it.
+
+Sources for this pet project of mine can be found at nic.funet.fi
+(128.214.6.100) in the directory /pub/OS/Linux. The directory also
+contains some README-file and a couple of binaries to work under linux
+(bash, update and gcc, what more can you ask for :-). Full kernel
+source is provided, as no minix code has been used. Library sources are
+only partially free, so that cannot be distributed currently. The
+system is able to compile "as-is" and has been known to work. Heh.
+Sources to the binaries (bash and gcc) can be found at the same place in
+/pub/gnu.
+
+ALERT! WARNING! NOTE! These sources still need minix-386 to be compiled
+(and gcc-1.40, possibly 1.37.1, haven't tested), and you need minix to
+set it up if you want to run it, so it is not yet a standalone system
+for those of you without minix. I'm working on it. You also need to be
+something of a hacker to set it up (?), so for those hoping for an
+alternative to minix-386, please ignore me. It is currently meant for
+hackers interested in operating systems and 386's with access to minix.
+
+The system needs an AT-compatible harddisk (IDE is fine) and EGA/VGA. If
+you are still interested, please ftp the README/RELNOTES, and/or mail me
+for additional info.
+
+I can (well, almost) hear you asking yourselves "why?". Hurd will be
+out in a year (or two, or next month, who knows), and I've already got
+minix. This is a program for hackers by a hacker. I've enjouyed doing
+it, and somebody might enjoy looking at it and even modifying it for
+their own needs. It is still small enough to understand, use and
+modify, and I'm looking forward to any comments you might have.
+
+I'm also interested in hearing from anybody who has written any of the
+utilities/library functions for minix. If your efforts are freely
+distributable (under copyright or even public domain), I'd like to hear
+from you, so I can add them to the system. I'm using Earl Chews estdio
+right now (thanks for a nice and working system Earl), and similar works
+will be very wellcome. Your (C)'s will of course be left intact. Drop me
+a line if you are willing to let me use your code.
+
+Linus
+
+PS. to PHIL NELSON! I'm unable to get through to you, and keep getting
+"forward error - strawberry unknown domain" or something.
+
+----- Original annoucement of the GNU Project.
+
+Free Unix!
+
+Starting this Thanksgiving I am going to write a complete
+Unix-compatible software system called GNU (for Gnu's Not Unix), and
+give it away free to everyone who can use it. Contributions of time,
+money, programs and equipment are greatly needed.
+
+To begin with, GNU will be a kernel plus all the utilities needed to
+write and run C programs: editor, shell, C compiler, linker,
+assembler, and a few other things. After this we will add a text
+formatter, a YACC, an Empire game, a spreadsheet, and hundreds of
+other things. We hope to supply, eventually, everything useful that
+normally comes with a Unix system, and anything else useful, including
+on-line and hardcopy documentation.
+
+GNU will be able to run Unix programs, but will not be identical
+to Unix. We will make all improvements that are convenient, based
+on our experience with other operating systems. In particular,
+we plan to have longer filenames, file version numbers, a crashproof
+file system, filename completion perhaps, terminal-independent
+display support, and eventually a Lisp-based window system through
+which several Lisp programs and ordinary Unix programs can share a screen.
+Both C and Lisp will be available as system programming languages.
+We will have network software based on MIT's chaosnet protocol,
+far superior to UUCP. We may also have something compatible
+with UUCP.
+
+
+Who Am I?
+
+I am Richard Stallman, inventor of the original much-imitated EMACS
+editor, now at the Artificial Intelligence Lab at MIT. I have worked
+extensively on compilers, editors, debuggers, command interpreters, the
+Incompatible Timesharing System and the Lisp Machine operating system.
+I pioneered terminal-independent display support in ITS. In addition I
+have implemented one crashproof file system and two window systems for
+Lisp machines.
+
+
+Why I Must Write GNU
+
+I consider that the golden rule requires that if I like a program I
+must share it with other people who like it. I cannot in good
+conscience sign a nondisclosure agreement or a software license
+agreement.
+
+So that I can continue to use computers without violating my principles,
+I have decided to put together a sufficient body of free software so that
+I will be able to get along without any software that is not free.
+
+
+How You Can Contribute
+
+I am asking computer manufacturers for donations of machines and money.
+I'm asking individuals for donations of programs and work.
+
+One computer manufacturer has already offered to provide a machine. But
+we could use more. One consequence you can expect if you donate
+machines is that GNU will run on them at an early date. The machine had
+better be able to operate in a residential area, and not require
+sophisticated cooling or power.
+
+Individual programmers can contribute by writing a compatible duplicate
+of some Unix utility and giving it to me. For most projects, such
+part-time distributed work would be very hard to coordinate; the
+independently-written parts would not work together. But for the
+particular task of replacing Unix, this problem is absent. Most
+interface specifications are fixed by Unix compatibility. If each
+contribution works with the rest of Unix, it will probably work
+with the rest of GNU.
+
+If I get donations of money, I may be able to hire a few people full or
+part time. The salary won't be high, but I'm looking for people for
+whom knowing they are helping humanity is as important as money. I view
+this as a way of enabling dedicated people to devote their full energies to
+working on GNU by sparing them the need to make a living in another way.
+
+
+For more information, contact me.
+[.....]
+
+----- FSF mission statement.
+
+The Free Software Foundation (FSF) is a nonprofit with a worldwide mission to promote computer user freedom. We defend the rights of all software users.
+
+-----
