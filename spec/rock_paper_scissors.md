@@ -4,7 +4,7 @@ CLI program for playing rock paper scissors against the computer.
 
 The user will input their choice on execution, the program randomly generates its own choice and the two are compared to find a winner.
 
-### Invocation
+## Invocation
 
 `rock_paper_scissors u_choice`
 

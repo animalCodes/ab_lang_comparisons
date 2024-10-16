@@ -4,7 +4,7 @@ A simplified version of the `wc` GNU coreutil. Supporting the `-l`, `-w`, and `-
 
 The primary purpose of this specification is to showcase simple command-line option parsing.
 
-### Invocation
+## Invocation
 
 `swc [options] file`
 

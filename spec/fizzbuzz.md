@@ -4,7 +4,7 @@ Follow the rules of 'Fizzbuzz'.
 
 For simplicity, this specification only implements the core functionality of the game. That is, printing "Fizz", "Buzz", "FizzBuzz", or the number depending on input received, it does not count.
 
-### Invocation
+## Invocation
 
 `fizzbuzz num`
 

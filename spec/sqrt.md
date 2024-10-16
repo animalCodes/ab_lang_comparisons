@@ -4,7 +4,7 @@ Print the square root of a given number accurate to 5 decimal places, or NaN if 
 
 This spec is largely based on the sqrt() function found in C's <math.h> header.
 
-### Invocation
+## Invocation
 
 `sqrt in`
 

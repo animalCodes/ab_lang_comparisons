@@ -2,7 +2,7 @@
 
 *Short description of the program*
 
-### Invocation
+## Invocation
 
 `Title [arguments]`
 

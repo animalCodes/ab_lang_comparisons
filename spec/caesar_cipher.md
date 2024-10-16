@@ -6,7 +6,7 @@ As an example, the message "abc" encrypted with a shift (or *key*) of 3 would re
 
 See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) for more.
 
-### Invocation
+## Invocation
 
 `caesar_cipher shift message`
 

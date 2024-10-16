@@ -2,7 +2,7 @@
 
 Convert given decimal integer into binary, octal or hexadecimal.
 
-### Invocation
+## Invocation
 
 `base_converter base number`
 

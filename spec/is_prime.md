@@ -2,7 +2,7 @@
 
 Prints "True" or "False" depending on whether the number received is a prime number.
 
-### Invocation
+## Invocation
 
 `is_prime in`
 
