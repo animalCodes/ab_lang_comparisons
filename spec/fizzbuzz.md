@@ -27,44 +27,41 @@ For simplicity, this specification only implements the core functionality of the
 
 ### Functions
 
-- `print_err(str)` - Send `str` to stderr with a trailing newline.
-
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `num_str(str)` - Whether `str` could be converted into a number.
 
 - `str_to_num(str)` - Convert `str` into a number,.
 
 - `divisible(n, m)` - Whether `n` is cleanly divisible by `m`.
 
-- `exit(code)` - Terminate program with exit code `code`.
+- `print(str)` - Send exactly `str` to stdout.
 
 ### Code
 
 ```
 if (num == null) {
-    print_err("No number specified, exiting.")
+    eprintln("No number specified, exiting.")
     exit(1)
 }
 
 if (!num_str(num)) {
-    print_err("\"{num}\" cannot be converted into a number, exiting.")
+    eprintln("\"{num}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 
 n = str_to_num(num)
 
 if (divisible(n, 3) && divisible(n, 5)) {
-    print("FizzBuzz")
+    println("FizzBuzz")
     exit(0)
 }
 
 if (divisible(n, 3))
     print("Fizz")
 else if (divisible(n, 5))
-    print("Buzz\n")
+    print("Buzz")
 else
     print("{num}")
+print("\n")
 ```
 
 **Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.

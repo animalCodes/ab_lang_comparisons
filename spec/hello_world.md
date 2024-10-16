@@ -16,12 +16,10 @@ Print "Hello, World!"
 
 ### Functions
 
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 ### Code
 
 ```
-print("Hello, World!")
+println("Hello, World!")
 ```
 
 **Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.

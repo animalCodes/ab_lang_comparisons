@@ -39,10 +39,6 @@ The primary purpose of this specification is to showcase simple command-line opt
 
 ### Functions
 
-- `print_err(str)` - Send string `str` to stderr with a trailing newline.
-
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `readable(path)` - Whether the file indicated by `path` exists and can be read.
 
 - `append(arr, item)` - Append `item` to end of `array`.
@@ -54,8 +50,6 @@ The primary purpose of this specification is to showcase simple command-line opt
 - `bytes(path)` - How many bytes are in the file at `path`.
 
 - `print_items(arr)` - Print each item in `arr`, separated by spaces. And a trailing newline.
-
-- `exit(code)` - Terminate program with exit code `code`.
 
 ### Code
 
@@ -80,12 +74,12 @@ following order: newline, word, byte.\n
 
 ```
 if (file == null) {
-    print_err("No file specified, exiting.")
+    eprintln("No file specified, exiting.")
     exit(1)
 }
 
 if (!readable(file)) {
-    print_err("Cannot access file \"{file}\"")
+    eprintln("Cannot access file \"{file}\"")
     exit(1)
 }
 
@@ -106,13 +100,12 @@ for (option in options) {
         print(help_message)
         exit(0)
     } else {
-        print("Invalid option \"{option}\", try \"swc -h\" for help.")
+        println("Invalid option \"{option}\", try \"swc -h\" for help.")
         exit(1)
     }
 }
 
 print_items(output)
-
 ```
 
 **Implemented in**: C.

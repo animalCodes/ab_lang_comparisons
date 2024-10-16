@@ -25,10 +25,6 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 ### Functions
 
-- `print_err(str)` - Send `str` to stderr with a trailing newline.
-
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `num_str(str)` - Whether `str` could be converted into a number.
 
 - `str_to_num(str)` - Convert `str` into a number.
@@ -37,25 +33,23 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 - `divisible(n, m)` - Whether `n` is divisible by `m` (remainder of 0).
 
-- `exit(code)` - Terminate program with exit code `code`.
-
 ### Code
 
 ```
 if (in == null) {
-    print_err("No number specified, exiting.")
+    eprintln("No number specified, exiting.")
     exit(1)
 }
 
 if (num_str(in)) {
-    print_err("\"{in}\" cannot be converted into a number, exiting.")
+    eprintln("\"{in}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 
 n = str_to_num(in)
 
 if (!natural(n)) {
-    print("False")
+    println("False")
     exit(0)
 }
 ```
@@ -72,7 +66,7 @@ if (!natural(n)) {
 
 ```
 if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
-    print("False")
+    println("False")
     exit(0)
 }
 ```
@@ -88,12 +82,12 @@ if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
 ```
 for (i = 5; i*i <= n; i += 6) {
     if (divisible(n, i) || divisible(n, i+2)) {
-        print("False")
+        println("False")
         exit(0)
     }
 }
 
-print("True")
+println("True")
 ```
 
 **Implemented in**: C, C++, C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.

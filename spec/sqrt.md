@@ -27,8 +27,6 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 ### Functions
 
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `print_n(num)` - Convert `num` to a string representing its value as a decimal number including 5 decimal places, send to stdout with a trailing newline.
 
 - `floor(num)` Largest integer not greater than `num`.
@@ -50,12 +48,12 @@ else
     square = str_to_num(in)
 
 if (square == 0) {
-    print("{square}")
+    println("{square}")
     exit(0)
 }
 
 if (square == NaN || square < 0) {
-    print("NaN")
+    println("NaN")
     exit(0)
 }
 ```
@@ -78,8 +76,8 @@ while (true) {
         break
 }
 
-guess = (guess + (square / guess)) / 2;
-guess = (guess + (square / guess)) / 2;
+guess = (guess + (square / guess)) / 2
+guess = (guess + (square / guess)) / 2
 
 print_n(guess)
 ```

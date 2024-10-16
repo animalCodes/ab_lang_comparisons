@@ -26,6 +26,14 @@ Unless noted otherwise, output is implied to have a trailing newline.
 
 - List of functions used in the specification.
 
+The following functions may be used in any specification without needing to be explicitly listed:
+
+- `eprintln(str)` - Send `str` to stderr with a trailing newline.
+
+- `println(str)` - Send `str` to stdout with a trailing newline.
+
+- `exit(code)` - Terminate program with exit code `code`.
+
 ### Code
 
 Pseudocode using a C-like structure in
@@ -40,7 +48,7 @@ Specific restrictions:
 - Variables and functions should be named in snake_case.
 - Any linebreaks in printed output must be explicitly included. (\n)
 - Blocks of code - i.e. after an if statement - must be wrapped in {}.
-- To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; print("{x}")` would print `1`.
+- To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; println("{x}")` would print `1`.
 
 and, if needed
 

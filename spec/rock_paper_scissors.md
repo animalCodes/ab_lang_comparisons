@@ -22,13 +22,7 @@ The user will input their choice on execution, the program randomly generates it
 
 ### Functions
 
-- `print_err(str)` - Send `str` to stderr with a trailing newline.
-
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `random_choice()` - One of "rock", "paper" or "scissors", chosen randomly.
-
-- `exit(code)` - Terminate program with exit code `code`.
 
 ### Code
 
@@ -36,29 +30,29 @@ The user will input their choice on execution, the program randomly generates it
 
 ```
 if (u_choice == null) {
-    print_err("No choice specified, exiting.")
+    eprintln("No choice specified, exiting.")
     exit(1)
 }
 
 if (u_choice != "rock" && u_choice != "paper"
     && u_choice != "scissors) {
-    print_err("Invalid choice \"{u_choice}\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
+    eprintln("Invalid choice \"{u_choice}\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
     exit(1)
 }
 
 c_choice = random_choice()
 
-print("User: {u_choice}")
-print("Computer: {c_choice}")
+println("User: {u_choice}")
+println("Computer: {c_choice}")
 
 if (c_choice == u_choice)
-    print("Tie!")
+    println("Tie!")
 else if (c_choice == "rock" && u_choice == "paper"
     || c_choice == "paper" && u_choice == "scissors"
     || c_choice == "scissors" &&  u_choice == "rock")
-    print("Winner: User!")
+    println("Winner: User!")
 else
-    print("Winner: Computer!")
+    println("Winner: Computer!")
 ```
 
 **Implemented in**: C, Java.

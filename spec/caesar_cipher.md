@@ -31,10 +31,6 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 ### Functions
 
-- `print_err(str)` - Send string `str` to stderr with a trailing newline.
-
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 - `int_str(str)` - Whether `str` could be converted into an integer.
 
 - `str_to_int(str)` - Convert `str` into an integer.
@@ -45,21 +41,19 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 - `shift(char, n)` - Return `char` shifted `n` times up or down the alphabet, "wrapping around" if necessary. None-alphabetical characters are left as-is.
 
-- `exit(code)` - Terminate program with exit code `code`.
-
 ### Code
 
 ```
 if (shift == null || message == null) {
     if (shift != null) {
-        print_err("No message given, exiting.")
+        eprintln("No message given, exiting.")
     else
-        print_err("No shift or message given, exiting.")
+        eprintln("No shift or message given, exiting.")
     exit(1)
 }
 
 if (!int_str(shift)) {
-    print_err("Couldn't convert \"{shift}\" to an integer, exiting.")
+    eprintln("Couldn't convert \"{shift}\" to an integer, exiting.")
     exit(1)
 }
 
@@ -71,7 +65,7 @@ for (i = 0; i < size(message); i++) {
     message[i] = shift(message[i], key)
 }
 
-print(message)
+println(message)
 ```
 
 **Implemented in**: C, Java.

@@ -20,8 +20,6 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 
 - `print_arr(array)` - Print the members of `array`, deliminated by ", ", surrounded by square brackets.
 
-- `print(str)` - Send `str` to stdout with a trailing newline.
-
 ### Code
 
 > The basic operation of selection sort is as follows:
@@ -67,7 +65,7 @@ for (pos_i = 0; pos_i < size(array); pos_i++) {
     print_arr(array)
 }
 
-print("Sorted array:")
+println("Sorted array:")
 print_arr(array)
 ```
 
