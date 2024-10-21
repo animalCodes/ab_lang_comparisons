@@ -102,7 +102,6 @@ int parse_opts(int argc, char *argv[])
                 opts |= 1; break;
             case 'h':
                 return 8;
-                return EXIT_SUCCESS;
             default:
                 return -1;
         }

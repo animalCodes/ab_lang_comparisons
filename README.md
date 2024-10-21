@@ -1,6 +1,6 @@
 # Animal's Basic Language Comparisons
 
-While the specific goals of this project have shifted and warped over time, at the end of the day it provides example of various programs implemented in various languages.
+While the specific goals of this project have shifted and warped over time, at the end of the day it provides examples of various programs implemented in various languages.
 
 My (current) aim is to provide a large repository of working code examples, helping developers to make an informed choice when deciding what language to use in their next project, while also showing newbies what the language they are learning looks like in action.
 
@@ -12,7 +12,7 @@ That said, each implementation is a fully functioning program, to run a given im
 
 `./code/c/runner.sh fizzbuzz 30`
 
-## Cross-platform compatibility
+## Compatibility
 
 As much as I would like to have this be a fully cross-platform project, at the end of the day I am a single developer working on a GNU/Linux system. For the time being at least, only GNU/Linux distributions are officially supported.
 

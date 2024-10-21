@@ -2,40 +2,31 @@
 
 When contributing to this project, please adhere to the following rules:
 
-* **Folder layout**: Applications must be contained within their own folders, so the "hello world" program written in C must be located in `/code/c/hello_world`, and nothing else.
+* **Folder layout**: All contributions must adhere to the folder layout noted in README.md, so the "hello world" program written in C must be located in `/code/c/hello_world`, and nothing else.
 
 * **File / Folder naming**: All folders and files should use *snake_case*. Exceptions are actual code files, which should follow the language's conventions, (Main.java, Program.cs, etc.)
 
-* **Entry points**: All languages have a `runner.sh` file which simplifies running the code, to ensure these work make sure that the file containing the entry point of each implementation is named according to the below mapping:
+## Implementations
 
-* C: `main.c`
-* C++: `main.cpp`
-* C#: `Program.cs`
-* denoJS/Node.js: `app.js`
-* Go: `main.go`
-* Java: `Main.java`
-* Kotlin: `Main.kt`
-* Ruby: `script.rb`
-* Rust: `main.rs`
-* Other: `main.(extension)`
-
-Each entry point must have a prominent "header comment" containing the text `{lang} {specification}`. For example `C hello_world`.
+* The main file of each implementation must have a prominent "header comment" containing the text `{lang} {specification}`. For example `C hello_world`.
 
 * **Libraries**: This project is intended to show what it is like to code in various languages, so in general no third-party libraries or frameworks. Only the standard library should be used. Exceptions:
     * Tools that are very commonly used. (for instance Cargo with Rust) if it is likely programmers will use a tool, it should be demonstrated.
     * Where the program would be prohibitively difficult to implement otherwise, in which case libraries may be used, but please keep to a minimum.
 
-* **Comments**: In general, comments should be avoided where possible to avoid clutter. The exception to this is when an implementation uses an unusual feature or otherwise where the code is unclear, in which case a note should be added explaining what is going on.
+* **Comments**: Try to keep comments to a minimum so as not to clutter source code. Additionally, comments should state *why* something is being done, not *what*.
 
-* **Packages**: For languages that require packages, ideally use a name similar to "comparisons.{language}.{project}". E.G. "comparisons.java.helloworld", but if something else would fit better with the language, please use that instead.
+* **Packages**: For languages that require packages, ideally use a name similar to "comparisons.{language}.{project}". For example, "comparisons.java.helloworld". Whatever format is used, ensure the relevant `runner.sh` script will be able to recognise it.
 
-* **Impossibilities**: In the case where it is literally impossible to implement a demo in a language, a file named "no_code.md" should be written in its place which explains why it is impossible to implement.
+* **Impossibilities**: In the case where it is literally impossible to implement a specification in a language, a file named "no_code.md" should be written in its place which explains why it is impossible to implement.
 
 ## Specifications
 
-* When contributing a new spec, make sure it follows the format in `/spec/template.md`, and that it can be implemented in atleast *most* languages - preferably all!
+* When contributing a new specification, make sure it follows the format in `/spec/template.md`, and that it can be implemented in at least *most* languages - preferably all!
 
-* In the case where a specification needs to be revised in such a way that current implementations no longer follow it, the "Implemented in" list should be wiped, but the implementations should be kept and updated separately.
+* Pull requests contributing a new specification should ideally contain an implementation of that specification.
+
+* In the case where a specification needs to be revised in such a way that current implementations no longer follow it, the "Implemented in" list should be reset, but the implementations should be kept and updated separately.
 
 ## New languages
 
@@ -47,6 +38,4 @@ Each entry point must have a prominent "header comment" containing the text `{la
 
 * Implement the hello_world specification,
 
-* Create a `runner.sh` file, this should be as easy as copying an existing runner and updating language-specific commands.
-
-Before adding a new language, make sure it can implement the majority of the specifications, it's okay if a couple aren't possible. (Just make sure to add no_code.md files)
+* Create a `runner.sh` script, this should be as easy as copying an existing runner and updating language-specific commands.
