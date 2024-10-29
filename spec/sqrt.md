@@ -84,4 +84,4 @@ print_n(guess)
 
 **Implemented in**: C, Java.
 
-**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Python, Ruby, Rust.

@@ -66,4 +66,4 @@ print("\n")
 
 **Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
 
-**To be implemented in**:
+**To be implemented in**: Python.
