@@ -47,8 +47,24 @@ outlining the operations an implementation should perform to fulfull the specifi
 Specific restrictions:
 - Variables and functions should be named in snake_case.
 - Any linebreaks in printed output must be explicitly included. (\n)
-- Blocks of code - i.e. after an if statement - must be wrapped in {}.
+- Statement blocks are delimited by {}.
 - To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; println("{x}")` would print `1`.
+- Newlines and `;`s are valid statement terminators.
+- Types need not be specified, except in function declarations.
+- Lists/Arrays will grow or shrink automatically.
+- Indentation is 4 spaces.
+- Types with builtin methods aren't allowed, structs are.
+- Strings may span multiple lines, linebreaks are implicitly stripped from them.
+
+The following control flow constructs are available:
+- `if` and `if/else` (Including `if/else if/else`)
+- `while` and `do/while`
+- `for (;;;)` and `for (x in y)`
+- `switch`
+
+Any default C operator may be used, additional ones may be used provided they are explained first.
+
+It is implied that top-level statements are in a main() function or equivalent.
 
 and, if needed
 
