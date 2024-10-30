@@ -64,6 +64,6 @@ else
 print("\n")
 ```
 
-**Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
 
-**To be implemented in**: Python.
+**To be implemented in**:
