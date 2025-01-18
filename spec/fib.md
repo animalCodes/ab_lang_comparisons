@@ -64,9 +64,9 @@ fib(n)
 ```
 fib(n)
 {
-    int f1 = 0
-    int f2 = 1
-    int t = 0
+    f1 = 0
+    f2 = 1
+    t = 0
 
     while (--n) {
         t = f2

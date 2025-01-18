@@ -50,7 +50,6 @@ Specific restrictions:
 - Statement blocks are delimited by {}.
 - To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; println("{x}")` would print `1`.
 - Newlines and `;`s are valid statement terminators.
-- Types need not be specified, except in function declarations.
 - Lists/Arrays will grow or shrink automatically.
 - Indentation is 4 spaces.
 - Types with builtin methods aren't allowed, structs are.
