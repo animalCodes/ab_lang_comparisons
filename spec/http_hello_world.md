@@ -19,6 +19,9 @@ On receiving a GET request, sends back a static response containing the text "He
 
 ## Implementation
 
+Many modern programming languages feature builtin HTTP libraries. For these most of the below details are irrelevant.
+For those that don't, this specification includes details of setting up and using a TCP socket.
+
 ### Functions
 
 Based on the [Berkeley sockets](https://en.wikipedia.org/wiki/Berkeley_sockets) API.

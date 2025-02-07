@@ -39,12 +39,12 @@ Convert given decimal integer into binary, octal or hexadecimal.
 ### Code
 
 ```
-if (number == null) {
+if (!isset(number)) {
     eprintln("No number specified, exiting.")
     exit(1)
 }
 
-if (number == null && base == null) {
+if (!isset(number) && !isset(base)) {
     eprintln("No base or number specified, exiting.")
     exit(1)
 }

@@ -6,23 +6,23 @@ In this specification, the first fibonacci number is 0 and the second is 1.
 
 ## Invocation
 
-`fib input`
+`fib n`
 
-- `input` - Integer, which fibonacci number to print.
+- `n` - Integer, which fibonacci number to print.
 
 ### Examples
 
-| Input                | Output              |
-| -------------------- | ------------------- |
-| `fib 0`              | `0`                 |
-| `fib 1`              | `1`                 |
-| `fib 3`              | `2`                 |
-| `fib 10`             | `55`                |
-| `fib 4 6`            | `3`                 |
-| `fib 7.5`            | `13`                |
-| `fib -10`            | `-10`               |
-| `fib foo`            | `0`                 |
-| `fib`                | `0`                 |
+| Input     | Output |
+| --------- | ------ |
+| `fib 0`   | `0`    |
+| `fib 1`   | `1`    |
+| `fib 3`   | `2`    |
+| `fib 10`  | `55`   |
+| `fib 4 6` | `3`    |
+| `fib 7.5` | `13`   |
+| `fib -10` | `-10`  |
+| `fib foo` | `0`    |
+| `fib`     | `0`    |
 
 ## Implementation
 
@@ -33,18 +33,14 @@ In this specification, the first fibonacci number is 0 and the second is 1.
 ### Code
 
 ```
-if (input == null) {
-    n = 0
-} else {
-    n = atoi(input)
-}
+n = atoi(n)
 
 if (n < 0)
     println("{n}")
     exit(0)
 }
 
-n = fib(n)
+println("{fib(n)}")
 ```
 
 > Ideally the computation should be implemented using a recursive function, as follows.
@@ -68,7 +64,7 @@ fib(n)
     f2 = 1
     t = 0
 
-    while (--n) {
+    while (--n > 0) {
         t = f2
         f2 = f1 + f2
         f1 = t
@@ -76,10 +72,6 @@ fib(n)
 
     return f2
 }
-```
-
-```
-println("{n}")
 ```
 
 **Implemented in**: C.

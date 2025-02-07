@@ -1,6 +1,6 @@
 # Hello World
 
-Print "Hello, World!"
+Send the string "Hello, World!\n" to Standard Out.
 
 ## Invocation
 
@@ -13,8 +13,6 @@ Print "Hello, World!"
 | `hello_world` | `Hello, World!` |
 
 ## Implementation
-
-### Functions
 
 ### Code
 

@@ -15,8 +15,8 @@ The user will input their choice on execution, the program randomly generates it
 | Input                      | Output                                                                                                     |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `rock_paper_scissors`      | `No choice specified, exiting.`                                                                            |
-| `rock_paper_scissors foo`  | `Invalid choice "foo", valid choices are "rock", "paper" and "scissors". (All case-insensitive), exiting.` |
-| `rock_paper_scissors rock` | `User: rock` <br>`Computer: {choice}` <br>`Winner: {User OR Computer}!` OR `Tie!`                          |
+| `rock_paper_scissors foo`  | `Invalid choice "foo". Valid choices are "rock", "paper" and "scissors". (All case-insensitive), exiting.` |
+| `rock_paper_scissors rock` | `User: rock` <br>`Computer: {choice}` <br>`Winner: {User\|Computer}!` OR `Tie!`                            |
 
 ## Implementation
 
@@ -26,17 +26,17 @@ The user will input their choice on execution, the program randomly generates it
 
 ### Code
 
-> Note: in this psuedo-code strings are treated as equal even if their cases differ.
+> Note: in below psuedo-code strings are treated as equal even if their cases differ.
 
 ```
-if (u_choice == null) {
+if (!isset(u_choice)) {
     eprintln("No choice specified, exiting.")
     exit(1)
 }
 
 if (u_choice != "rock" && u_choice != "paper"
     && u_choice != "scissors) {
-    eprintln("Invalid choice \"{u_choice}\", valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
+    eprintln("Invalid choice \"{u_choice}\". Valid choices are \"rock\", \"paper\" and \"scissors\". (All case-insensitive), exiting.")
     exit(1)
 }
 

@@ -18,7 +18,7 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 
 - `size(array)` - The number of elements in `array`.
 
-- `print_arr(array)` - Print the members of `array`, deliminated by ", ", surrounded by square brackets.
+- `print_arr(array)` - Print the members of `array`, deliminated by ", " and surrounded by square brackets.
 
 ### Code
 
@@ -34,15 +34,15 @@ Selection sort is a sorting algorithm which, while not being particularly effici
 
 > This implementation uses the following variables:
 >
-> - `array`, the static array to be sorted.
+> - `array` = the static array to be sorted.
 >
-> - `pos_i`, index currently being sorted.
+> - `pos_i` = index currently being sorted.
 >
-> - `i`, position in unsorted subarray.
+> - `i` = position in unsorted subarray.
 >
-> - `pos_min`, position of currently known smallest number.
+> - `pos_min` = position of currently known smallest number.
 >
-> - `temp`, used for swapping; temporarily holds the value of a member.
+> - `temp` = used for swapping; temporarily holds the value of a member.
 
 > Sort from least to greatest.
 

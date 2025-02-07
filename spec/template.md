@@ -8,11 +8,13 @@
 
 - List of above arguments explaining how they should be interpreted and what they are used for.
 
-Arguments may be referred to as variables in below pseudo-code, with `arg != null` meaning "argument was set" etc.
+Arguments may be referred to as variables in below pseudo-code, with `arg == null` meaning "argument isn't set", etc.
 
 ### Examples
 
 A table showing example invocations and expected output, aim for at least 3.
+
+If the program doesn't have traditional input/output, (such as `http_hello_world`) a different table structure is allowed.
 
 Unless noted otherwise, output is implied to have a trailing newline.
 
@@ -24,7 +26,7 @@ Unless noted otherwise, output is implied to have a trailing newline.
 
 ### Functions *(Optional)*
 
-- List of functions used in the specification.
+List of functions used in the specification.
 
 The following functions may be used in any specification without needing to be explicitly listed:
 
@@ -32,38 +34,33 @@ The following functions may be used in any specification without needing to be e
 
 - `println(str)` - Send `str` to stdout with a trailing newline.
 
+- `isset(arg)` - Whether `arg` (given above) was supplied by the user.
+
 - `exit(code)` - Terminate program with exit code `code`.
 
 ### Code
 
-Pseudocode using a C-like structure in
+C-like pseudocode in
 
 ```
 fenced code blocks
 ```
 
-outlining the operations an implementation should perform to fulfull the specification.
+Outlining the operations an implementation should perform to fulfull the specification.
+
+Pseudo-code should be kept as high-level as possible, only barely outlining what needs to be done - not *how*.
+In cases where specific techniques need to be shown, use C-like syntax.
 
 Specific restrictions:
-- Variables and functions should be named in snake_case.
-- Any linebreaks in printed output must be explicitly included. (\n)
 - Statement blocks are delimited by {}.
-- To include a variable in a string, wrap that variable's name in `{}`s. For instance, `x = 1; println("{x}")` would print `1`.
-- Newlines and `;`s are valid statement terminators.
-- Lists/Arrays will grow or shrink automatically.
-- Indentation is 4 spaces.
-- Types with builtin methods aren't allowed, structs are.
+- Newlines and `;`s are valid statement terminators. Do not end lines with `;`s.
+- Types should **not** be specified.
+- Variables and functions should be named in snake_case.
+- Indentation should be kept to 4 spaces.
+- To include an expression in a string, wrap it in `{}`s. For instance, `x = 1; println("{x}")` would print `1`.
 - Strings may span multiple lines, linebreaks are implicitly stripped from them.
 
-The following control flow constructs are available:
-- `if` and `if/else` (Including `if/else if/else`)
-- `while` and `do/while`
-- `for (;;;)` and `for (x in y)`
-- `switch`
-
-Any default C operator may be used, additional ones may be used provided they are explained first.
-
-It is implied that top-level statements are in a main() function or equivalent.
+Lastly, use other specifications as your main reference rather than this document.
 
 and, if needed
 

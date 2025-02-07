@@ -1,6 +1,6 @@
 # Caesar C(i|y)pher
 
-Also known as the "shift cipher", the caesar cipher works by shifting the letters of the message a certain number of positions up or down the alphabet.
+Also known as the "shift cipher", the caesar cipher works by shifting the letters of the message a certain number of positions up or down the (latin) alphabet.
 
 As an example, the message "abc" encrypted with a shift (or *key*) of 3 would result in the message "def".
 
@@ -44,8 +44,8 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 ### Code
 
 ```
-if (shift == null || message == null) {
-    if (shift != null) {
+if (!isset(shift) || !isset(message)) {
+    if (isset(shift)) {
         eprintln("No message given, exiting.")
     else
         eprintln("No shift or message given, exiting.")

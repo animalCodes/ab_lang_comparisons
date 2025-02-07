@@ -4,9 +4,9 @@ Prints "True" or "False" depending on whether the number received is a prime num
 
 ## Invocation
 
-`is_prime in`
+`is_prime n`
 
-- `in` - Number to check.
+- `n` - Number to check.
 
 ### Examples
 
@@ -36,17 +36,17 @@ Prints "True" or "False" depending on whether the number received is a prime num
 ### Code
 
 ```
-if (in == null) {
+if (!isset(n)) {
     eprintln("No number specified, exiting.")
     exit(1)
 }
 
-if (num_str(in)) {
-    eprintln("\"{in}\" cannot be converted into a number, exiting.")
+if (num_str(n)) {
+    eprintln("\"{n}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 
-n = str_to_num(in)
+n = str_to_num(n)
 
 if (!natural(n)) {
     println("False")
@@ -54,15 +54,16 @@ if (!natural(n)) {
 }
 ```
 
-> While there are many ways to figure out if a number is prime, we'll stick to Trial Division, as it is reasonably efficient and can actually be understood by normal people.
+> While there are many ways to figure out if a number is prime, we'll stick to
+> Trial Division, as it is reasonably efficient and can actually be understood by
+> normal people.
 >
-> If you are unfamiliar with the algorithm, I'd suggest reading the [Wikipedia article on Trial Division](https://en.wikipedia.org/wiki/Trial_division)
+> If you are unfamiliar with the algorithm, I'd suggest reading the
+> [Wikipedia article on Trial Division](https://en.wikipedia.org/wiki/Trial_division)
 
 > Before resorting to that, however, some numbers can be easily eliminated.
->
-> Firstly, there are no prime numbers less than 2.
->
-> Secondly, there is a good chance that, if none-prime, the input will be divisible by 2 or 3. 
+> - Firstly, there are no prime numbers less than 2.
+> - Secondly, there is a good chance that, if none-prime, the input will be divisible by 2 or 3. 
 
 ```
 if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
@@ -73,9 +74,13 @@ if (n < 2 || (n > 2 && divisible(n, 2)) || (n > 3 && divisible(n, 3))) {
 
 > If the above checks passed, we need to check every possible factor of `n`.
 >
-> We know the number can't be divisible by 2 or 3, so there is no point in checking whether it is divisible by 6, for instance. We need to skip those numbers.
+> We know the number can't be divisible by 2 or 3, so there is no point in
+> checking whether it is divisible by 6, for instance. We need to skip those
+> numbers.
 >
-> Additionally, we only need to check up to the square root of `n`, as anything above that will have already been checked - if the square root is 10, checking 25 (25 * 4 = 100) would be redundant, as we will have already checked 4.
+> Additionally, we only need to check up to the square root of `n`, as anything
+> above that will have already been checked - if the square root is 10, checking
+> 25 (25 * 4 = 100) would be redundant, as we will have already checked 4.
 >
 > This is actually quite simple, like so:
 

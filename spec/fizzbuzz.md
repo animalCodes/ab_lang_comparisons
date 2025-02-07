@@ -2,13 +2,14 @@
 
 Follow the rules of 'Fizzbuzz'.
 
-For simplicity, this specification only implements the core functionality of the game. That is, printing "Fizz", "Buzz", "FizzBuzz", or the number depending on input received, it does not count.
+For simplicity, this specification only implements the core functionality of the game.
+That is, printing "Fizz", "Buzz", "FizzBuzz", or the number depending on input received, it does not count.
 
 ## Invocation
 
-`fizzbuzz num`
+`fizzbuzz n`
 
-- `num` - Number to check.
+- `n` - Number to check.
 
 ### Examples
 
@@ -33,22 +34,20 @@ For simplicity, this specification only implements the core functionality of the
 
 - `divisible(n, m)` - Whether `n` is cleanly divisible by `m`.
 
-- `print(str)` - Send exactly `str` to stdout.
-
 ### Code
 
 ```
-if (num == null) {
+if (!isset(n)) {
     eprintln("No number specified, exiting.")
     exit(1)
 }
 
-if (!num_str(num)) {
-    eprintln("\"{num}\" cannot be converted into a number, exiting.")
+if (!num_str(n)) {
+    eprintln("\"{n}\" cannot be converted into a number, exiting.")
     exit(1)
 }
 
-n = str_to_num(num)
+n = str_to_num(n)
 
 if (divisible(n, 3) && divisible(n, 5)) {
     println("FizzBuzz")
@@ -56,12 +55,11 @@ if (divisible(n, 3) && divisible(n, 5)) {
 }
 
 if (divisible(n, 3))
-    print("Fizz")
+    println("Fizz")
 else if (divisible(n, 5))
-    print("Buzz")
+    println("Buzz")
 else
-    print("{num}")
-print("\n")
+    println("{n}")
 ```
 
 **Implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.

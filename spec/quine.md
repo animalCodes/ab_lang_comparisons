@@ -10,17 +10,22 @@ In this case, "output" is just printing to stdout.
 
 ### Examples
 
-| Input                   | Output                                            |
-| ----------------------- | ------------------------------------------------- |
-| `quine \| diff - {src}` | (No output, inputs are identical)                 |
+| Input                           | Output                                            |
+| ------------------------------- | ------------------------------------------------- |
+| `quine \| diff - {source file}` | (No output, inputs are identical)                 |
+
+<!-- Plaintext readers: The above '\' is used to escape the '|' and should *not* be used in the commandline. -->
 
 ## Implementation
 
 ### Code
 
-Providing example pseudo-code doesn't make sense, as the output of a given implementation will depend on it's source.
+Providing example pseudo-code doesn't make sense, as the output of a given
+implementation will depend on it's source.
 
-The only requirement for an implementation of this specification is that it's output matches it's source code. This can be easily checked with the command-line provided in the *Examples* section.
+The only requirement for an implementation of this specification is that
+it's output matches it's source code. This can be easily checked with the
+commandline provided in the *Examples* section.
 
 Good luck!
 

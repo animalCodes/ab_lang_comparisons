@@ -43,11 +43,13 @@ The primary purpose of this specification is to showcase simple command-line opt
 
 - `append(arr, item)` - Append `item` to end of `array`.
 
-- `lines(path)` - How many newline characters (\n) are in the file at `path`.
+- `isempty(arr)` - Whether `arr` is empty (has a length of zero).
 
-- `words(path)` - How many words are in the file at `path`.
+- `lines(path)` - Number of newline characters (\n) in the file at `path`.
 
-- `bytes(path)` - How many bytes are in the file at `path`.
+- `words(path)` - Number of words in the file at `path`.
+
+- `bytes(path)` - Number of bytes in the file at `path`.
 
 - `print_items(arr)` - Print each item in `arr`, separated by spaces. And a trailing newline.
 
@@ -73,7 +75,7 @@ following order: newline, word, byte.\n
 > (filename)", it will be ['l', 'w']. Duplicates are removed.
 
 ```
-if (file == null) {
+if (!isset(file)) {
     eprintln("No file specified, exiting.")
     exit(1)
 }
@@ -83,7 +85,7 @@ if (!readable(file)) {
     exit(1)
 }
 
-if (options == []) {
+if (isempty(options)) {
     options = ['c', 'l', 'w']
 }
 

@@ -6,9 +6,9 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 ## Invocation
 
-`sqrt in`
+`sqrt n`
 
-- `in` - Number to calculate square root of, in format described in Functions section.
+- `n` - Number to calculate square root of, in format described in Functions section.
 
 ### Examples
 
@@ -27,11 +27,9 @@ This spec is largely based on the sqrt() function found in C's <math.h> header.
 
 ### Functions
 
-- `print_n(num)` - Convert `num` to a string representing its value as a decimal number including 5 decimal places, send to stdout with a trailing newline.
+- `round(n, m)` - Round `n` to `m` decimal points of precision.
 
-- `floor(num)` Largest integer not greater than `num`.
-
-- `exit(code)` - Terminate program with exit code `code`.
+- `floor(n)` - Largest integer not greater than `n`.
 
 The following functions accept decimal number strings with an optional exponent indicating multiplication by a power of ten ("E" notation).
 
@@ -42,10 +40,10 @@ The following functions accept decimal number strings with an optional exponent 
 ### Code
 
 ```
-if (in == null || !num_str(in))
+if (!isset(n) || !num_str(n))
     square = NaN
 else
-    square = str_to_num(in)
+    square = str_to_num(n)
 
 if (square == 0) {
     println("{square}")
@@ -58,13 +56,22 @@ if (square == NaN || square < 0) {
 }
 ```
 
-> We'll use [Heron's Method](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Heron's_method) to compute the square root, due to its relative simplicity and ease of implementation.
+> We'll use [Heron's Method](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Heron's_method)
+> to compute the square root, due to its relative simplicity and ease of
+> implementation.
 >
-> TL:DR, Heron's method works by iteratively refining a guess until the desired precision is reached, we know the digits past a certain point are correct once they stop changing.
+> TL:DR, Heron's method works by iteratively refining a guess until the desired
+> precision is reached, we know the digits past a certain point are correct once
+> they stop changing.
 >
-> While there are various methods of estimating a seed value, they end up being more complicated than the actual computation itself. So in the interest of simplicity, we'll use an initial estimate of 1.
+> While there are various methods of estimating a seed value, they end up being
+> more complicated than the actual computation itself. So in the interest of
+> simplicity, we'll use an initial estimate of 1.
 >
-> The below method of computing the integer part iterates once more than strictly necessary, as Heron's Method *roughly* doubles the number of correct digits per iteration, we only need to iterate *twice* more to compute the 5 decimal digits.
+> The below method of computing the integer part iterates once more than
+> strictly necessary, as Heron's Method *roughly* doubles the number of correct
+> digits per iteration, we only need to iterate *twice* more to compute the 5
+> decimal digits.
 
 ```
 guess = 1
@@ -79,7 +86,7 @@ while (true) {
 guess = (guess + (square / guess)) / 2
 guess = (guess + (square / guess)) / 2
 
-print_n(guess)
+println("{round(guess, 5)}")
 ```
 
 **Implemented in**: C, Java.
