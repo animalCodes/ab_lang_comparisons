@@ -26,8 +26,13 @@ unset ARGS[0]
 if [ -d "src" ]; then
   javac -d ../out/$1 src/comparisons/java/$PACKAGE_NAME/*
   cd ../out/$1
-  java comparisons/java/$PACKAGE_NAME/Main ${ARGS[*]}
-  exit
+  if type jar 1>/dev/null 2>&1; then
+    jar -cfe jarfile.jar comparisons.java.$PACKAGE_NAME/Main comparisons
+    java -jar jarfile.jar ${ARGS[*]}
+  else
+    java comparisons/java/$PACKAGE_NAME/Main ${ARGS[*]}
+  fi
+    exit
 else
   echo No src folder found, exiting 1>&2
   exit 1
