@@ -6,7 +6,7 @@ Echo received arguments to stdout with a trailing newline.
 
 `echo message`
 
-- `message` - All arguments given to program, treated as a single string.
+- `message` - All arguments given to program, separated by spaces and treated as a single string.
 
 ### Examples
 
@@ -22,6 +22,6 @@ Echo received arguments to stdout with a trailing newline.
 println(message)
 ```
 
-**Implemented in**:
+**Implemented in**: C.
 
-**To be implemented in**: C, C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
