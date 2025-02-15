@@ -49,8 +49,8 @@ println("{fib(n)}")
 fib(n)
 {
     if (n <= 1)
-        return n;
-    return fib(n - 1) + fib(n - 2);
+        return n
+    return fib(n - 1) + fib(n - 2)
 }
 ```
 
@@ -74,6 +74,6 @@ fib(n)
 }
 ```
 
-**Implemented in**: C.
+**Implemented in**: C, Python.
 
-**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
