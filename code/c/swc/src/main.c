@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+// C swc
+
 #define HELP_MESSAGE                                                           \
 "Usage: swc [options] file\n"                                                  \
 "Print newline, word and byte counts for file. A word is a sequence of\n"      \

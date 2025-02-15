@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// C vigenere_cipher
+
 const char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
 /* Read input from stdin until '\n' is received. */

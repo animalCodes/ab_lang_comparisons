@@ -10,6 +10,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+// C http_hello_world
+
 /* Close `s` and exit. */
 void cleanup();
 
