@@ -1,5 +1,7 @@
 import sys, random
 
+# Python rock_paper_scissors
+
 if len(sys.argv) < 2:
     print("No choice specified, exiting.", file=sys.stderr)
     sys.exit(1)

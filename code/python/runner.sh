@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Runner for all Ruby programs.
+# Runner for all Python programs.
 
 if ! type python 1>/dev/null 2>&1; then
   echo Python cli not found, please install to run. 1>&2
