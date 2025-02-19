@@ -44,11 +44,13 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 ### Code
 
 ```
-if (!isset(shift) || !isset(message)) {
-    if (isset(shift)) {
-        eprintln("No message given, exiting.")
-    else
-        eprintln("No shift or message given, exiting.")
+if (!isset(shift) && !isset(message)) {
+    eprintln("No shift or message given, exiting.")
+    exit(1)
+}
+
+if (!isset(message)) {
+    eprintln("No message given, exiting.")
     exit(1)
 }
 
@@ -68,6 +70,6 @@ for (i = 0; i < size(message); i++) {
 println(message)
 ```
 
-**Implemented in**: C, C#, Java.
+**Implemented in**: C, C#, Java, Python.
 
-**To be implemented in**: C++, denoJS, Go, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
