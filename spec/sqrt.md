@@ -89,6 +89,6 @@ guess = (guess + (square / guess)) / 2
 println("{round(guess, 5)}")
 ```
 
-**Implemented in**: C, Java.
+**Implemented in**: C, Java, Python.
 
-**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++, C#, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
