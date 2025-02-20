@@ -69,6 +69,6 @@ println("Sorted array:")
 print_arr(array)
 ```
 
-**Implemented in**: C, C#, Java.
+**Implemented in**: C, C#, Java, Python.
 
-**To be implemented in**: C++, denoJS, Go, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++, denoJS, Go, Kotlin, Node.js, Ruby, Rust.
