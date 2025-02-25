@@ -47,7 +47,7 @@ Second `input` text is key, as above.
 
 - `index(char)` - Zero-based index in the alphabet of character `c`. Returns `-1` for any non-alphabetical character.
 
-- `alphabet(i)` - Character at index `i` in the alphabet. If `i` is greater than 26, wraps around. For instance, 27 is the same as 0.
+- `alphabet(i)` - Character at zero-based index `i` in the alphabet. If `i` is greater than 25, wraps around. For instance, 26 is the same as 0.
 
 ### Code
 
@@ -86,6 +86,6 @@ for (i = 0; i < len(message)) {
 println(message)
 ```
 
-**Implemented in**: C.
+**Implemented in**: C, Python.
 
-**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
