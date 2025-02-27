@@ -111,6 +111,6 @@ void handle_interrupt() {
 }
 ```
 
-**Implemented in**: C.
+**Implemented in**: C, Python.
 
-**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Python, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
