@@ -18,9 +18,6 @@ let string = "";
 if (arg % 3 == 0) string += "Fizz"
 if (arg % 5 == 0) string += "Buzz"
 
-// Wrap arg in a template literal so that it's a string, otherwise `string`
-// will become a number.  Which can sometimes be displayed differently in the
-// terminal. this is entirely unnecessary but I find it a bit cleaner.
 if (string == "" || arg == 0) string = `${arg}`
 
 console.log(string)

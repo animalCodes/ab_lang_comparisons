@@ -6,14 +6,13 @@
 
 char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-/* Return the index of the first occurence of `c` in `str`, or -1 if none
-    found. */
+/* The index of the first occurence of `c` in `str`, or -1 if none found. */
 int str_i(char c, char *str);
 
-/* Return `c` shifted `shiftc` places up or down the alphabet. */
+/* `c` shifted `shiftc` places up or down the alphabet. */
 char shift(char c, int shiftc);
 
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
     if (argc < 3) {
         if (argc == 2)
@@ -58,12 +57,10 @@ char shift(char c, int shiftc)
 
     int index = str_i(c, alphabet);
     if (index == -1)
-        // Don't try to shift none-alphabetical characters
         return c;
 
     index += shiftc;
 
-    // "Wrap-around" on over/underflow
     index %= length;
     if (index < 0)
         index += length;

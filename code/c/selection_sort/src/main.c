@@ -20,7 +20,6 @@ int main()
               pos_min = i;
         }
 
-        // Swap only if necessary
         if (pos_min != pos_i) {
             temp = array[pos_min];
             array[pos_min] = array[pos_i];

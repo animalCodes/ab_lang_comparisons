@@ -16,7 +16,6 @@ str += "Fizz" if num % 3 == 0
 str += "Buzz" if num % 5 == 0
 
 if str == "" || num == 0 then
-  # Don't print any decimal places
   puts num.to_i
 else
   puts str

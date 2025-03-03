@@ -30,9 +30,6 @@ int main(int argc, char** argv)
         return EXIT_SUCCESS;
     }
 
-    // I generally avoid using atoi() due to it returning 0 on invalid strings
-    // (in most implementations). However, in this case, it actually works in
-    // our favour.
     int base = atoi(argv[1]);
 
     uint m = abs(n);
@@ -40,7 +37,6 @@ int main(int argc, char** argv)
         putchar('-');
 
     if (base == 2) 
-        // Fine I'll do it myself
         print_binary(m);
     else if (base == 8)
         printf("%o\n", m);
@@ -63,8 +59,6 @@ void print_binary(uint n)
     out[len-1] = '\0';
 
     div_t res = {n, 0}; // {quotient, remainder}
-    // Repeatedly divide by two, prepending the remainder (1 or 0) to the
-    // string. Stop once the quotient (result) is 0.
     for (int i = len-2; res.quot > 0; i--) {
         res = div(res.quot, 2);
         out[i] = (res.rem == 1) ? '1' : '0';

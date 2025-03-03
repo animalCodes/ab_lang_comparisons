@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h> // For strcasecmp()
-#include <time.h> // For time_t and time()
+#include <strings.h>
+#include <time.h>
 
 // C rock_paper_scissors
 
@@ -21,7 +21,7 @@ int strchoice(char *input);
     default = "" */
 char *choicestr(int choice);
 
-/* Randomly return one of ROCK (0), PAPER (1) or SCISSORS (2). */
+/* One of ROCK (0), PAPER (1) or SCISSORS (2). */
 int randchoice();
 
 int main(int argc, char *argv[])
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     if (user_choice == NONE) {
         fprintf(stderr, "Invalid choice \"%s\", valid choices are \"rock\", "
                 "\"paper\" and \"scissors\". (All case-insensitive), exiting.\n"
-                ,user_input);
+                , user_input);
         return EXIT_FAILURE;
     }
 
@@ -88,8 +88,5 @@ int randchoice()
     time_t now;
     time(&now);
     srand(now);
-
-    // This mess converts the output of `rand()` (which returns any value
-    // between 0 and `RAND_MAX`) to 0, 1, or 2.
     return ((float)rand() / (float)RAND_MAX) * 3;
 }

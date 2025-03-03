@@ -36,8 +36,6 @@ class Main {
      * @return The demo array.
      */
     private static ArrayList<Integer> initArray() {
-        // We could use a static array here, but `ArrayList`s are more commonly
-        // used.
         ArrayList<Integer> array = new ArrayList<>();
         array.add(-864);
         array.add(2);

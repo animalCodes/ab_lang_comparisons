@@ -12,9 +12,6 @@ int main(int argc, char *argv[])
         square = strtod(argv[1], &end);
 
     if (end == argv[1] || square < 0 ||
-        // strtod will accept strings such as "+Infinity" or "NaN" as valid
-        // floating-point values. But something tells me trying to compute the
-        // square root of infinity is a bad idea...
         (isinf(square) == 1) || isnan(square)) {
         printf("NaN\n");
         return 0;

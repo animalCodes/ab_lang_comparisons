@@ -20,7 +20,6 @@
 
 const char *valid_opts = "lwch";
 
-/* Return value of count(). */
 typedef struct {
     int newlines;
     int words;
@@ -79,9 +78,9 @@ int main(int argc, char *argv[])
             putchar(' ');
     }
 
-    if (opts) {
+    if (opts)
         printf("%d", counts.bytes);
-    }
+
     putchar('\n');
 
     fclose(file);
@@ -89,13 +88,11 @@ int main(int argc, char *argv[])
 
 int parse_opts(int argc, char *argv[])
 {
-    opterr = 0; // Stop getopt from printing it's own error messages.
+    opterr = 0;
     int opts = 0;
     char opt;
     while ((opt = getopt(argc, argv, valid_opts)) != -1) {
         switch (opt) {
-            // OR rather than addition to stop duplicate options from breaking
-            // everything
             case 'l': 
                 opts |= 4; break;
             case 'w':
@@ -119,15 +116,12 @@ int parse_opts(int argc, char *argv[])
 counts_t count(FILE *file)
 {
     counts_t counts = {0, 0, 0};
-    char buffer[80]; // Buffer size is entirely arbitrary
+    char buffer[80];
     bool space = true; // Initialise to true in order to detect a word at the
                        // very start of file.
 
-    // Count newlines, words and bytes all in one go, this of course leads to a
-    // bunch of unnecessary work when not all options are set, but only counting
-    // them if they are set would be fiddly and only result in slightly less
-    // operations being performed, as in any case we still need to read and
-    // iterate over the contents of the entire file.
+    // Count everything regardless of options. We'll need to iterate over the
+    // entire file anyway.
     while (fgets(buffer, 80, file) != NULL) {
         int i = 0;
         for (; buffer[i] != '\0'; i++) {

@@ -12,9 +12,6 @@ int main(int argc, char** argv) {
     char *end;
     int num = strtol(argv[1], &end, 10);
 
-    // `end` will be the address of the first nondigit character, if the string
-    // (excluding whitespace and optional +/-) doesn't start with a digit
-    // this'll be the start of the string.
     if (end == argv[1]) {
         fprintf(stderr, "\"%s\" cannot be converted into a number, exiting.\n",
             argv[1]);

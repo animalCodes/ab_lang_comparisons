@@ -27,7 +27,6 @@ func main() {
         os.Exit(0)
     }
 
-    // The remainder operator (%) is only defined for integers.. Because reasons
     var m = int(n)
 
     if m < 2 || m > 2 && m % 2 == 0 || m > 3 && m % 3 == 0 {

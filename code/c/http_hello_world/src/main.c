@@ -12,7 +12,7 @@
 
 // C http_hello_world
 
-/* Close `s` and exit. */
+/* Close `socket_fd` and exit. */
 void cleanup();
 
 /* Setup a TCP socket listening on 127.0.0.1:8080.
@@ -101,7 +101,7 @@ char *choose_response(int fd)
 int setup_socket()
 {
     struct sockaddr_in address;
-    address.sin_family = AF_INET; // Always AF_INET.
+    address.sin_family = AF_INET;
     address.sin_port = htons(8080);
     inet_aton("127.0.0.1", &address.sin_addr);
 

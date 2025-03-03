@@ -47,7 +47,6 @@ int main(int argc, char **argv)
                 putchar(shift(argv[i][j], key[k++]));
             else
                 putchar(argv[i][j]);
-            // Don't actually need to extend `key` :P
             if (k >= keylen)
                 k = 0;
         }

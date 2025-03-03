@@ -24,7 +24,6 @@ int main(int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
-    // modulo operator (%) only works on ints
     int m = n;
 
     if (m % 3 == 0 && m % 5 == 0) {
