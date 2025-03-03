@@ -10,7 +10,7 @@ if len(sys.argv) < 3:
     sys.exit(1)
 
 if not sys.argv[2].isdecimal():
-    print(f"\"{sys.argv[2]}\" isn't a decimal integer. exiting.")
+    print(f"\"{sys.argv[2]}\" isn't a decimal integer, exiting.")
     sys.exit(1)
 
 n = int(sys.argv[2])

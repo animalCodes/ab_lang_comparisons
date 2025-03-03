@@ -53,10 +53,8 @@ byte_count = 0
 line_count = 0
 word_count = 0
 
-path = args.files[0]
-
 try:
-    with open(path, 'r', encoding="utf-8") as file:
+    with open(args.files[0], 'r', encoding="utf-8") as file:
         for line in file:
             line_count += 1
             word_count += words(line)

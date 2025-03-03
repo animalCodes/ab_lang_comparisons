@@ -26,6 +26,5 @@ while i*i <= n:
         print("False")
         break
     i += 6
-# Executes if the loop exits without `break`ing
 else:
     print("True")
