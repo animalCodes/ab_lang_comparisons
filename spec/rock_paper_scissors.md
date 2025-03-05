@@ -55,6 +55,6 @@ else
     println("Winner: Computer!")
 ```
 
-**Implemented in**: C, Java, Python.
+**Implemented in**: C, Java, Node.js, Python.
 
-**To be implemented in**: C++, C#, DenoJS, Go, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++, C#, DenoJS, Go, Kotlin, Ruby, Rust.
