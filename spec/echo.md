@@ -22,6 +22,6 @@ Echo received arguments to stdout with a trailing newline.
 println(message)
 ```
 
-**Implemented in**: C, Python.
+**Implemented in**: C, Node.js, Python.
 
-**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Ruby, Rust.
