@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     }
 
     char *end;
-    int num = strtol(argv[1], &end, 10);
+    float input = strtof(argv[1], &end);
 
     if (end == argv[1]) {
         fprintf(stderr, "\"%s\" cannot be converted into a number, exiting.\n",
@@ -18,10 +18,8 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    // Crude check for whether number isn't natural (has a decimal point)
-    // This'll incorrectly print "False" for values such as 2.0, but it's close
-    // enough.
-    if (end[0] == '.') {
+    int num = input;
+    if (num != input) {
         printf("False\n");
         return EXIT_SUCCESS;
     }
