@@ -5,24 +5,21 @@
 
 // C rock_paper_scissors
 
-#define ROCK 0
-#define PAPER 1
-#define SCISSORS 2
-#define NONE -1
+enum choice {ROCK = 0, PAPER = 1, SCISSORS = 2, NONE = -1};
 
-/* Convert input string to int choice.
-    if input is invalid, NONE (-1) will be returned. */
-int strchoice(char *input);
+/* Convert input string to choice.
+    if input is invalid, NONE will be returned. */
+enum choice strchoice(char *input);
 
-/* Convert int choice to string.
-    ROCK (0) = "rock"
-    PAPER (1) = "paper"
-    SCISSORS (2) = "scissors"
+/* Convert enum choice to string.
+    ROCK = "rock"
+    PAPER = "paper"
+    SCISSORS = "scissors"
     default = "" */
-char *choicestr(int choice);
+char *choicestr(enum choice choice);
 
-/* One of ROCK (0), PAPER (1) or SCISSORS (2). */
-int randchoice();
+/* One of ROCK, PAPER or SCISSORS. */
+enum choice randchoice();
 
 int main(int argc, char *argv[])
 {
@@ -32,7 +29,7 @@ int main(int argc, char *argv[])
     }
 
     char *user_input = argv[1];
-    int user_choice = strchoice(user_input);
+    enum choice user_choice = strchoice(user_input);
     if (user_choice == NONE) {
         fprintf(stderr, "Invalid choice \"%s\", valid choices are \"rock\", "
                 "\"paper\" and \"scissors\". (All case-insensitive), exiting.\n"
@@ -40,7 +37,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    int computer_choice = randchoice();
+    enum choice computer_choice = randchoice();
 
     printf("User: %s\n", user_input);
     printf("Computer: %s\n", choicestr(computer_choice));
@@ -57,7 +54,7 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-int strchoice(char *input)
+enum choice strchoice(char *input)
 {
     if (!strcasecmp(input, "rock"))
         return ROCK;
@@ -69,7 +66,7 @@ int strchoice(char *input)
         return NONE;
 }
 
-char *choicestr(int choice)
+char *choicestr(enum choice choice)
 {
     switch (choice) {
         case ROCK:
@@ -83,7 +80,7 @@ char *choicestr(int choice)
     }
 }
 
-int randchoice()
+enum choice randchoice()
 {
     time_t now;
     time(&now);
