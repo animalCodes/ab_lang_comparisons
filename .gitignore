@@ -1,11 +1,17 @@
+# Misc
+.*
+
 # C#
 obj/
 bin/
+
 # Rust
 *.lock
+
 # Output
 out/
 target/
+
 # Editors
 .idea/
 .vim/
