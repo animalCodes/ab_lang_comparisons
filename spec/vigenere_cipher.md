@@ -86,6 +86,6 @@ for (i = 0; i < len(message)) {
 println(message)
 ```
 
-**Implemented in**: C, Python.
+**Implemented in**: C, Node.js, Python.
 
-**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Node.js, Ruby, Rust.
+**To be implemented in**: C++ C#, DenoJS, Go, Java, Kotlin, Ruby, Rust.
