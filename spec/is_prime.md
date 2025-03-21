@@ -18,8 +18,8 @@ Prints "True" or "False" depending on whether the number received is a prime num
 | `is_prime 5.6`   | `False`                                               |
 | `is_prime 13`    | `True`                                                |
 | `is_prime 25`    | `False`                                               |
-| `is_prime`       | `No number specified, exiting.`                       |
 | `is_prime lorem` | `"lorem" cannot be converted into a number, exiting.` |
+| `is_prime`       | `No number specified, exiting.`                       |
 
 ## Implementation
 

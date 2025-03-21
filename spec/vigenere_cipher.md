@@ -28,8 +28,8 @@ Second `input` text is key, as above.
 | `vigenere_cipher attack at dawn` `victory` | `vbvtqb yo lcpb`                                     |
 | `vigenere_cipher 22 pancakes` `hungry`     | `22 wuairilm`                                        |
 | `vigenere_cipher abc` `one 2 three`        | `Key contains non-alphabetical characters, exiting.` |
-| `vigenere_cipher` ``                       | `No message given, exiting.`                         |
 | `vigenere_cipher abc` ``                   | `No key given, exiting.`                             |
+| `vigenere_cipher` ``                       | `No message given, exiting.`                         |
 
 ## Implementation
 

@@ -14,9 +14,9 @@ The user will input their choice on execution, the program randomly generates it
 
 | Input                      | Output                                                                                                     |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `rock_paper_scissors`      | `No choice specified, exiting.`                                                                            |
 | `rock_paper_scissors foo`  | `Invalid choice "foo". Valid choices are "rock", "paper" and "scissors". (All case-insensitive), exiting.` |
 | `rock_paper_scissors rock` | `User: rock` <br>`Computer: {choice}` <br>`Winner: {User\|Computer}!` OR `Tie!`                            |
+| `rock_paper_scissors`      | `No choice specified, exiting.`                                                                            |
 
 ## Implementation
 

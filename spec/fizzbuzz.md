@@ -21,8 +21,8 @@ That is, printing "Fizz", "Buzz", "FizzBuzz", or the number depending on input r
 | `fizzbuzz 5`     | `Buzz`                                                |
 | `fizzbuzz 5.3`   | `5.3`                                                 |
 | `fizzbuzz 15`    | `FizzBuzz`                                            |
-| `fizzbuzz`       | `No number specified, exiting.`                       |
 | `fizzbuzz lorem` | `"lorem" cannot be converted into a number, exiting.` |
+| `fizzbuzz`       | `No number specified, exiting.`                       |
 
 ## Implementation
 

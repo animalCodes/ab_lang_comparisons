@@ -32,8 +32,8 @@ The primary purpose of this specification is to showcase simple command-line opt
 | `swc -b res/text.txt`    | `Invalid option "b", try "swc -h" for help.` |
 | `swc non_existent_file`  | `Cannot access file "non_existent_file"`     |
 | `swc no_permission_file` | `Cannot access file "no_permission_file"`    |
-| `swc`                    | `No file specified, exiting.`                |
 | `swc -w`                 | `No file specified, exiting.`                |
+| `swc`                    | `No file specified, exiting.`                |
 
 ## Implementation
 
