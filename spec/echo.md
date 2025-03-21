@@ -10,9 +10,11 @@ Echo received arguments to stdout with a trailing newline.
 
 ### Examples
 
-| Input                | Output          |
-| -------------------- | --------------- |
-| `echo Hello, World!` | `Hello, World!` |
+| Input                 | Output           |
+| --------------------- | ---------------- |
+| `echo Hello, World!`  | `Hello, World!`  |
+| `echo --help`         | `--help`         |
+| `echo Hello,\nWorld!` | `Hello,\nWorld!` |
 
 ## Implementation
 
