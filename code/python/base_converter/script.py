@@ -1,4 +1,4 @@
-import sys
+import sys, math
 
 # Python base_converter
 
@@ -9,11 +9,10 @@ if len(sys.argv) < 3:
         print("No number specified, exiting.", file=sys.stderr)
     sys.exit(1)
 
-if not sys.argv[2].isdecimal():
+try: n = math.floor(float(sys.argv[2]))
+except ValueError:
     print(f"\"{sys.argv[2]}\" isn't a decimal integer, exiting.")
     sys.exit(1)
-
-n = int(sys.argv[2])
 
 match sys.argv[1]:
     case "2":

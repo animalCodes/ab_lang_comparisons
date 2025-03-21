@@ -17,6 +17,7 @@ Convert given decimal integer into binary, octal or hexadecimal.
 | `base_converter 2 4`    | `100`                                     |
 | `base_converter 8 10`   | `12`                                      |
 | `base_converter 16 255` | `FF`                                      |
+| `base_converter 8 10.5` | `12`                                      |
 | `base_converter 2 0`    | `0`                                       |
 | `base_converter 5 ten`  | `"ten" isn't a decimal integer, exiting.` |
 | `base_converter 16`     | `No number specified, exiting.`           |
@@ -30,22 +31,22 @@ Convert given decimal integer into binary, octal or hexadecimal.
 
 - `num_str(str)` - Whether `str` could be converted into a decimal integer.
 
-- `binary(str)` - The decimal value of `str` converted to (simple, not two's complement) binary.
+- `binary(str)` - The floored decimal value of `str` converted to (simple, not two's complement) binary.
 
-- `octal(str)` - The decimal value of `str` converted to octal.
+- `octal(str)` - The floored decimal value of `str` converted to octal.
 
-- `hexadecimal(str)` - The decimal value of `str` converted to hexadecimal.
+- `hexadecimal(str)` - The floored decimal value of `str` converted to hexadecimal.
 
 ### Code
 
 ```
-if (!isset(number)) {
-    eprintln("No number specified, exiting.")
+if (!isset(number) && !isset(base)) {
+    eprintln("No base or number specified, exiting.")
     exit(1)
 }
 
-if (!isset(number) && !isset(base)) {
-    eprintln("No base or number specified, exiting.")
+if (!isset(number)) {
+    eprintln("No number specified, exiting.")
     exit(1)
 }
 
