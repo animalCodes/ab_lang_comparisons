@@ -18,8 +18,7 @@ class Main {
         try {
             key = Integer.valueOf(args[0]);
         } catch (NumberFormatException e) {
-            System.err.println("Couldn't convert \"" + args[0] +
-                "\" to an integer, exiting.");
+            System.err.println("\""+args[0]+"\" isn't an integer, exiting.");
             System.exit(1);
         }
 

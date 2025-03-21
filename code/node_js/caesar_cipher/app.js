@@ -14,10 +14,10 @@ if (argv.length < 4) {
     exit(1)
 }
 
-let key = Math.floor(Number(argv[2]))
+let key = Number(argv[2])
 
-if (isNaN(key)) {
-    console.error(`Couldn't convert "${argv[2]}" to an integer, exiting.`)
+if (isNaN(key) || Math.floor(key) != key) {
+    console.error(`"${argv[2]}" isn't an integer, exiting.`)
     exit(1)
 }
 

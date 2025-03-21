@@ -10,9 +10,9 @@ public class Program
 
     public static int Main(string[] args)
     {
-        if (args.Length < 2)
+        if (args.Length < 3)
         {
-            if (args.Length < 1)
+            if (args.Length < 2)
                 Console.Error.WriteLine("No shift or message given, exiting.");
             else
                 Console.Error.WriteLine("No message given, exiting.");
@@ -20,14 +20,14 @@ public class Program
         }
 
         int shift = 0;
-        if (!int.TryParse(args[0], out shift))
+        if (!int.TryParse(args[1], out shift))
         {
-            Console.Error.WriteLine($"Couldn't convert \"{args[0]}\" " +
-                "to an integer, exiting.");
+            Console.Error.WriteLine($"\"{args[1]}\" isn't an integer," +
+                " exiting.");
             return 1;
         }
 
-        string message = string.Join(" ", args, 1, args.Length-1).ToLower();
+        string message = string.Join(" ", args, 2, args.Length-2).ToLower();
 
         Console.WriteLine(encipher(message, shift));
 

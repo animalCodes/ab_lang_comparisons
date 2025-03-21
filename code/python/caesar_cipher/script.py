@@ -14,8 +14,7 @@ if len(sys.argv) < 3:
 
 try: shift = int(sys.argv[1])
 except ValueError:
-    print(f"Couldn't convert \"{sys.argv[1]}\" to an integer, exiting.",
-          file=sys.stderr)
+    print(f"\"{sys.argv[1]}\" isn't an integer, exiting.", file=sys.stderr)
     sys.exit(1)
 
 message = ' '.join(sys.argv[2:]).lower()

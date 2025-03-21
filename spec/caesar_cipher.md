@@ -16,16 +16,17 @@ See [Caesar Cipher on Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) fo
 
 ### Examples
 
-| Input                  | Output                                           |
-| ---------------------  | ------------------------------------------------ |
-| `caesar_cipher 3 abc`  | `def`                                            |
-| `caesar_cipher -3 abc` | `xyz`                                            |
-| `caesar_cipher 65 abc` | `nop`                                            |
-| `caesar_cipher 0 abc`  | `abc`                                            |
-| `caesar_cipher 5 foo1` | `ktt1`                                           |
-| `caesar_cipher foo a`  | `Couldn't convert "foo" to an integer, exiting.` |
-| `caesar_cipher 5`      | `No message given, exiting.`                     |
-| `caesar_cipher`        | `No shift or message given, exiting.`            |
+| Input                  | Output                                |
+| ---------------------  | --------------------------------------|
+| `caesar_cipher 3 abc`  | `def`                                 |
+| `caesar_cipher -3 abc` | `xyz`                                 |
+| `caesar_cipher 65 abc` | `nop`                                 |
+| `caesar_cipher 0 abc`  | `abc`                                 |
+| `caesar_cipher 5 foo1` | `ktt1`                                |
+| `caesar_cipher foo a`  | `"foo" isn't an integer, exiting.`    |
+| `caesar_cipher 5.5 a`  | `"5.5" isn't an integer, exiting.`    |
+| `caesar_cipher 5`      | `No message given, exiting.`          |
+| `caesar_cipher`        | `No shift or message given, exiting.` |
 
 ## Implementation
 
@@ -55,7 +56,7 @@ if (!isset(message)) {
 }
 
 if (!int_str(shift)) {
-    eprintln("Couldn't convert \"{shift}\" to an integer, exiting.")
+    eprintln("\"{shift}\" isn't an integer, exiting.")
     exit(1)
 }
 

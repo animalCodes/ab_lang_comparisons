@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
     char *end;
     int shiftc = strtol(argv[1], &end, 10);
 
-    if (end == argv[1]) {
-        fprintf(stderr, "Couldn't convert \"%s\" to an integer, exiting.\n",
+    if (end == argv[1] || *end != '\0') {
+        fprintf(stderr, "\"%s\" isn't an integer, exiting.\n",
                 argv[1]);
         return EXIT_FAILURE;
     }
